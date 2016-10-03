@@ -1,0 +1,80 @@
+
+/**
+ * Media Query Mixins
+ */
+
+@mixin bp-small() {
+    @media only screen and (min-width: $bp-sm) {
+        @content;
+    }
+}
+
+@mixin bp-medium() {
+    @media only screen and (min-width: $bp-md) {
+        @content;
+    }
+}
+
+@mixin bp-large() {
+    @media only screen and (min-width: $bp-lg) {
+        @content;
+    }
+}
+
+/**
+ * Grid Mixins
+ */
+@mixin makeCol($cols: 12) {
+    flex-basis: get-col-percent($cols);
+    max-width:  get-col-percent($cols);
+}
+
+@mixin makeOffset($cols) {
+    margin-left: get-col-percent($cols);
+}
+
+
+%visuallyhidden {
+    margin: -1px;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip: rect(0, 0, 0, 0);
+    position: absolute;
+}
+
+%center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@mixin img-responsive($display: block) {
+    display: $display;
+    max-width: 100%;
+    height: auto;
+}
+
+
+%list-reset {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+%list-inline {
+    @extend %list-reset;
+    > li {
+        display: inline-block;
+    }
+}
+
+%text-muted {
+    color: $text-grey;
+}

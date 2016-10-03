@@ -1,0 +1,105 @@
+<?php
+/**
+ * Various Variables used throughout Layout
+ */
+
+$companyName = 'netglue';
+$legalName   = 'Net Glue Ltd.';
+
+$copyrightFormat = 'Copyright © %1$s %2$s All rights reserved';
+$copyrightYear   = 2010;
+$copyrightYear   = ($copyrightYear && (int) $copyrightYear < date("Y"))
+                 ? sprintf('%d-%d', $copyrightYear, date("Y"))
+                 : date("Y");
+
+$copyrightString = sprintf($copyrightFormat, $copyrightYear, $legalName);
+
+
+?><!DOCTYPE html>
+<html lang="en" class="no-js" itemscope itemtype="http://schema.org/WebPage">
+<head>
+	<meta charset="utf-8">
+	<?php echo $this->headTitle(); ?> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<?php echo $this->headMeta()->setSeparator("\n\t")."\n"; ?>
+    
+    <link rel="stylesheet" href="/assets/css/sitewide-b25f3e845b47cedd8cdb41fbf78d4714.css">
+    <?php echo $this->headLink()."\n"; ?>
+    <?php echo $this->headStyle()."\n"; ?>
+</head>
+<body>
+
+
+
+<div style="z-index: 100; padding: 15px; background-color: red; color: #fff; font-weight: bold; font-size: 20px; position: fixed; left: 10px; bottom: 10px;">
+    <div class="visible-xs">XS</div>
+    <div class="visible-sm">SM</div>
+    <div class="visible-md">MD</div>
+    <div class="visible-lg">LG</div>
+</div>
+
+
+<div class="site-container">
+    <header class="site-header">
+        <div class="container">
+            <a href="#navigation" class="open-nav"><span class="burger"></span><span class="sr-only">Open Navigation</span></a>
+            <div class="brand-header">
+                <a href="/"></a>
+            </div>
+            <nav class="desktop-nav">
+                <?php
+                /**
+                 * Desktop Navigation
+                 */
+                ?>
+            </nav>
+        </div>
+    </header>
+    <section class="site-body" id="content" itemprop="mainContentOfPage">
+        <?php echo $this->content; ?>
+    </section>
+    <footer class="site-footer">
+        <div class="copyright">
+            <p><?php echo $this->escapeHtml($copyrightString); ?></p>
+            <p>Registered in England &amp; Wales #07190951. VAT Registration #GB 987 3741 64</p>
+        </div>
+    </footer>
+</div>
+
+<div id="navigation" class="mobile-drawer">
+    <div class="scroll-container">
+        <div class="scroll-wrap">
+            <nav class="mobile-nav">
+                <?php
+                /**
+                 * Mobile Navigation
+                 */
+                ?>
+            </nav>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/assets/js/main.min-c731be3e9f94afe5f77c100a880934b0.js"></script>
+<?php echo $this->inlineScript(); ?>
+<!--[if lte IE 8]>
+<div class="browsehappy" id="browsehappy">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" data-target="#browsehappy" aria-label="Close"><span class="fa fa-times"></span></button>
+                <p class="lead">
+                    You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.<br>
+                    This website will look simply awful on anything less than Internet Explorer 9
+                </p>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<![endif]-->
+</body>
+</html>

@@ -1,0 +1,110 @@
+
+/**
+ * Site Wide Variables
+ **/
+
+
+$max-site-width: 1200px;
+
+
+/**
+ * Breakpoints
+ */
+
+$bp-sm: 768px;
+$bp-md: 992px;
+$bp-lg: 1200px;
+
+/**
+ * Flexbox Grid
+ */
+
+$fg-columns: 12;
+$fg-gutter: 20px;
+$gutter: $fg-gutter;
+
+/**
+ * Colors
+ */
+$brand-green: #A3B476;
+$brand-red: #C1272D;
+$brand-white: #FFF4C1;
+$brand-black: #1A171B;
+$brand-grey: #EDECE9;
+$brand-grey-dark: #68727A;
+
+/**
+ * Text Colours
+ */
+$text-grey: $brand-grey;
+$text-red: $brand-red;
+$text-black: $brand-black;
+
+$link-color: $brand-white;
+$link-hover-color: darken($brand-green, 12%);
+
+$body-bg: $brand-red;
+
+/**
+ * Themes
+ */
+
+$theme-white: $brand-white;
+$theme-black: $brand-black;
+$theme-grey: $brand-grey;
+$theme-light-grey: $brand-grey;
+$theme-dark-grey: $brand-grey-dark;
+$theme-black: $brand-black;
+$theme-green: $brand-green;
+$theme-red: $brand-red;
+
+
+/**
+ * Font Sizes & Styles
+ */
+$font-base: 'Open Sans', 'Helvetica Neue', 'Helvetica', 'Verdana', sans-serif;
+
+$fs-base:           20px;
+$fs-lg:             ceil(($fs-base * 1.25));
+$fs-md:             $fs-base;
+$fs-sm:             ceil(($fs-base * 0.85));
+$fs-xs:             ceil(($fs-base * 0.6));
+$fs-h1:             floor(($fs-base * 2.6));
+$fs-h2:             floor(($fs-base * 2.15));
+$fs-h3:             ceil(($fs-base * 1.7));
+$fs-h4:             ceil(($fs-base * 1.25));
+$fs-h5:             $fs-base;
+$fs-h6:             ceil(($fs-base * 0.85));
+
+$lh-base: 1.5;
+
+/**
+ * Padding
+ */
+$pad-lg-v  : 10px;
+$pad-lg-h  : 16px;
+$pad-md-v  : 6px;
+$pad-md-h  : 12px;
+$pad-sm-v  : 5px;
+$pad-sm-h  : 10px;
+$pad-xs-v  : 1px;
+$pad-xs-h  : 5px;
+
+$pad-lg  : $pad-lg-v $pad-lg-h;
+$pad-md  : $pad-md-v $pad-md-h;
+$pad-sm  : $pad-sm-v $pad-sm-h;
+$pad-xs  : $pad-xs-v $pad-xs-h;
+
+
+/**
+ * Forms
+ */
+$input-border-radius: 0;
+
+/**
+ * Layout Elements
+ */
+$footer-background: $body-bg;
+$footer-color: $brand-white;
+$header-background: $body-bg;
+$body-color: $brand-white;

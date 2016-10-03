@@ -1,0 +1,42 @@
+@import 'utils';
+@import 'typography';
+@import 'grid-utils';
+@import 'space';
+@import 'header';
+@import 'footer';
+
+
+body {
+    background-color: $body-bg;
+    color: $body-color;
+    line-height: 1.4;
+    font-size: $fs-base;
+}
+
+.site-container {
+
+    .site-header {
+
+    }
+    .site-body {
+        background-color: $body-bg;
+    }
+    .site-footer {
+        background-color: $footer-background;
+    }
+
+}
+
+/**
+ * Container
+ *
+ * Block level elements that have a class of container have a fluid width up to the maximum site width.
+ *
+ */
+
+.container {
+    @extend %center-block;
+    max-width: $max-site-width;
+    padding: 0 $fg-gutter;
+}
+

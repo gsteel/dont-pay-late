@@ -1,0 +1,26 @@
+{
+  "name": "Netglue V4",
+  "version": "0.0.0",
+  "authors": [
+    "George Steel <george@net-glue.co.uk>"
+  ],
+  "description": "Netglue V4",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "fastclick": "~1.0.6",
+    "normalize.scss": "~5",
+    "jquery": "^3.0.0",
+    "font-awesome": "fontawesome#^4.6.3"
+  }
+}

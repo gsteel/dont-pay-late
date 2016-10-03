@@ -1,0 +1,29 @@
+
+.visible-sm, .visible-md, .visible-lg {
+    display: none;
+}
+
+@media only screen and (min-width: $bp-sm) and (max-width: ($bp-md - 1)) {
+    .visible-sm {
+        display: initial;
+    }
+    .visible-xs {
+        display: none;
+    }
+}
+@media only screen and (min-width: $bp-md) and (max-width: ($bp-lg - 1)) {
+    .visible-md {
+        display: initial;
+    }
+    .visible-xs {
+        display: none;
+    }
+}
+@media only screen and (min-width: $bp-lg) {
+    .visible-lg {
+        display: initial;
+    }
+    .visible-xs {
+        display: none;
+    }
+}

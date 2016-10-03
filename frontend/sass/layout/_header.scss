@@ -1,0 +1,388 @@
+$mobile-drawer-width: 100%;
+$mobile-drawer-speed: 0.3s;
+$mobile-drawer-bg: $brand-red;
+$mobile-nav-breakpoint: $bp-md;
+
+$header-height: 70px;
+$header-height-compact: 70px;
+
+/**
+ * Z-Index Stacking for the various elements
+ */
+.site-container {
+    z-index: 0;
+    opacity: 1;
+    .site-body {
+        z-index: 1;
+    }
+    .site-header {
+        z-index: 2;
+    }
+    .mobile-drawer {
+        z-index: 3;
+    }
+    .open-nav {
+        z-index: 4;
+    }
+}
+
+
+/**
+ * Positioning and behaviour for the site header
+ */
+
+/**
+ * By default, fix the header and add top margin to the body
+ */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: all .3s;
+}
+.site-body {
+    margin-top: $header-height;
+}
+
+/**
+ * Site Header becomes 'compact' when scroll offset is larger than the height of the header.
+ * The header is shifted above the viewport out of sight.
+ */
+.site-header.compact {
+    top: (0 - $header-height);
+    transition: all .3s;
+}
+/**
+ * On upwards scroll, transition down and pin to the top of the screen
+ */
+body.scroll-up .site-header.compact {
+    top: 0;
+    transition: all .3s;
+}
+
+
+/**
+ * Styling for the open and close triggers
+ */
+@keyframes burgerTop {
+    0% {
+        top: 6px;
+    }
+
+    50% {
+        top: 15px;
+    }
+
+    100% {
+        top: 15px;
+        transform: rotate(45deg);
+    }
+}
+@keyframes burgerBottom {
+    0% {
+        bottom: 6px;
+    }
+
+    50% {
+        bottom: 15px;
+    }
+
+    100% {
+        bottom: 15px;
+        transform: rotate(-45deg);
+    }
+}
+
+.open-nav {
+    display: block;
+    width: $header-height;
+    height: $header-height;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: right $mobile-drawer-speed;
+}
+.open-nav {
+    .burger {
+        display: block;
+        position: relative;
+        margin: $pad-lg-h;
+        height: ($header-height - ($pad-lg-h * 2));
+        box-sizing: border-box;
+        &::before, &::after {
+            display: block;
+            height: 8px;
+            width: 100%;
+            background-color: $brand-black;
+            content: "";
+            position: absolute;
+            top: 6px;
+            left: 0;
+            animation-delay: $mobile-drawer-speed;
+        }
+        &::before {
+
+        }
+        &::after {
+            top: auto;
+            bottom: 6px;
+        }
+    }
+}
+.site-header.compact .open-nav {
+    .burger::before, .burger::after {
+        background-color: #fff;
+    }
+}
+
+/**
+ * Open button invisible on desktop
+ */
+@media(min-width: $mobile-nav-breakpoint) {
+    .open-nav {
+        display: none;
+    }
+}
+
+/**
+ * When navigation drawer is opened, animate and reposition the
+ * open and close buttons
+ */
+.nav-open {
+    .open-nav {
+        right: 0;
+        left: auto;
+        transition: right $mobile-drawer-speed;
+    }
+    .open-nav {
+        .burger {
+            &::before, &::after {
+                background-color: darken($mobile-drawer-bg, 50%);
+            }
+            &::before {
+                animation: burgerTop ($mobile-drawer-speed * 2) forwards;
+                animation-delay: $mobile-drawer-speed;
+            }
+            &::after {
+                animation: burgerBottom ($mobile-drawer-speed * 2) forwards;
+                animation-delay: $mobile-drawer-speed;
+            }
+        }
+    }
+}
+
+/**
+ * And slide out the drawer
+ */
+.nav-open .mobile-drawer, .mobile-drawer:target {
+    left: 0;
+    position: fixed;
+    transition: left $mobile-drawer-speed;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+
+/**
+ * Basic Mobile Styles for the site header
+ */
+.site-header {
+    background: $header-background;
+    &.compact {
+        background-color: $brand-black;
+        .brand-header {
+            a {
+                background-color: transparent;
+                svg {
+                    path {
+                        fill: #fff;
+                    }
+                    .letter {
+                        fill: #fff;
+                    }
+                }
+                &:hover {
+                    background-color: darken($brand-green, 10);
+                }
+            }
+        }
+    }
+    .brand-header {
+        text-align: center;
+        padding: 10px $gutter;
+        transition: all .3s;
+        a {
+            @extend %center-block;
+            width: 180px;
+            background-color: rgba(255,255,255,1);
+            transition: background-color .6s;
+            svg {
+                @include img-responsive;
+                path {
+                    fill: $brand-green;
+                }
+            }
+            &:hover {
+                background-color: fade-out($brand-green, 0.35);
+                transition: background-color .6s;
+                svg {
+                    .letter {
+                        fill: #fff;
+                    }
+                }
+            }
+        }
+    }
+
+
+}
+
+/**
+ * Site header styles when nav is opened
+ */
+.nav-open .site-header {
+    .brand-header {
+        padding-left: 0;
+        text-align: left;
+        a {
+            margin: 0;
+        }
+    }
+    .phone {
+        display: none;
+    }
+}
+
+
+/**
+ * Desktop navigation is hidden by default
+ */
+.desktop-nav {
+    display: none;
+    ul {
+        @extend %list-inline;
+    }
+}
+
+.mobile-drawer {
+    position: absolute;
+    left: (0 - $mobile-drawer-width);
+    top: 0;
+    height: 100vh;
+    width: $mobile-drawer-width;
+    transition: left $mobile-drawer-speed;
+    background-color: $mobile-drawer-bg;
+    .scroll-container {
+        position: absolute;
+        z-index: -1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        padding-top: $header-height;
+        box-sizing: border-box;
+        overflow: hidden;
+        overflow-y: auto;
+        height: 100%;
+        .scroll-wrap {
+            height: 100%;
+            box-sizing: border-box;
+        }
+    }
+
+
+    .mobile-nav {
+
+        ul {
+            @extend %list-reset;
+            li {
+                width: 100%;
+                a {
+                    display: block;
+                    position: relative;
+                    text-decoration: none;
+                    padding: $pad-lg;
+                    color: #fff;
+                    opacity: 1;
+                    transition: all .3s;
+                    &::before {
+                        position: absolute;
+                        background-color: lighten($mobile-drawer-bg, 30%);
+                        left: 0;
+                        top: 0;
+                        height: 100%;
+                        width: 0px;
+                        content: "";
+                        transition: all .3s;
+                        //z-index: -1;
+                    }
+                    &:hover {
+                        text-decoration: none;
+                        color: darken($brand-red, 10%);
+                        transition: all .3s;
+                        background-color: darken($brand-grey, 9%);
+                        padding-left: ($pad-lg-h + 8);
+                    }
+                    &:hover::before {
+                        width: $pad-lg-h;
+                        transition: all .3s;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media(min-width: $mobile-nav-breakpoint) {
+    .mobile-drawer {
+        display: none;
+    }
+    .desktop-nav {
+        display: block;
+    }
+    .site-header {
+        .container {
+            display: flex;
+            position: relative;
+        }
+        .brand-header {
+            padding: 10px 0;
+            flex: 0 0 180px;
+            order: 1;
+            a {
+                margin: 0;
+            }
+        }
+        .desktop-nav {
+            order: 2;
+            margin: 10px auto;
+            height: 50px;
+            text-transform: uppercase;
+            ul, li, a {
+                height: 100%;
+                box-sizing: border-box;
+            }
+            ul li a {
+                display: block;
+                position: relative;
+                padding: $pad-lg;
+                color: $brand-green;
+                text-decoration: none;
+                line-height: (50px - ($pad-lg-v * 2));
+                transition: all .2s;
+                &:hover {
+                    color: $brand-black;
+                    text-decoration: none;
+                    transition: all .2s;
+                }
+            }
+        }
+        &.compact {
+            .desktop-nav ul li a {
+                color: #fff;
+                &:hover {
+                    color: $brand-green;
+                }
+            }
+        }
+    }
+}

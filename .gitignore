@@ -1,0 +1,8 @@
+.idea
+phpunit.xml
+/vendor/
+/node_modules/
+/bower_components/
+/build/
+/public/.well_known/
+/config/autoload/**/*.local.*

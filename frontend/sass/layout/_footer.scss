@@ -1,0 +1,16 @@
+.site-footer {
+
+    color: $footer-color;
+    min-height: 100px;
+    @extend .row;
+    @extend %pb-xxl;
+
+    .copyright {
+        font-size: $fs-xs;
+        text-align: center;
+        color: lighten($footer-background, 30);
+        @extend .col-xs-8;
+        @extend .off-xs-2;
+    }
+}
+
