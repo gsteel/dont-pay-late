@@ -6,3 +6,5 @@ phpunit.xml
 /build/
 /public/.well_known/
 /config/autoload/**/*.local.*
+/frontend/sass/vendor/
+

@@ -1,36 +1,69 @@
+<?php
+$this->headTitle('UK Late Payment Interest Calculator');
+
+$initialDate = new DateTime('-30 days');
+?>
 
 <form class="calculator" action="#">
     <div class="container">
         <div class="row">
-            <div class="col-sm-6 col-xs-12">
-                <label for="input-date">
-                    Invoice Date
-                </label>
-            </div>
-            <div class="col-sm-6 col-xs-12">
-                <input type="date" id="input-date" name="date" placeholder="Issue Date…">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6 col-xs-12">
-                <label for="input-terms">
-                    Terms
-                </label>
-            </div>
-            <div class="col-sm-6 col-xs-12">
-                <input type="number" id="input-terms" name="terms" placeholder="days…" value="30">
-                Days
+            <div class="col-xs-12">
+                <div class="input-group">
+                    <label for="input-date">
+                        Invoice Date
+                    </label>
+                    <input class="date-picker" type="date" id="input-date" name="date" placeholder="Issue Date…" value="<?php echo $initialDate->format('Y-m-d'); ?>">
+                </div>
+
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-6 col-xs-12">
-                <label for="input-amount">
-                    Amount
-                </label>
+            <div class="col-xs-12">
+                <div class="input-group">
+                    <label for="input-terms">
+                        Terms
+                    </label>
+                    <input class="number-input" type="number" id="input-terms" name="terms" placeholder="days…" value="30">
+                    Days
+                </div>
+
             </div>
-            <div class="col-sm-6 col-xs-12">
-                <input type="text" id="input-amount" name="amount" placeholder="Amount">
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="input-group">
+                    <label for="input-amount">
+                        Amount
+                    </label>
+                    <input class="currency-input" type="text" id="input-amount" name="amount" placeholder="Amount" value="500.00">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="input-group">
+                    <button type="submit" name="submitButton" value="1">Calculate</button>
+                </div>
             </div>
         </div>
     </div>
 </form>
+
+<div class="mustache-template calculator-success-template result-drawer">
+    <h3>Someone now owes you £{{totalDue}}</h3>
+    <p>Here’s how this was worked out:</p>
+    <ul>
+        <li>Days Overdue: {{daysOverdue}}</li>
+        <li>Annual Rate: {{interestRate}}% <em>(The statutory rate of 8.0% + The bank of england base rate as at {{dueDate}})</em></li>
+        <li>Interest Amount Payable: £{{interestAmount}}</li>
+        <li>Recovery Fee: £{{recoveryFee}} <em>(According to the legislation)</em></li>
+        <li>Total now due: £{{totalDue}} <em>(Assuming the debt hasn't already been paid)</em></li>
+    </ul>
+    <a class="close"><span class="sr-only">Dismiss Result</span></a>
+</div>
+
+<div class="mustache-template calculator-error-template result-drawer">
+    <h3>Whoops!</h3>
+    <p>{{message}}</p>
+    <a class="close"><span class="sr-only">Dismiss Result</span></a>
+</div>

@@ -28,8 +28,8 @@ return [
              */
             'app::home'       => 'templates/pages/home.phtml',
 
-            'error/error'     => 'templates/error/error.phtml',
-            'error/404'       => 'templates/error/404.phtml',
+            'error::error'     => 'templates/error/error.phtml',
+            'error::404'       => 'templates/error/404.phtml',
         ],
     ],
 

@@ -3,8 +3,21 @@
  * Site Wide jQuery Plugin
  */
 
-/* global FastClick,ga */
+/* global FastClick, ga, Pikaday, moment, Mustache */
 
+$.fn.extend({
+    animateCss: function (animationName, onEnd) {
+        'use strict';
+        var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+        this.addClass('animated ' + animationName).one(animationEnd, function() {
+            var me = $(this);
+            me.removeClass('animated ' + animationName);
+            if ('function' === typeof onEnd) {
+                onEnd();
+            }
+        });
+    }
+});
 
 ;(function($, window, document, undefined) {
     'use strict';
@@ -51,6 +64,8 @@
 		this.externalLinks();
         this.initOffCanvas();
         this.initDesktopNavScroll();
+        this.initDatePickers();
+        this.initCalculator();
 	};
 
 	/**
@@ -66,6 +81,97 @@
 	 */
 
 	// ...
+
+	Plugin.prototype.initCalculator = function()
+	{
+	    var form = $('form.calculator');
+	    var plugin = this;
+
+	    // Load the result template
+	    this.resultTemplate = $('.calculator-success-template')[0].outerHTML;
+	    // Load the error template
+	    this.errorTemplate = $('.calculator-error-template')[0].outerHTML;
+
+	    $('.mustache-template').remove();
+
+	    form.submit(function(e) {
+	        e.preventDefault();
+	        $.post('/calculate', form.serialize(), function(data) {
+	            plugin.updateCalculation(data);
+	        }).fail(function(xhr) {
+	            plugin.updateCalculation($.parseJSON(xhr.responseText));
+	        });
+	    });
+	};
+
+	Plugin.prototype.updateCalculation = function(data)
+	{
+        var ui;
+        if (data.error === true) {
+            ui = $(Mustache.render(this.errorTemplate, data));
+        } else {
+            ui = $(Mustache.render(this.resultTemplate, data));
+        }
+        var button = $('form.calculator').find('button');
+        button.attr('disabled', true);
+        $('body').append(ui);
+
+        var close = function() {
+            ui.animateCss('rollOut', function() {
+                ui.remove();
+                button.attr('disabled', false);
+            });
+        }
+
+        ui.css('display', 'block');
+
+        // Close when close button is clicked
+        ui.find('.close').click(function(e) {
+            e.preventDefault();
+            close();
+            return false;
+        });
+
+        // Close with escape key
+        $(document).keyup(function(e) {
+            if (e.keyCode == 27) {
+                close();
+            }
+        });
+
+        ui.animateCss('rollIn');
+	};
+
+
+    Plugin.prototype.initDatePickers = function()
+    {
+        if (this.hasDateInput()) {
+            return;
+        }
+        var picker = new Pikaday({
+            field: document.getElementById('input-date'),
+            firstDay: 1,
+            maxDate: new Date(),
+            format: 'YYYY-MM-DD',
+            onSelect: function() {
+                //var date = document.createTextNode(this.getMoment().format('Do MMMM YYYY') + ' ');
+                //document.getElementById('selected').appendChild(date);
+            }
+        });
+        picker.setMoment(moment());
+    };
+
+    /**
+     * Whether the browser supports the date input
+     *
+     * @return bool
+     */
+    Plugin.prototype.hasDateInput = function()
+	{
+	    var input = document.createElement('input');
+	    input.type = 'date';
+	    return input.type === 'date';
+	};
 
     Plugin.prototype.initOffCanvas = function()
     {

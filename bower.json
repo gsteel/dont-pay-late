@@ -1,10 +1,10 @@
 {
-  "name": "Netglue V4",
+  "name": "late-payment-calculator",
   "version": "0.0.0",
   "authors": [
     "George Steel <george@net-glue.co.uk>"
   ],
-  "description": "Netglue V4",
+  "description": "Late Payment Calculator Website",
   "main": "",
   "moduleType": [],
   "license": "MIT",
@@ -21,6 +21,10 @@
     "fastclick": "~1.0.6",
     "normalize.scss": "~5",
     "jquery": "^3.0.0",
-    "font-awesome": "fontawesome#^4.6.3"
+    "font-awesome": "fontawesome#^4.6.3",
+    "pikaday": "^1.4.0",
+    "moment": "^2.15.1",
+    "mustache.js": "mustache#^2.2.1",
+    "animate.css": "^3.5.2"
   }
 }

@@ -16,14 +16,28 @@ module.exports = function (grunt) {
         copy: {
             fonts: {
                 nonull: true,
-                files: [
-                    {
-                        expand: true,
-                        cwd: 'bower_components/fontawesome/fonts',
-                        src: '*',
-                        dest: 'public/assets/fonts/'
+                files: [{
+                    expand: true,
+                    cwd: 'bower_components/font-awesome/fonts',
+                    src: '*',
+                    dest: 'public/assets/fonts/'
+                }]
+            },
+            css: {
+                nonull: true,
+                files: [{
+                    expand: true,
+                    cwd: 'bower_components/animate.css/source',
+                    src: [
+                        '**/*.css',
+                    ],
+                    dest: [
+                        'frontend/sass/vendor/animate/',
+                    ],
+                    rename: function(dest, src) {
+                        return dest + src.replace('.css','.scss');
                     }
-                ]
+                }]
             }
         },
 
@@ -133,6 +147,17 @@ module.exports = function (grunt) {
 
                     // Responsive Elements
                     //'bower_components/responsive-elements/responsive-elements.js',
+
+                    // Date Formatting
+                    'bower_components/moment/moment.js',
+
+                    // Date Picker
+                    'bower_components/pikaday/pikaday.js',
+
+                    // Mustache
+                    'bower_components/mustache.js/mustache.js',
+
+                    // Sitewide
                     'frontend/js/main.js'
                 ],
                 dest: 'public/assets/js/main.js'
@@ -220,9 +245,11 @@ module.exports = function (grunt) {
     require('load-grunt-tasks')(grunt, { scope: 'devDependencies' });
 
     // CSS Compile Task
-    grunt.registerTask('dist-scss', ['sass:compile', 'autoprefixer:dist', 'csscomb:dist', 'cssmin:dist', 'cache-busting:css', 'copy:fonts']);
+    grunt.registerTask('dist-scss', ['sass:compile', 'autoprefixer:dist', 'csscomb:dist', 'cssmin:dist', 'cache-busting:css']);
     // JS Compile Task
     grunt.registerTask('dist-js', ['jshint:core', 'concat:main', 'uglify:main', 'cache-busting:js', /*, 'concat:head', 'uglify:head'*/]);
+    // Build tasks
+    grunt.registerTask('build', ['dist-scss', 'dist-js', 'copy:css', 'copy:fonts']);
     // Default task is to watch
     grunt.registerTask('default',['watch']);
 

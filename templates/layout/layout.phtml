@@ -24,7 +24,7 @@ $copyrightString = sprintf($copyrightFormat, $copyrightYear, $legalName);
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<?php echo $this->headMeta()->setSeparator("\n\t")."\n"; ?>
     
-    <link rel="stylesheet" href="/assets/css/sitewide-b25f3e845b47cedd8cdb41fbf78d4714.css">
+    <link rel="stylesheet" href="/assets/css/sitewide-48b7a173311a1fded41e2ec44670265d.css">
     <?php echo $this->headLink()."\n"; ?>
     <?php echo $this->headStyle()."\n"; ?>
 </head>
@@ -45,15 +45,8 @@ $copyrightString = sprintf($copyrightFormat, $copyrightYear, $legalName);
         <div class="container">
             <a href="#navigation" class="open-nav"><span class="burger"></span><span class="sr-only">Open Navigation</span></a>
             <div class="brand-header">
-                <a href="/"></a>
+                <a href="/">Late Payment Interest Calculator</a>
             </div>
-            <nav class="desktop-nav">
-                <?php
-                /**
-                 * Desktop Navigation
-                 */
-                ?>
-            </nav>
         </div>
     </header>
     <section class="site-body" id="content" itemprop="mainContentOfPage">
@@ -76,6 +69,11 @@ $copyrightString = sprintf($copyrightFormat, $copyrightYear, $legalName);
                  * Mobile Navigation
                  */
                 ?>
+                <ul>
+                    <li><a href="/" title="The easiest to use late payment interest calculator on the Internet">Interest Calculator</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="https://netglue.uk/contact">Contact</a></li>
+                </ul>
             </nav>
         </div>
     </div>
@@ -83,8 +81,15 @@ $copyrightString = sprintf($copyrightFormat, $copyrightYear, $legalName);
 
 
 
-<script src="/assets/js/main.min-c731be3e9f94afe5f77c100a880934b0.js"></script>
+<script src="/assets/js/main.min-e0e9791895e72f0f3f102bc8fa6c369c.js"></script>
 <?php echo $this->inlineScript(); ?>
+<noscript>
+    <div class="no-script">
+        <h3>WTF#?!! No Javascript?</h3>
+        <p>Sorry, but this late payment calculator won't work without Javascript enabled in
+        your browser. Turn it back on and do a refresh and we should be in business!</p>
+    </div>
+</noscript>
 <!--[if lte IE 8]>
 <div class="browsehappy" id="browsehappy">
     <div class="container">

@@ -30,95 +30,95 @@ $spacingSizes: (
 
     // margin-top
     %mt#{$d} {
-        margin-top: #{$size} !important;
+        margin-top: #{$size};
     }
     // margin-right
     %mr#{$d} {
-        margin-right: #{$size} !important;
+        margin-right: #{$size};
     }
     // margin-bottom
     %mb#{$d} {
-        margin-bottom: #{$size} !important;
+        margin-bottom: #{$size};
     }
     // margin-left
     %ml#{$d} {
-        margin-left: #{$size} !important;
+        margin-left: #{$size};
     }
     // horizontal margins
     %mh#{$d} {
-        margin-left: #{$size} !important;
-        margin-right: #{$size} !important;
+        margin-left: #{$size};
+        margin-right: #{$size};
     }
     // vertical margins
     %mv#{$d} {
-        margin-top: #{$size} !important;
-        margin-bottom: #{$size} !important;
+        margin-top: #{$size};
+        margin-bottom: #{$size};
     }
     // all margins
     %m#{$d} {
-        margin: #{$size} !important;
+        margin: #{$size};
     }
 
     @if $size != auto {
         // padding can't be 'auto'
         // padding-top
         %pt#{$d} {
-            padding-top: #{$size} !important;
+            padding-top: #{$size};
         }
         // padding-right
         %pr#{$d} {
-            padding-right: #{$size} !important;
+            padding-right: #{$size};
         }
         // padding-bottom
         %pb#{$d} {
-            padding-bottom: #{$size} !important;
+            padding-bottom: #{$size};
         }
         // padding-left
         %pl#{$d} {
-            padding-left: #{$size} !important;
+            padding-left: #{$size};
         }
         // padding horizontal
         %ph#{$d} {
-            padding-left : #{$size} !important;
-            padding-right: #{$size} !important;
+            padding-left : #{$size};
+            padding-right: #{$size};
         }
         // vertical padding
         %pv#{$d} {
-            padding-top: #{$size} !important;
-            padding-bottom: #{$size} !important;
+            padding-top: #{$size};
+            padding-bottom: #{$size};
         }
         // all padding
         %p#{$d} {
-            padding: #{$size} !important;
+            padding: #{$size};
         }
 
         @if $size != 0 {
 
             // margin-top
             %mtn#{$d} {
-                margin-top: -#{$size} !important;
+                margin-top: -#{$size};
             }
             // margin-right
             %mrn#{$d} {
-                margin-right: -#{$size} !important;
+                margin-right: -#{$size};
             }
             // margin-bottom
             %mbn#{$d} {
-                margin-bottom: -#{$size} !important;
+                margin-bottom: -#{$size};
             }
             // margin-left
             %mln#{$d} {
-                margin-left: -#{$size} !important;
+                margin-left: -#{$size};
             }
             // horizontal margins
             %mhn#{$d} {
-                margin-left: -#{$size} !important;
-                margin-right: -#{$size} !important;
+                margin-left: -#{$size};
+                margin-right: -#{$size};
             }
             // vertical margins
             %mvn#{$d} {
-                margin-top: -#{$size} !important;
-                margin-bottom: -#{$size} !important;
+                margin-top: -#{$size};
+                margin-bottom: -#{$size};
             }
 
         }

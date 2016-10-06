@@ -2,7 +2,6 @@
 
     color: $footer-color;
     min-height: 100px;
-    @extend .row;
     @extend %pb-xxl;
 
     .copyright {
