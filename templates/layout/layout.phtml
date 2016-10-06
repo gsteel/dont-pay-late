@@ -24,7 +24,7 @@ $copyrightString = sprintf($copyrightFormat, $copyrightYear, $legalName);
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<?php echo $this->headMeta()->setSeparator("\n\t")."\n"; ?>
     
-    <link rel="stylesheet" href="/assets/css/sitewide-48b7a173311a1fded41e2ec44670265d.css">
+    <link rel="stylesheet" href="/assets/css/sitewide-822a3cd4aae7a4d6e312832e4e4f0c20.css">
     <?php echo $this->headLink()."\n"; ?>
     <?php echo $this->headStyle()."\n"; ?>
 </head>
@@ -32,12 +32,6 @@ $copyrightString = sprintf($copyrightFormat, $copyrightYear, $legalName);
 
 
 
-<div style="z-index: 100; padding: 15px; background-color: red; color: #fff; font-weight: bold; font-size: 20px; position: fixed; left: 10px; bottom: 10px;">
-    <div class="visible-xs">XS</div>
-    <div class="visible-sm">SM</div>
-    <div class="visible-md">MD</div>
-    <div class="visible-lg">LG</div>
-</div>
 
 
 <div class="site-container">
@@ -45,7 +39,7 @@ $copyrightString = sprintf($copyrightFormat, $copyrightYear, $legalName);
         <div class="container">
             <a href="#navigation" class="open-nav"><span class="burger"></span><span class="sr-only">Open Navigation</span></a>
             <div class="brand-header">
-                <a href="/">Late Payment Interest Calculator</a>
+                <a href="/">Late Payment<span class="visible-md visible-lg"> Interest</span><span class="visible-sm visible-md visible-lg"> Calculator</span></a>
             </div>
         </div>
     </header>
@@ -69,11 +63,15 @@ $copyrightString = sprintf($copyrightFormat, $copyrightYear, $legalName);
                  * Mobile Navigation
                  */
                 ?>
-                <ul>
-                    <li><a href="/" title="The easiest to use late payment interest calculator on the Internet">Interest Calculator</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="https://netglue.uk/contact">Contact</a></li>
-                </ul>
+                <div class="container">
+                    <div class="row">
+                        <ul>
+                            <li><a href="/" title="The easiest to use late payment interest calculator on the Internet">Interest Calculator</a></li>
+                            <li><a href="/about">About</a></li>
+                            <li><a href="https://netglue.uk/contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
             </nav>
         </div>
     </div>
@@ -81,7 +79,7 @@ $copyrightString = sprintf($copyrightFormat, $copyrightYear, $legalName);
 
 
 
-<script src="/assets/js/main.min-e0e9791895e72f0f3f102bc8fa6c369c.js"></script>
+<script src="/assets/js/main.min-d8cf2d80fc83b33d8208a10c797c82eb.js"></script>
 <?php echo $this->inlineScript(); ?>
 <noscript>
     <div class="no-script">

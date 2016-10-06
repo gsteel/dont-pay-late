@@ -50,20 +50,24 @@ $initialDate = new DateTime('-30 days');
 </form>
 
 <div class="mustache-template calculator-success-template result-drawer">
-    <h3>Someone now owes you £{{totalDue}}</h3>
-    <p>Here’s how this was worked out:</p>
-    <ul>
-        <li>Days Overdue: {{daysOverdue}}</li>
-        <li>Annual Rate: {{interestRate}}% <em>(The statutory rate of 8.0% + The bank of england base rate as at {{dueDate}})</em></li>
-        <li>Interest Amount Payable: £{{interestAmount}}</li>
-        <li>Recovery Fee: £{{recoveryFee}} <em>(According to the legislation)</em></li>
-        <li>Total now due: £{{totalDue}} <em>(Assuming the debt hasn't already been paid)</em></li>
-    </ul>
-    <a class="close"><span class="sr-only">Dismiss Result</span></a>
+    <div class="body">
+        <h2>Someone now owes you £{{totalDue}}</h2>
+        <p>Here’s how this was worked out:</p>
+        <ul>
+            <li>Days Overdue: {{daysOverdue}}</li>
+            <li>Annual Rate: {{interestRate}}% <em>(The statutory rate of 8.0% + The bank of england base rate as at {{dueDate}})</em></li>
+            <li>Interest Amount Payable: £{{interestAmount}}</li>
+            <li>Recovery Fee: £{{recoveryFee}} <em>(According to the legislation)</em></li>
+            <li>Total now due: £{{totalDue}} <em>(Assuming the debt hasn't already been paid)</em></li>
+        </ul>
+        <a class="close"><span class="sr-only">Dismiss Result</span></a>
+    </div>
 </div>
 
 <div class="mustache-template calculator-error-template result-drawer">
-    <h3>Whoops!</h3>
-    <p>{{message}}</p>
-    <a class="close"><span class="sr-only">Dismiss Result</span></a>
+    <div class="body">
+        <h2>Whoops!</h2>
+        <p>{{message}}</p>
+        <a class="close"><span class="sr-only">Dismiss Result</span></a>
+    </div>
 </div>

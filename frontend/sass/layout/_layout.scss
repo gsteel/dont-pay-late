@@ -54,6 +54,6 @@ body {
     height: 100%;
     background-color: $brand-red;
     box-sizing: border-box;
-    @extend %p-lg;
+    @extend .p-lg;
     text-align: center;
 }

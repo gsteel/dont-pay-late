@@ -2,7 +2,7 @@
 
     color: $footer-color;
     min-height: 100px;
-    @extend %pb-xxl;
+    @extend .pb-xxl;
 
     .copyright {
         font-size: $fs-xs;

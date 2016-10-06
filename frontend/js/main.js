@@ -66,6 +66,7 @@ $.fn.extend({
         this.initDesktopNavScroll();
         this.initDatePickers();
         this.initCalculator();
+        this.resultSheetOpen = false;
 	};
 
 	/**
@@ -85,6 +86,9 @@ $.fn.extend({
 	Plugin.prototype.initCalculator = function()
 	{
 	    var form = $('form.calculator');
+	    if(!form.length) {
+	        return;
+	    }
 	    var plugin = this;
 
 	    // Load the result template
@@ -115,9 +119,11 @@ $.fn.extend({
         var button = $('form.calculator').find('button');
         button.attr('disabled', true);
         $('body').append(ui);
-
+        var plugin = this;
         var close = function() {
-            ui.animateCss('rollOut', function() {
+            plugin.resultSheetOpen = false;
+            plugin.showHeader();
+            ui.animateCss('slideOutLeft', function() {
                 ui.remove();
                 button.attr('disabled', false);
             });
@@ -138,8 +144,9 @@ $.fn.extend({
                 close();
             }
         });
-
-        ui.animateCss('rollIn');
+        this.hideHeader();
+        ui.animateCss('slideInRight');
+        this.resultSheetOpen = true;
 	};
 
 
@@ -198,14 +205,30 @@ $.fn.extend({
 
     Plugin.prototype.openNav = function()
     {
+        if(this.resultSheetOpen) {
+            return;
+        }
         $('body').addClass('nav-open');
-        $('.site-header').removeClass('compact');
+        this.showHeader();
     };
 
     Plugin.prototype.closeNav = function()
     {
         $('body').removeClass('nav-open');
-    }
+    };
+
+    Plugin.prototype.hideHeader = function()
+    {
+        $('.site-header').addClass('compact');
+    };
+
+    Plugin.prototype.showHeader = function()
+    {
+        if(this.resultSheetOpen) {
+            return;
+        }
+        $('.site-header').removeClass('compact');
+    };
 
     /**
      * Scroll listener for desktop naviation
@@ -219,11 +242,6 @@ $.fn.extend({
         var lastScroll = window.pageYOffset || document.documentElement.scrollTop;
         window.addEventListener("scroll", function() {
             var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
-            if (st > t && !plugin.isNavOpen()) {
-                header.addClass('compact');
-            } else {
-                header.removeClass('compact');
-            }
             if (st > lastScroll) {
                 // downscroll code
                 if (!element.hasClass('scroll-down')) {
@@ -242,6 +260,14 @@ $.fn.extend({
                 }
             }
             lastScroll = st;
+            if (st > t && !plugin.isNavOpen()) {
+                plugin.hideHeader();
+            } else {
+                plugin.showHeader();
+                element.removeClass('scroll-up');
+                element.removeClass('scroll-down');
+            }
+
         }, false);
     };
 

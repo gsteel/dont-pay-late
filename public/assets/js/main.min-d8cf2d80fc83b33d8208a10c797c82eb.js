@@ -1127,47 +1127,7 @@ var g=a.render(c,d,e);return b(f)?void f(g):g},
 // See https://github.com/janl/mustache.js/issues/244
 a.escape=h,
 // Export these mainly for testing, but also for advanced usage.
-a.Scanner=l,a.Context=m,a.Writer=n}),function(){function a(a,b){document.addEventListener(a,function(a){i._elems.forEach(function(c){for(var d=a.target;d;){if(d===c.elem)return c[b](a),!1;d=d.parentNode}return!1})})}function b(){var a=[].shift.call(arguments),b=arguments[0];for(var c in b)b.hasOwnProperty(c)&&(a[c]=b[c]);return a}var c=window.navigator.msPointerEnabled,d={start:c?"MSPointerDown":"touchstart",move:c?"MSPointerMove":"touchmove",end:c?"MSPointerUp":"touchend"},e=function(){var a=window.getComputedStyle(document.documentElement,""),b=(Array.prototype.slice.call(a).join("").match(/-(moz|webkit|ms)-/)||""===a.OLink&&["","o"])[1];return"-"+b+"-"}(),f=function(){var a,b=document.createElement("fakeelement"),c={transition:"transitionend",OTransition:"oTransitionEnd",MozTransition:"transitionend",WebkitTransition:"webkitTransitionEnd"};for(a in c)if(void 0!==b.style[a])return c[a]}(),g={transition:e+"transition",transform:e+"transform"},h=function(){},i=function(a){var c={duration:200,tolerance:50,time:200,dir:1,right:0,left:0};a=b(c,a||{}),this.duration=a.duration,this.tolerance=a.tolerance,this.time=a.time,this.width=a.left||a.right,this.elem=a.elem,this.list=a.list,this.dir=a.dir,this.group=a.group,this.id=i.elemId++,this.onOpen="function"==typeof a.onOpen?a.onOpen:h,this.onClose="function"==typeof a.onClose?a.onClose:h,this.right=a.right,this.left=a.left,(a.right>0&&a.tolerance>a.right||a.left>0&&a.tolerance>a.left)&&console.warn("tolerance must be less then left and right")};i._elems=[],i.groupCounter=0,i.elemId=0,i.init=function(a){i.groupCounter++;var c=document.querySelectorAll(a.query),d=[];return delete a.query,[].forEach.call(c,function(c){var e=b({elem:c,group:i.groupCounter},a);d.push(new i(e))}),i._bindEvents(),i._elems=i._elems.concat(d),1===d.length?d[0]:d},i._closeAll=function(a){i._elems.forEach(function(b){b.group===a&&b.close(!0)})},i.prototype.transitionEnd=function(a,b){function c(){b.call(d),a.removeEventListener(f,c)}var d=this;a.addEventListener(f,c)},/**
-     * swipe.x - initial coordinate Х
-     * swipe.y - initial coordinate Y
-     * swipe.delta - distance
-     * swipe.startSwipe - swipe is starting
-     * swipe.startScroll - scroll is starting
-     * swipe.startTime - necessary for the short swipe
-     * swipe.touchId - ID of the first touch
-     */
-i.prototype.touchStart=function(a){var b=a.changedTouches[0];1===a.touches.length&&(this.touchId=b.identifier,this.x=b.pageX,this.y=b.pageY,this.startTime=new Date,this.resetValue(),this.list?i._closeAll(this.group):this.close(!0))},i.prototype.touchMove=function(a){var b=a.changedTouches[0];
-// touch of the other finger
-this.isValidTouch(a)&&(this.delta=b.pageX-this.x,this.dir=this.delta<0?-1:1,this.width=this.delta<0?this.right:this.left,this.defineUserAction(b),this.startSwipe&&(this.move(),
-//prevent scroll
-a.preventDefault()))},i.prototype.touchEnd=function(a){this.isValidTouch(a,!0)&&this.startSwipe&&(
-// if swipe is more then 150px or time is less then 150ms
-this.dir*this.delta>this.tolerance||new Date-this.startTime<this.time?this.open():this.close(),a.stopPropagation(),a.preventDefault())},/**
-     * Animation of the opening
-     */
-i.prototype.open=function(a){this.animation(this.dir*this.width),this.swiped=!0,a||this.transitionEnd(this.elem,this.onOpen),this.resetValue()},/**
-     * Animation of the closing
-     */
-i.prototype.close=function(a){this.animation(0),this.swiped=!1,a||this.transitionEnd(this.elem,this.onClose),this.resetValue()},i.prototype.toggle=function(){this.swiped?this.close():this.open()},/**
-     * reset to initial values
-     */
-i.prototype.resetValue=function(){this.startSwipe=!1,this.startScroll=!1,this.delta=0},i._bindEvents=function(){return!i.eventBinded&&(a(d.move,"touchMove"),a(d.end,"touchEnd"),a(d.start,"touchStart"),void(i.eventBinded=!0))},/**
-     * detect of the user action: swipe or scroll
-     */
-i.prototype.defineUserAction=function(a){var b=10,c=10;Math.abs(this.y-a.pageY)>c&&!this.startSwipe?this.startScroll=!0:Math.abs(this.delta)>b&&!this.startScroll&&(this.startSwipe=!0)},/**
-     * Which of the touch was a first, if it's a multitouch
-     * touchId saved on touchstart
-     * @param {object} e - event
-     * @returns {boolean}
-     */
-i.prototype.isValidTouch=function(a,b){
-// take a targetTouches because need events on this node
-// targetTouches is empty in touchEnd, therefore take a changedTouches
-var c=b?"changedTouches":"targetTouches";return a[c][0].identifier===this.touchId},i.prototype.move=function(){if(this.dir>0&&(this.delta<0||0===this.left)||this.dir<0&&(this.delta>0||0===this.right))return!1;var a=Math.abs(this.delta);a>this.width&&(
-// linear deceleration
-this.delta=this.dir*(this.width+(a-this.width)/8)),this.animation(this.delta,0)},i.prototype.animation=function(a,b){b=void 0===b?this.duration:b,this.elem.style.cssText=g.transition+":"+g.transform+" "+b+"ms; "+g.transform+":translate3d("+a+"px, 0px, 0px)"},i.prototype.destroy=function(a){var b=this.id;i._elems.forEach(function(a,c){a.id===b&&i._elems.splice(c,1)}),a&&this.elem.parentNode.removeChild(this.elem)},
-// expose Swiped
-window.Swiped=i}(),/* global FastClick, ga, Pikaday, moment, Mustache */
+a.Scanner=l,a.Context=m,a.Writer=n}),/* global FastClick, ga, Pikaday, moment, Mustache */
 $.fn.extend({animateCss:function(a,b){"use strict";var c="webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";this.addClass("animated "+a).one(c,function(){var c=$(this);c.removeClass("animated "+a),"function"==typeof b&&b()})}}),function(a,b,c,d){"use strict";/**
 	 * Constructor
 	 * @param element This is the element that plugin is running on
@@ -1186,7 +1146,7 @@ var f="netglueSiteWide",g={externalLinkNewWindow:!0};/**
 	 */
 e.prototype.init=function(){
 // Do Initialisation
-a("html").addClass("js-ready"),a("html").removeClass("no-js"),this.vendorInit(),this.clickTracking(),this.externalLinks(),this.initOffCanvas(),this.initDesktopNavScroll(),this.initDatePickers(),this.initCalculator()},/**
+a("html").addClass("js-ready"),a("html").removeClass("no-js"),this.vendorInit(),this.clickTracking(),this.externalLinks(),this.initOffCanvas(),this.initDesktopNavScroll(),this.initDatePickers(),this.initCalculator(),this.resultSheetOpen=!1},/**
 	 * Vendor plugin initialisation
 	 * @return float
 	 */
@@ -1194,28 +1154,28 @@ e.prototype.vendorInit=function(){FastClick.attach(c.body)},/**
 	 * Other Methods
 	 */
 // ...
-e.prototype.initCalculator=function(){var b=a("form.calculator"),c=this;
+e.prototype.initCalculator=function(){var b=a("form.calculator");if(b.length){var c=this;
 // Load the result template
 this.resultTemplate=a(".calculator-success-template")[0].outerHTML,
 // Load the error template
-this.errorTemplate=a(".calculator-error-template")[0].outerHTML,a(".mustache-template").remove(),b.submit(function(d){d.preventDefault(),a.post("/calculate",b.serialize(),function(a){c.updateCalculation(a)}).fail(function(b){c.updateCalculation(a.parseJSON(b.responseText))})})},e.prototype.updateCalculation=function(b){var d;d=a(b.error===!0?Mustache.render(this.errorTemplate,b):Mustache.render(this.resultTemplate,b));var e=a("form.calculator").find("button");e.attr("disabled",!0),a("body").append(d);var f=function(){d.animateCss("rollOut",function(){d.remove(),e.attr("disabled",!1)})};d.css("display","block"),
+this.errorTemplate=a(".calculator-error-template")[0].outerHTML,a(".mustache-template").remove(),b.submit(function(d){d.preventDefault(),a.post("/calculate",b.serialize(),function(a){c.updateCalculation(a)}).fail(function(b){c.updateCalculation(a.parseJSON(b.responseText))})})}},e.prototype.updateCalculation=function(b){var d;d=a(b.error===!0?Mustache.render(this.errorTemplate,b):Mustache.render(this.resultTemplate,b));var e=a("form.calculator").find("button");e.attr("disabled",!0),a("body").append(d);var f=this,g=function(){f.resultSheetOpen=!1,f.showHeader(),d.animateCss("slideOutLeft",function(){d.remove(),e.attr("disabled",!1)})};d.css("display","block"),
 // Close when close button is clicked
-d.find(".close").click(function(a){return a.preventDefault(),f(),!1}),
+d.find(".close").click(function(a){return a.preventDefault(),g(),!1}),
 // Close with escape key
-a(c).keyup(function(a){27==a.keyCode&&f()}),d.animateCss("rollIn")},e.prototype.initDatePickers=function(){if(!this.hasDateInput()){var a=new Pikaday({field:c.getElementById("input-date"),firstDay:1,maxDate:new Date,format:"YYYY-MM-DD",onSelect:function(){}});a.setMoment(moment())}},/**
+a(c).keyup(function(a){27==a.keyCode&&g()}),this.hideHeader(),d.animateCss("slideInRight"),this.resultSheetOpen=!0},e.prototype.initDatePickers=function(){if(!this.hasDateInput()){var a=new Pikaday({field:c.getElementById("input-date"),firstDay:1,maxDate:new Date,format:"YYYY-MM-DD",onSelect:function(){}});a.setMoment(moment())}},/**
      * Whether the browser supports the date input
      *
      * @return bool
      */
-e.prototype.hasDateInput=function(){var a=c.createElement("input");return a.type="date","date"===a.type},e.prototype.initOffCanvas=function(){var b=this;a(".open-nav").click(function(a){return a.preventDefault(),b.toggleNav(),!1})},e.prototype.toggleNav=function(){return this.isNavOpen()?this.closeNav():this.openNav()},e.prototype.isNavOpen=function(){return a("body").hasClass("nav-open")},e.prototype.openNav=function(){a("body").addClass("nav-open"),a(".site-header").removeClass("compact")},e.prototype.closeNav=function(){a("body").removeClass("nav-open")},/**
+e.prototype.hasDateInput=function(){var a=c.createElement("input");return a.type="date","date"===a.type},e.prototype.initOffCanvas=function(){var b=this;a(".open-nav").click(function(a){return a.preventDefault(),b.toggleNav(),!1})},e.prototype.toggleNav=function(){return this.isNavOpen()?this.closeNav():this.openNav()},e.prototype.isNavOpen=function(){return a("body").hasClass("nav-open")},e.prototype.openNav=function(){this.resultSheetOpen||(a("body").addClass("nav-open"),this.showHeader())},e.prototype.closeNav=function(){a("body").removeClass("nav-open")},e.prototype.hideHeader=function(){a(".site-header").addClass("compact")},e.prototype.showHeader=function(){this.resultSheetOpen||a(".site-header").removeClass("compact")},/**
      * Scroll listener for desktop naviation
      */
 e.prototype.initDesktopNavScroll=function(){var d=a("body"),e=a(".site-header"),f=e.outerHeight(),g=this,h=b.pageYOffset||c.documentElement.scrollTop;b.addEventListener("scroll",function(){var a=b.pageYOffset||c.documentElement.scrollTop;// Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
-a>f&&!g.isNavOpen()?e.addClass("compact"):e.removeClass("compact"),a>h?(
+a>h?(
 // downscroll code
 d.hasClass("scroll-down")||d.addClass("scroll-down"),d.hasClass("scroll-up")&&d.removeClass("scroll-up")):(
 // upscroll code
-d.hasClass("scroll-down")&&d.removeClass("scroll-down"),d.hasClass("scroll-up")||d.addClass("scroll-up")),h=a},!1)},/**
+d.hasClass("scroll-down")&&d.removeClass("scroll-down"),d.hasClass("scroll-up")||d.addClass("scroll-up")),h=a,a>f&&!g.isNavOpen()?g.hideHeader():(g.showHeader(),d.removeClass("scroll-up"),d.removeClass("scroll-down"))},!1)},/**
      * Tracking various clicks as GA events
      */
 e.prototype.clickTracking=function(){"function"==typeof ga&&(a('a[href^="mailto:"]').click(function(){ga("send","event","Link","click","Clicked mailto: Link")}),a('a[href^="tel:"]').click(function(){ga("send","event","Link","click","Clicked tel: Link")}),a('a[href^="https://www.facebook.com"]').click(function(){ga("send","event","Link","click","Visited Facebook")}),a('a[href*="twitter.com"]').click(function(){ga("send","event","Link","click","Visited Twitter")}),a('a[href^="https://plus.google.com"]').click(function(){ga("send","event","Link","click","Visited Google+")}))},/**

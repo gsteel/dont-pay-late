@@ -29,94 +29,94 @@ $spacingSizes: (
     $d: #{if($name != '', $delimiter + $name, '')};
 
     // margin-top
-    %mt#{$d} {
+    .mt#{$d} {
         margin-top: #{$size};
     }
     // margin-right
-    %mr#{$d} {
+    .mr#{$d} {
         margin-right: #{$size};
     }
     // margin-bottom
-    %mb#{$d} {
+    .mb#{$d} {
         margin-bottom: #{$size};
     }
     // margin-left
-    %ml#{$d} {
+    .ml#{$d} {
         margin-left: #{$size};
     }
     // horizontal margins
-    %mh#{$d} {
+    .mh#{$d} {
         margin-left: #{$size};
         margin-right: #{$size};
     }
     // vertical margins
-    %mv#{$d} {
+    .mv#{$d} {
         margin-top: #{$size};
         margin-bottom: #{$size};
     }
     // all margins
-    %m#{$d} {
+    .m#{$d} {
         margin: #{$size};
     }
 
     @if $size != auto {
         // padding can't be 'auto'
         // padding-top
-        %pt#{$d} {
+        .pt#{$d} {
             padding-top: #{$size};
         }
         // padding-right
-        %pr#{$d} {
+        .pr#{$d} {
             padding-right: #{$size};
         }
         // padding-bottom
-        %pb#{$d} {
+        .pb#{$d} {
             padding-bottom: #{$size};
         }
         // padding-left
-        %pl#{$d} {
+        .pl#{$d} {
             padding-left: #{$size};
         }
         // padding horizontal
-        %ph#{$d} {
+        .ph#{$d} {
             padding-left : #{$size};
             padding-right: #{$size};
         }
         // vertical padding
-        %pv#{$d} {
+        .pv#{$d} {
             padding-top: #{$size};
             padding-bottom: #{$size};
         }
         // all padding
-        %p#{$d} {
+        .p#{$d} {
             padding: #{$size};
         }
 
         @if $size != 0 {
 
             // margin-top
-            %mtn#{$d} {
+            .mtn#{$d} {
                 margin-top: -#{$size};
             }
             // margin-right
-            %mrn#{$d} {
+            .mrn#{$d} {
                 margin-right: -#{$size};
             }
             // margin-bottom
-            %mbn#{$d} {
+            .mbn#{$d} {
                 margin-bottom: -#{$size};
             }
             // margin-left
-            %mln#{$d} {
+            .mln#{$d} {
                 margin-left: -#{$size};
             }
             // horizontal margins
-            %mhn#{$d} {
+            .mhn#{$d} {
                 margin-left: -#{$size};
                 margin-right: -#{$size};
             }
             // vertical margins
-            %mvn#{$d} {
+            .mvn#{$d} {
                 margin-top: -#{$size};
                 margin-bottom: -#{$size};
             }

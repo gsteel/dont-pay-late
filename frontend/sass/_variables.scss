@@ -41,7 +41,7 @@ $text-red: $brand-red;
 $text-black: $brand-black;
 
 $link-color: $brand-white;
-$link-hover-color: darken($brand-green, 12%);
+$link-hover-color: darken($brand-white, 12%);
 
 $body-bg: $brand-red;
 
@@ -79,6 +79,8 @@ $fs-h6:             ceil(($fs-base * 0.85));
 
 $lh-base: 1.5;
 
+$font-weight-heading: 300;
+
 /**
  * Padding
  */
@@ -107,5 +109,5 @@ $input-border-radius: 0;
  */
 $footer-background: $body-bg;
 $footer-color: $brand-white;
-$header-background: $body-bg;
+$header-background: darken($body-bg, 5%);
 $body-color: $brand-white;

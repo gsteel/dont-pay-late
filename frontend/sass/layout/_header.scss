@@ -1,11 +1,14 @@
 $mobile-drawer-width: 100%;
 $mobile-drawer-speed: 0.3s;
-$mobile-drawer-bg: $brand-red;
+$mobile-drawer-bg: darken($brand-red, 5%);
 $mobile-nav-breakpoint: $bp-md;
 
 $header-height: 70px;
 $header-height-compact: 70px;
 
+$burger-color: $brand-white;
+$burger-color-alt: $burger-color;
+$burger-close-color: $burger-color;
 /**
  * Z-Index Stacking for the various elements
  */
@@ -114,7 +117,7 @@ body.scroll-up .site-header.compact {
             display: block;
             height: 8px;
             width: 100%;
-            background-color: $brand-black;
+            background-color: $burger-color;
             content: "";
             position: absolute;
             top: 6px;
@@ -132,16 +135,7 @@ body.scroll-up .site-header.compact {
 }
 .site-header.compact .open-nav {
     .burger::before, .burger::after {
-        background-color: #fff;
-    }
-}
-
-/**
- * Open button invisible on desktop
- */
-@media(min-width: $mobile-nav-breakpoint) {
-    .open-nav {
-        display: none;
+        background-color: $burger-color-alt;
     }
 }
 
@@ -158,7 +152,7 @@ body.scroll-up .site-header.compact {
     .open-nav {
         .burger {
             &::before, &::after {
-                background-color: darken($mobile-drawer-bg, 50%);
+                background-color: $burger-close-color;
             }
             &::before {
                 animation: burgerTop ($mobile-drawer-speed * 2) forwards;
@@ -192,44 +186,26 @@ body.scroll-up .site-header.compact {
         background-color: $brand-black;
         .brand-header {
             a {
-                background-color: transparent;
-                svg {
-                    path {
-                        fill: #fff;
-                    }
-                    .letter {
-                        fill: #fff;
-                    }
-                }
-                &:hover {
-                    background-color: darken($brand-green, 10);
-                }
             }
         }
     }
     .brand-header {
         text-align: center;
-        padding: 10px $gutter;
+        padding: 10px $header-height;
         transition: all .3s;
+        height: $header-height;
+        box-sizing: border-box;
         a {
             @extend %center-block;
-            width: 180px;
-            background-color: rgba(255,255,255,1);
-            transition: background-color .6s;
-            svg {
-                @include img-responsive;
-                path {
-                    fill: $brand-green;
-                }
-            }
-            &:hover {
-                background-color: fade-out($brand-green, 0.35);
-                transition: background-color .6s;
-                svg {
-                    .letter {
-                        fill: #fff;
-                    }
-                }
+            font-family: $font-heading;
+            font-size: $fs-h4;
+            text-decoration: none;
+            line-height: ($header-height - 20px);
+            white-space: nowrap;
+            &::before {
+                @extend .fa;
+                content: $fa-var-calculator;
+                @extend .mr-sm;
             }
         }
     }
@@ -248,21 +224,8 @@ body.scroll-up .site-header.compact {
             margin: 0;
         }
     }
-    .phone {
-        display: none;
-    }
 }
 
-
-/**
- * Desktop navigation is hidden by default
- */
-.desktop-nav {
-    display: none;
-    ul {
-        @extend %list-inline;
-    }
-}
 
 .mobile-drawer {
     position: absolute;
@@ -291,9 +254,10 @@ body.scroll-up .site-header.compact {
 
 
     .mobile-nav {
-
+        text-align: center;
         ul {
             @extend %list-reset;
+            width: 100%;
             li {
                 width: 100%;
                 a {
@@ -301,12 +265,11 @@ body.scroll-up .site-header.compact {
                     position: relative;
                     text-decoration: none;
                     padding: $pad-lg;
-                    color: #fff;
                     opacity: 1;
                     transition: all .3s;
-                    &::before {
+                    &::before, &::after {
                         position: absolute;
-                        background-color: lighten($mobile-drawer-bg, 30%);
+                        background-color: lighten($mobile-drawer-bg, 5%);
                         left: 0;
                         top: 0;
                         height: 100%;
@@ -315,14 +278,17 @@ body.scroll-up .site-header.compact {
                         transition: all .3s;
                         //z-index: -1;
                     }
+                    &::after {
+                        right: 0;
+                        left: auto;
+                    }
                     &:hover {
                         text-decoration: none;
-                        color: darken($brand-red, 10%);
                         transition: all .3s;
-                        background-color: darken($brand-grey, 9%);
+                        background-color: darken($mobile-drawer-bg, 5%);
                         padding-left: ($pad-lg-h + 8);
                     }
-                    &:hover::before {
+                    &:hover::before, &:hover::after {
                         width: $pad-lg-h;
                         transition: all .3s;
                     }
@@ -332,57 +298,3 @@ body.scroll-up .site-header.compact {
     }
 }
 
-@media(min-width: $mobile-nav-breakpoint) {
-    .mobile-drawer {
-        display: none;
-    }
-    .desktop-nav {
-        display: block;
-    }
-    .site-header {
-        .container {
-            display: flex;
-            position: relative;
-        }
-        .brand-header {
-            padding: 10px 0;
-            flex: 0 0 180px;
-            order: 1;
-            a {
-                margin: 0;
-            }
-        }
-        .desktop-nav {
-            order: 2;
-            margin: 10px auto;
-            height: 50px;
-            text-transform: uppercase;
-            ul, li, a {
-                height: 100%;
-                box-sizing: border-box;
-            }
-            ul li a {
-                display: block;
-                position: relative;
-                padding: $pad-lg;
-                color: $brand-green;
-                text-decoration: none;
-                line-height: (50px - ($pad-lg-v * 2));
-                transition: all .2s;
-                &:hover {
-                    color: $brand-black;
-                    text-decoration: none;
-                    transition: all .2s;
-                }
-            }
-        }
-        &.compact {
-            .desktop-nav ul li a {
-                color: #fff;
-                &:hover {
-                    color: $brand-green;
-                }
-            }
-        }
-    }
-}

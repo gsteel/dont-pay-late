@@ -1,5 +1,5 @@
 .calculator {
-    @extend %pv-xl;
+    @extend .pv-xl;
 
     min-height: 100vh;
 
@@ -12,18 +12,31 @@
     }
 
     .input-group {
-        @extend %pv-md;
+        @extend .pv-md;
 
         label {
             display: block;
             max-width: 100%;
             box-sizing: border-box;
-            @extend %pr-sm;
+            @extend .pr-sm;
+            &::before {
+                @extend .fa;
+                @extend .mr-sm;
+            }
+            &[for='input-date']::before {
+                content: $fa-var-calendar;
+            }
+            &[for='input-terms']::before {
+                content: $fa-var-hourglass-end;
+            }
+            &[for='input-amount']::before {
+                content: $fa-var-money;
+            }
         }
 
         button {
-            @extend %ph-md;
-            @extend %pv-xs;
+            @extend .ph-md;
+            @extend .pv-xs;
             border-radius: 4px;
             display: inline-block;
             margin-bottom: 0; // For input.btn
@@ -48,6 +61,11 @@
                 cursor: not-allowed;
                 transition: all .2s;
             }
+            &:before {
+                @extend .fa;
+                content: $fa-var-calculator;
+                @extend .mr-sm;
+            }
         }
     }
 
@@ -57,7 +75,7 @@
         max-width: 100%;
         height: (($fs-h4 * $lh-base) + 1px + ($xs * 2));
 
-        @extend %p-xs;
+        @extend .p-xs;
         line-height: $lh-base;
         background-color: rgba($brand-white, 0.1);
         color: $brand-white;
@@ -87,7 +105,7 @@
     }
 
     input[type="date"], .input-date {
-        @extend %mh-a;
+        @extend .mh-a;
         text-align: center;
     }
 }
@@ -106,39 +124,60 @@
     }
 }
 
-@keyframes rollIn {
+@keyframes slideInRight {
   from {
-    opacity: 0;
-    transform: translate3d(-150%, 0, 0) rotate3d(0, 0, 1, -120deg);
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
   }
 
   to {
-    opacity: 1;
-    transform: translateX(-50%);
+    transform: translate3d(0, 0, 0);
   }
 }
 
-.rollIn {
-  animation-name: rollIn;
-  animation-duration: .4s;
+.slideInRight {
+  animation-name: slideInRight;
+  animation-duration: .3s;
+}
+
+@keyframes slideOutLeft {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    visibility: hidden;
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+.slideOutLeft {
+  animation-name: slideOutLeft;
+  animation-duration: .3s;
 }
 
 
 .result-drawer {
-    border-radius: 15px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+
     position: absolute;
-    top: 80px;
-    left: auto;
+    left: 0;
+    top: 0;
     width: 100%;
-    height: 100%;
+    min-height: 100%;
+    box-sizing: border-box;
+    @extend .p-lg;
+    padding-top: $header-height;
+    background: $brand-green;
 
-    @extend %mhn-xl;
-    border: 1px solid $brand-white;
+    .body {
+        position: relative;
+        @extend .pt-md;
+    }
 
-    @extend %mt-xxl;
-    background: $brand-red;
-    @extend %p-lg;
+    h2 {
+        margin-right: $fs-h3;
+        vertical-align: top;
+    }
     ul {
         @extend %list-reset;
         li {
@@ -152,7 +191,8 @@
         display: block;
         right: 0;
         top: 0;
-        @extend %m-sm;
+        @extend .p-sm;
+        @extend .mv-sm;
         cursor: pointer;
         &::before {
             @extend .fa;
@@ -164,14 +204,10 @@
 
 @media(min-width: $bp-sm) {
     .result-drawer {
-        top: 80px;
-        left: 50%;
-        width: auto;
-        margin: 0;
-        transform: none;
-        max-width: 550px;
-        min-width: 260px;
-        transform: translateX(-50%);
+        .body {
+            max-width: 550px;
+            margin: 0 auto;
+        }
     }
 }
 
