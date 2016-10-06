@@ -10,6 +10,9 @@
             "homepage": "https://netglue.uk/"
         }
     ],
+    "config": {
+		"optimize-autoloader" : true
+	},
     "require": {
         "php": "^7.0",
         "roave/security-advisories": "dev-master",
