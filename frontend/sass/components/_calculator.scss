@@ -194,6 +194,10 @@
         @extend .p-sm;
         @extend .mv-sm;
         cursor: pointer;
+        text-decoration: none;
+        &:hover {
+            text-decoration: none;
+        }
         &::before {
             @extend .fa;
             content: $fa-var-close;

@@ -5509,10 +5509,6 @@ body.scroll-up .site-header.compact {
           transition: left .3s;
 }
 .mobile-drawer .scroll-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
   width: 100%;
   height: 100%; 
   -webkit-box-sizing: border-box;
@@ -5855,7 +5851,11 @@ body {
   top: 0;
   right: 0;
   display: block;
+  text-decoration: none; 
   cursor: pointer;
+}
+.result-drawer .close:hover {
+  text-decoration: none;
 }
 .result-drawer .close::before {
   font-size: 34px; 

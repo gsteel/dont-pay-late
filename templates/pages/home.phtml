@@ -15,7 +15,7 @@ $this->headMeta()->setItemprop('title', $title);
 $initialDate = new DateTime('-30 days');
 ?>
 
-<form class="calculator" action="#">
+<form class="calculator" action="/calculate" method="POST" enctype="application/x-www-form-urlencoded">
     <div class="container">
         <div class="row">
             <div class="col-xs-12">

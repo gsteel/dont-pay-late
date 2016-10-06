@@ -178,7 +178,11 @@ $.fn.extend({
     Plugin.prototype.hasDateInput = function()
 	{
 	    var input = document.createElement('input');
-	    input.type = 'date';
+	    try {
+	        input.type = 'date';
+	    } catch(e) {
+
+	    }
 	    return input.type === 'date';
 	};
 
