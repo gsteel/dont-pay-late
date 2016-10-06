@@ -113,8 +113,10 @@ $.fn.extend({
         var ui;
         if (data.error === true) {
             ui = $(Mustache.render(this.errorTemplate, data));
+            this.gaEvent('Calculator', 'Error Result', 'Error Result');
         } else {
             ui = $(Mustache.render(this.resultTemplate, data));
+            this.gaEvent('Calculator', 'Success Result', 'Success Result');
         }
         var button = $('form.calculator').find('button');
         button.attr('disabled', true);
@@ -297,6 +299,13 @@ $.fn.extend({
             $('a[href^="https://plus.google.com"]').click(function() {
                 ga('send', 'event', 'Link', 'click', 'Visited Google+');
             });
+        }
+    };
+
+    Plugin.prototype.gaEvent = function(category, action, name)
+    {
+        if(typeof(ga) === 'function') {
+            ga('send', 'event', category, action, name);
         }
     };
 
