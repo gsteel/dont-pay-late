@@ -21,12 +21,13 @@ return [
             /**
              * Layout
              */
-            'layout::default' => 'templates/layout/layout.phtml',
+            'layout::default'  => 'templates/layout/layout.phtml',
 
             /**
              * HTML Pages
              */
-            'app::home'       => 'templates/pages/home.phtml',
+            'app::home'        => 'templates/pages/home.phtml',
+            'app::about'       => 'templates/pages/about.phtml',
 
             'error::error'     => 'templates/error/error.phtml',
             'error::404'       => 'templates/error/404.phtml',

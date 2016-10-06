@@ -5,12 +5,12 @@ namespace App\Action;
 use Interop\Container\ContainerInterface;
 use Zend\Expressive\Template\TemplateRendererInterface;
 
-class HomePageFactory
+class TemplateActionFactory
 {
-    public function __invoke(ContainerInterface $container) : HomePageAction
+    public function __invoke(ContainerInterface $container) : TemplateAction
     {
         $renderer = $container->get(TemplateRendererInterface::class);
 
-        return new HomePageAction($renderer);
+        return new TemplateAction($renderer);
     }
 }

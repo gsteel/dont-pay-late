@@ -9,7 +9,7 @@ use Zend\Diactoros\Response\JsonResponse;
 use Zend\Expressive\Router;
 use Zend\Expressive\Template\TemplateRendererInterface;
 
-class HomePageAction
+class TemplateAction
 {
 
     /**
@@ -31,8 +31,12 @@ class HomePageAction
      * @param  callable $next
      * @return HtmlResponse
      */
-    public function __invoke(Request $request, Response $response, callable $next = null) : HtmlResponse
+    public function __invoke(Request $request, Response $response, callable $next = null) : Response
     {
-        return new HtmlResponse($this->renderer->render('app::home'));
+        $template = $request->getAttribute('template');
+        if (!$template && $next !== null) {
+            return $next($request, $response);
+        }
+        return new HtmlResponse($this->renderer->render($template));
     }
 }

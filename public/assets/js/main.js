@@ -6979,6 +6979,11 @@ $.fn.extend({
             plugin.toggleNav();
             return false;
         });
+        $(document).keyup(function(e) {
+            if (e.keyCode == 27) {
+                plugin.closeNav();
+            }
+        });
     };
 
     Plugin.prototype.toggleNav = function()

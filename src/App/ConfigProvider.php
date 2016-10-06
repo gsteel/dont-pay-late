@@ -13,7 +13,7 @@ class ConfigProvider
                 'invokables' => [
                 ],
                 'factories' => [
-                    Action\HomePageAction::class   => Action\HomePageFactory::class,
+                    Action\TemplateAction::class   => Action\TemplateActionFactory::class,
                     Action\CalculateAction::class  => Action\CalculateActionFactory::class,
                     BoeRateService::class          => Factory\BaseRateFactory::class,
                 ],
@@ -23,14 +23,30 @@ class ConfigProvider
                 [
                     'name' => 'home',
                     'path' => '/',
-                    'middleware' => Action\HomePageAction::class,
+                    'middleware' => Action\TemplateAction::class,
                     'allowed_methods' => ['GET'],
+                    'options' => [
+                        'defaults' => [
+                            'template' => 'app::home',
+                        ],
+                    ],
+                ],
+                [
+                    'name' => 'about',
+                    'path' => '/about',
+                    'middleware' => Action\TemplateAction::class,
+                    'allowed_methods' => ['GET'],
+                    'options' => [
+                        'defaults' => [
+                            'template' => 'app::about',
+                        ],
+                    ],
                 ],
                 [
                     'name' => 'calculate',
                     'path' => '/calculate',
                     'middleware' => Action\CalculateAction::class,
-                    //'allowed_methods' => ['*'],
+                    'allowed_methods' => ['POST'],
                 ],
             ],
         ];
