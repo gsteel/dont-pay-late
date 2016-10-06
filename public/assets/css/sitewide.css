@@ -4328,7 +4328,7 @@ a:hover {
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .visible-sm {
-    display: initial;
+    display: inline;
   }
   .visible-xs {
     display: none;
@@ -4337,7 +4337,7 @@ a:hover {
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .visible-md {
-    display: initial;
+    display: inline;
   }
   .visible-xs {
     display: none;
@@ -4346,7 +4346,7 @@ a:hover {
 
 @media only screen and (min-width: 1200px) {
   .visible-lg {
-    display: initial;
+    display: inline;
   }
   .visible-xs {
     display: none;
