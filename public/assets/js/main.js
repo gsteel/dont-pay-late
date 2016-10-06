@@ -6796,9 +6796,28 @@ void 0!==c?null===c?void r.removeAttr(a,b):e&&"set"in e&&void 0!==(d=e.set(a,c,b
 
 /* global FastClick, ga, Pikaday, moment, Mustache */
 
+function whichTransitionEvent() {
+    'use strict';
+    var t;
+    var el = document.createElement('fakeelement');
+    var transitions = {
+      'transition':'transitionend',
+      'OTransition':'oTransitionEnd',
+      'MozTransition':'transitionend',
+      'WebkitTransition':'webkitTransitionEnd'
+    }
+
+    for(t in transitions){
+        if( el.style[t] !== undefined ){
+            return transitions[t];
+        }
+    }
+}
+
 $.fn.extend({
     animateCss: function (animationName, onEnd) {
         'use strict';
+        var transitionEvent = whichTransitionEvent();
         var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
         this.addClass('animated ' + animationName).one(animationEnd, function() {
             var me = $(this);
@@ -6807,6 +6826,10 @@ $.fn.extend({
                 onEnd();
             }
         });
+
+        if (transitionEvent === undefined) {
+            $(this).trigger('animationend');
+        }
     }
 });
 
