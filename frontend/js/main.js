@@ -100,6 +100,8 @@ $.fn.extend({
 
 	    form.submit(function(e) {
 	        e.preventDefault();
+	        var button = $('form.calculator').find('button');
+            button.attr('disabled', true);
 	        $.post('/calculate', form.serialize(), function(data) {
 	            plugin.updateCalculation(data);
 	        }).fail(function(xhr) {
