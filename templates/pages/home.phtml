@@ -1,7 +1,16 @@
 <?php
-$this->headTitle('UK Late Payment Interest Calculator');
-$this->headMeta()->setName('description', 'This is an interest and debt recovery fee calculator for UK businesses with commercial debt. We hope you like it! It’s free to use, quick and we think it looks nice too!');
 
+$title = 'UK Late Payment Interest Calculator';
+$description = 'This is an interest and debt recovery fee calculator for UK businesses with commercial debt. We hope you like it! It’s free to use, quick and we think it looks nice too!';
+$this->doctype('HTML5');
+$this->headTitle($title);
+$this->headMeta()->setName('description',  $description);
+$this->headMeta()->setProperty('og:description', $description);
+$this->headMeta()->setProperty('og:title', $title);
+$this->headMeta()->setName('twitter:description', $description);
+$this->headMeta()->setName('twitter:title', $title);
+$this->headMeta()->setItemprop('description', $description);
+$this->headMeta()->setItemprop('title', $title);
 
 $initialDate = new DateTime('-30 days');
 ?>

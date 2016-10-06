@@ -1,6 +1,16 @@
 <?php
-$this->headTitle('About Net Glue and the Late Payment Calculator');
-$this->headMeta()->setName('description', 'More information about our free late payment interest and fee calculator for UK commercial debt');
+$title = 'About Net Glue and the Late Payment Calculator';
+$description = 'More information about our free late payment interest and fee calculator for UK commercial debt';
+$this->doctype('HTML5');
+$this->headTitle($title);
+$this->headMeta()->setName('description',  $description);
+$this->headMeta()->setProperty('og:description', $description);
+$this->headMeta()->setProperty('og:title', $title);
+$this->headMeta()->setName('twitter:description', $description);
+$this->headMeta()->setName('twitter:title', $title);
+$this->headMeta()->setItemprop('description', $description);
+$this->headMeta()->setItemprop('title', $title);
+
 
 ?>
 
