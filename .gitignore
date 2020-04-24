@@ -1,10 +1,12 @@
-.idea
 phpunit.xml
 /vendor/
 /node_modules/
 /bower_components/
 /build/
 /public/.well_known/
-/config/autoload/**/*.local.*
+/config/autoload/**/*.local.php
 /frontend/sass/vendor/
+/data/cache/*
+!/data/cache/.gitkeep
+/data/base-rates.json
 
