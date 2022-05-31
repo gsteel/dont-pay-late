@@ -1,0 +1,31 @@
+name: "Deploy to Staging"
+
+on:
+  workflow_dispatch:
+  workflow_call:
+    secrets:
+      STAGING_WEBHOOKS:
+        required: true
+
+env:
+  WEBHOOKS: ${{ secrets.STAGING_WEBHOOKS }}
+
+jobs:
+  deploy_to_staging:
+    name: "Update Images on the Staging Website"
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        key-name: [ nginx, php ]
+
+    steps:
+      - name: "Set Hook Value"
+        id: get_hook
+        run: |
+          echo "::set-output name=HOOK_URL::$(jq -n --argjson in "$WEBHOOKS" -cr '$in | ."${{ matrix.key-name }}"')"
+
+      - name: "Issue POST"
+        if: ${{ steps.get_hook.outputs.HOOK_URL }} != ''
+        run: |
+          curl --fail --request POST --url "${{ steps.get_hook.outputs.HOOK_URL }}"

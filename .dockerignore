@@ -1,0 +1,13 @@
+
+/.git/
+/.github/
+/.idea/
+/build/
+/data/cache/*
+!/data/cache/.gitkeep
+/node_modules/
+/test/
+/vendor/
+/Resources/
+
+.DS_Store

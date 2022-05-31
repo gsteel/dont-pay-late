@@ -1,0 +1,101 @@
+name: "Continuous Integration"
+on:
+  push:
+    branches:
+      - '[0-9]+.[0-9]+.x'
+  pull_request:
+
+env:
+  php_extensions: curl,dom,intl,mbstring,pcov,json,redis,sockets
+  default_php: 8.1
+  REDIS_HOST: "127.0.0.1"
+
+jobs:
+
+  cs-check:
+    name: CS Checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ env.default_php }}
+          extensions: ${{ env.php_extensions }}
+          tools: cs2pr
+      - uses: "ramsey/composer-install@2.1.0"
+      - name: "Check CS"
+        run: vendor/bin/phpcs --report=checkstyle -q | cs2pr
+
+  psalm:
+    name: Psalm Static Analysis
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ env.default_php }}
+          extensions: ${{ env.php_extensions }}
+          tools: cs2pr
+      - uses: "ramsey/composer-install@2.1.0"
+      - name: "Psalm"
+        run: vendor/bin/psalm --output-format=github
+
+  run-tests:
+
+    name: PHPUnit on ${{ matrix.php-version }}, ${{ matrix.dependencies }} deps
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        php-version: ['8.1', '8.2']
+        dependencies: ['locked', 'highest']
+        include:
+          - php-version: '8.2'
+            composer-options: "--ignore-platform-reqs"
+
+    services:
+      redis:
+        image: redis
+        ports:
+          - 6379/tcp
+        options: --health-cmd="redis-cli ping" --health-interval=10s --health-timeout=5s --health-retries=3
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          extensions: ${{ env.php_extensions }}
+          coverage: pcov
+          ini-values: pcov.enabled=1
+      - uses: "ramsey/composer-install@2.1.0"
+        with:
+          dependency-versions: "${{ matrix.dependencies }}"
+          composer-options: "${{ matrix.composer-options }}"
+      - name: "Run Tests"
+        run: php ./vendor/bin/phpunit --coverage-clover=coverage.xml
+        env:
+          REDIS_PORT: ${{ job.services.redis.ports['6379'] }}
+      - name: "Upload Coverage to CodeCov"
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          file: ./coverage.xml
+          fail_ci_if_error: false
+
+  composer-require-checker:
+    name: "Check for missing dependencies"
+    runs-on: "ubuntu-latest"
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ env.default_php }}
+          ini-values: memory_limit=-1
+          extensions: ${{ env.php_extensions }}
+      - uses: "ramsey/composer-install@2.1.0"
+      - run: composer global config bin-dir /usr/local/bin
+      - run: composer global require -W maglnet/composer-require-checker
+      - run: /usr/local/bin/composer-require-checker check
