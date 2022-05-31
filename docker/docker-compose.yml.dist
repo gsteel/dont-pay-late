@@ -1,0 +1,78 @@
+
+version: '3'
+
+services:
+  redis:
+    container_name: 'dontpaylate.redis'
+    image: 'redis:6.2-alpine'
+    volumes:
+      - 'redis:/data'
+    networks:
+      - internal
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "5"
+
+  nginx:
+    container_name: 'dontpaylate.nginx'
+    image: 'nginx:mainline-alpine'
+    volumes:
+      - '../docker/nginx-templates:/etc/nginx/templates'
+      - '../:/app'
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.dontpaylate.rule=Host(`dontpaylate.uk`)"
+      - "traefik.http.routers.dontpaylate.service=dontpaylate"
+      - "traefik.http.routers.dontpaylate.entrypoints=https"
+      - "traefik.http.services.dontpaylate.loadbalancer.server.port=80"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "5"
+    networks:
+      - traefik
+      - internal
+
+  php:
+    container_name: 'dontpaylate.php'
+    image: 'local/dontpaylate:dev'
+    env_file:
+      - .env
+      - development.env
+    volumes:
+      - '../:/app'
+    networks:
+      - internal
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "5"
+
+  node-dev:
+    container_name: 'dontpaylate.node'
+    image: 'local/dontpaylate-node:dev'
+    env_file:
+      - .env
+      - development.env
+    volumes:
+      - '../:/app'
+    networks:
+      - internal
+    command: [ 'npm', 'run', 'watch' ]
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "5"
+
+volumes:
+  redis: { }
+
+networks:
+  internal:
+  traefik:
+    external: true
