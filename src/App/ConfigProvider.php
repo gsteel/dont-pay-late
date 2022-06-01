@@ -10,6 +10,7 @@ use Laminas\ServiceManager\ConfigInterface;
 use Lcobucci\Clock\Clock;
 use Psr;
 use Redis;
+use StellaMaris;
 
 /**
  * @see ConfigInterface
@@ -41,6 +42,9 @@ final class ConfigProvider
                 DateTimeZone::class => Time\Container\TimezoneFactory::class,
                 Redis::class => Container\RedisClientFactory::class,
                 SiteUrl::class => Container\SiteUrlFactory::class,
+            ],
+            'aliases' => [
+                StellaMaris\Clock\ClockInterface::class => Clock::class,
             ],
             'delegators' => [
                 Laminas\Stratigility\Middleware\ErrorHandler::class => [
