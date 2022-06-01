@@ -8,10 +8,10 @@ use App\BaseRate\ChangeList;
 use App\BaseRate\RateChange;
 use DateTimeImmutable;
 use PHPUnit\Framework\TestCase;
+use Psl\Json;
 
 use function assert;
 use function iterator_to_array;
-use Psl\Json;
 
 class ChangeListTest extends TestCase
 {
