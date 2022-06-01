@@ -9,7 +9,7 @@ use App\Exception\RuntimeError;
 use App\Util\Assert;
 use DateTimeImmutable;
 use DateTimeZone;
-use Psr\Http\Client\ClientInterface;
+use Psr\Http\Client\ClientInterface as HttpClient;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\UriFactoryInterface;
 use StellaMaris\Clock\ClockInterface;
@@ -22,14 +22,14 @@ use function sprintf;
 use function str_contains;
 use function strtolower;
 
-final class Client
+final class Client implements ClientContract
 {
     private const ENDPOINT = 'https://www.bankofengland.co.uk/boeapps/database/_iadb-fromshowcolumns.asp';
     private const SERIES_ID = 'IUDBEDR';
-    private const EPOCH = '1975-01-02';
+    public const EPOCH = '1975-01-02';
 
     public function __construct(
-        private readonly ClientInterface $httpClient,
+        private readonly HttpClient $httpClient,
         private readonly UriFactoryInterface $uriFactory,
         private readonly RequestFactoryInterface $requestFactory,
         private readonly ClockInterface $clock,
@@ -47,12 +47,13 @@ final class Client
 
     public function fetchAll(): ChangeList
     {
-        return $this->extractRateChanges(
-            $this->fetchXml($this->minimumDate(), $this->clock->now())
+        return self::extractRateChanges(
+            $this->fetchXml($this->minimumDate(), $this->clock->now()),
+            $this->resultTimezone
         );
     }
 
-    public function extractRateChanges(string $xml): ChangeList
+    public static function extractRateChanges(string $xml, DateTimeZone $timeZone): ChangeList
     {
         /**
          * The XML provided by the BoE is absolute garbage.
@@ -65,10 +66,10 @@ final class Client
             throw new InvalidArgument('The base rate xml string provided cannot be used');
         }
 
-        return $this->read($reader);
+        return self::read($reader, $timeZone);
     }
 
-    private function read(XMLReader $reader): ChangeList
+    private static function read(XMLReader $reader, DateTimeZone $timeZone): ChangeList
     {
         $rates = [];
         while ($reader->read()) {
@@ -83,7 +84,7 @@ final class Client
                 continue;
             }
 
-            $date = DateTimeImmutable::createFromFormat('!Y-m-d', $time, $this->resultTimezone);
+            $date = DateTimeImmutable::createFromFormat('!Y-m-d', $time, $timeZone);
             $rate = is_numeric($rate) ? (float) $rate : null;
 
             if (! $date || $rate === null) {
