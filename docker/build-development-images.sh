@@ -14,7 +14,7 @@ then
   . docker/development.env
 fi
 
-docker --context=default build -f docker/php-dev.dockerfile -t local/"${COMPOSE_PROJECT_NAME}":dev . &
-docker --context=default build -f docker/node.dockerfile -t local/"${COMPOSE_PROJECT_NAME}"-node:dev . &
+docker --context=default build -f docker/php-dev.dockerfile --build-arg LOCAL_MODULES="${LOCAL_MODULES}" -t local/"${COMPOSE_PROJECT_NAME}":dev . &
+docker --context=default build -f docker/node.dockerfile --build-arg LOCAL_MODULES="${LOCAL_MODULES}" -t local/"${COMPOSE_PROJECT_NAME}"-node:dev . &
 
 wait

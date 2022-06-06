@@ -8,6 +8,7 @@ use DateTimeZone;
 use Laminas;
 use Laminas\ServiceManager\ConfigInterface;
 use Lcobucci\Clock\Clock;
+use Money;
 use Psr;
 use Redis;
 use StellaMaris;
@@ -35,7 +36,10 @@ final class ConfigProvider
                 BaseRate\BaseRateCache::class => Cache\Container\SymfonyRedisCacheAbstractFactory::class,
                 BaseRate\BaseRateHistory::class => BaseRate\Container\BaseRateHistoryFactory::class,
                 BaseRate\Client::class => BaseRate\Container\ClientFactory::class,
+                Calculator\RecoveryFeeLookup::class => Calculator\Container\RecoveryFeeLookupFactory::class,
+                Calculator\StandardCalculator::class => Calculator\Container\StandardCalculatorFactory::class,
                 Log\ErrorHandlerLoggingListener::class => Log\Container\ErrorHandlerLoggingListenerFactory::class,
+                Money\Currency::class => static fn (): Money\Currency => new Money\Currency('GBP'),
                 Psr\Http\Client\ClientInterface::class => Container\HttpClientFactory::class,
 
                 Clock::class => Time\Container\ClockFactory::class,
@@ -44,6 +48,7 @@ final class ConfigProvider
                 SiteUrl::class => Container\SiteUrlFactory::class,
             ],
             'aliases' => [
+                Calculator\Calculator::class => Calculator\StandardCalculator::class,
                 StellaMaris\Clock\ClockInterface::class => Clock::class,
             ],
             'delegators' => [

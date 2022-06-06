@@ -16,7 +16,7 @@ final class Assert extends WebMozartAssert
      *
      * @psalm-pure
      */
-    protected static function reportInvalidArgument($message): void // phpcs:ignore
+    protected static function reportInvalidArgument($message): never // phpcs:ignore
     {
         throw new AssertionFailed($message);
     }
