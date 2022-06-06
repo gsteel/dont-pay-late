@@ -6,7 +6,7 @@ on:
   pull_request:
 
 env:
-  php_extensions: curl,dom,intl,mbstring,pcov,json,redis,sockets
+  php_extensions: bcmath,ctype,curl,intl,json,libxml,mbstring,opcache,pcov,redis,sockets,xmlreader
   default_php: 8.1
   REDIS_HOST: "127.0.0.1"
 

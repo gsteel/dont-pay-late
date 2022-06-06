@@ -21,6 +21,7 @@
     },
     "require": {
         "php": "~8.1",
+        "ext-bcmath": "*",
         "ext-ctype": "*",
         "ext-intl": "*",
         "ext-json": "*",
@@ -50,6 +51,7 @@
         "mezzio/mezzio-laminasviewrenderer": "^2.3",
         "mezzio/mezzio-router": "^3.7",
         "mezzio/mezzio-template": "^2.3",
+        "moneyphp/money": "^4.0",
         "monolog/monolog": "^3.0",
         "php-http/client-common": "^2.4",
         "php-http/curl-client": "^2.2",
