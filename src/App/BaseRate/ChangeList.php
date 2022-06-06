@@ -4,15 +4,19 @@ declare(strict_types=1);
 
 namespace App\BaseRate;
 
+use App\Exception\BadMethodCall;
 use ArrayIterator;
 use Countable;
+use DateTimeImmutable;
 use DateTimeInterface;
 use IteratorAggregate;
 use JsonSerializable;
 use Traversable;
 
 use function array_reverse;
+use function array_slice;
 use function count;
+use function reset;
 use function usort;
 
 /**
@@ -84,5 +88,23 @@ final class ChangeList implements IteratorAggregate, Countable, JsonSerializable
         }
 
         return self::fromArray($rates);
+    }
+
+    public function first(): ?RateChange
+    {
+        $array = array_slice($this->rates, 0, 1);
+        $first = reset($array);
+
+        return $first instanceof RateChange ? $first : null;
+    }
+
+    public function earliestDate(): DateTimeImmutable
+    {
+        $first = $this->first();
+        if (! $first) {
+            throw new BadMethodCall('The earliest date cannot be retrieved from an empty list');
+        }
+
+        return $first->date;
     }
 }

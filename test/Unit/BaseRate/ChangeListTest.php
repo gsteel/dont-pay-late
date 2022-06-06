@@ -6,6 +6,7 @@ namespace AppTest\Unit\BaseRate;
 
 use App\BaseRate\ChangeList;
 use App\BaseRate\RateChange;
+use App\Exception\BadMethodCall;
 use DateTimeImmutable;
 use PHPUnit\Framework\TestCase;
 use Psl\Json;
@@ -95,5 +96,25 @@ class ChangeListTest extends TestCase
             self::assertGreaterThanOrEqual(1.0, $item->rate);
             self::assertLessThanOrEqual(3.0, $item->rate);
         }
+    }
+
+    public function testTheEarliestDateIsTheExpectedValue(): void
+    {
+        $source = ChangeList::fromArray([
+            new RateChange(self::date('2010-01-01'), 1.0),
+            new RateChange(self::date('2011-01-01'), 2.0),
+            new RateChange(self::date('2012-01-01'), 3.0),
+        ]);
+
+        $expect = self::date('2010-01-01');
+
+        self::assertEquals($expect, $source->earliestDate());
+    }
+
+    public function testThatTheEarliestDateIsExceptionalOnAnEmptyList(): void
+    {
+        $source = ChangeList::fromArray([]);
+        $this->expectException(BadMethodCall::class);
+        $source->earliestDate();
     }
 }
