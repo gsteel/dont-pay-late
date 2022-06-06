@@ -23,7 +23,7 @@ final class CalculationFailed extends RuntimeError
     public static function becauseCurrencyIsUnsupported(Currency $currency): self
     {
         return new self(sprintf(
-            'The only supported currency is "%s"',
+            'The currency "%s" is not supported',
             $currency->getCode()
         ));
     }
