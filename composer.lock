@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "azjezz/psl",
-            "version": "2.0.2",
+            "version": "2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/azjezz/psl.git",
-                "reference": "11353b6cd8328707605ed64dcd07af2ca2dfa8a9"
+                "reference": "1caf06f2006113dceffef3f47a5d53989e1e59c7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/azjezz/psl/zipball/11353b6cd8328707605ed64dcd07af2ca2dfa8a9",
-                "reference": "11353b6cd8328707605ed64dcd07af2ca2dfa8a9",
+                "url": "https://api.github.com/repos/azjezz/psl/zipball/1caf06f2006113dceffef3f47a5d53989e1e59c7",
+                "reference": "1caf06f2006113dceffef3f47a5d53989e1e59c7",
                 "shasum": ""
             },
             "require": {
@@ -70,7 +70,7 @@
             "description": "PHP Standard Library",
             "support": {
                 "issues": "https://github.com/azjezz/psl/issues",
-                "source": "https://github.com/azjezz/psl/tree/2.0.2"
+                "source": "https://github.com/azjezz/psl/tree/2.0.3"
             },
             "funding": [
                 {
@@ -78,7 +78,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2022-05-30T19:10:36+00:00"
+            "time": "2022-06-07T22:08:07+00:00"
         },
         {
             "name": "brick/varexporter",
@@ -1237,16 +1237,16 @@
         },
         {
             "name": "laminas/laminas-stdlib",
-            "version": "3.7.1",
+            "version": "3.10.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-stdlib.git",
-                "reference": "bcd869e2fe88d567800057c1434f2380354fe325"
+                "reference": "0d669074845fc80a99add0f64025192f143ef836"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-stdlib/zipball/bcd869e2fe88d567800057c1434f2380354fe325",
-                "reference": "bcd869e2fe88d567800057c1434f2380354fe325",
+                "url": "https://api.github.com/repos/laminas/laminas-stdlib/zipball/0d669074845fc80a99add0f64025192f143ef836",
+                "reference": "0d669074845fc80a99add0f64025192f143ef836",
                 "shasum": ""
             },
             "require": {
@@ -1292,7 +1292,7 @@
                     "type": "community_bridge"
                 }
             ],
-            "time": "2022-01-21T15:50:46+00:00"
+            "time": "2022-06-10T14:49:09+00:00"
         },
         {
             "name": "laminas/laminas-stratigility",
@@ -2213,16 +2213,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "3.0.0",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "60ad5183b5e5d6c9d4047e9f3072d36071dcc161"
+                "reference": "0c375495d40df0207e5833dca333f963b171ff43"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/60ad5183b5e5d6c9d4047e9f3072d36071dcc161",
-                "reference": "60ad5183b5e5d6c9d4047e9f3072d36071dcc161",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/0c375495d40df0207e5833dca333f963b171ff43",
+                "reference": "0c375495d40df0207e5833dca333f963b171ff43",
                 "shasum": ""
             },
             "require": {
@@ -2300,7 +2300,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Seldaek/monolog/issues",
-                "source": "https://github.com/Seldaek/monolog/tree/3.0.0"
+                "source": "https://github.com/Seldaek/monolog/tree/3.1.0"
             },
             "funding": [
                 {
@@ -2312,7 +2312,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-05-10T10:39:55+00:00"
+            "time": "2022-06-09T09:09:00+00:00"
         },
         {
             "name": "nikic/fast-route",
