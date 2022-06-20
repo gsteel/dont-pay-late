@@ -680,22 +680,22 @@
         },
         {
             "name": "laminas/laminas-form",
-            "version": "3.1.1",
+            "version": "3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-form.git",
-                "reference": "43005a3ec4c2292d4f825273768d9b884acbca37"
+                "reference": "c1a8474dc459672a30b5817716a797da7a5026a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-form/zipball/43005a3ec4c2292d4f825273768d9b884acbca37",
-                "reference": "43005a3ec4c2292d4f825273768d9b884acbca37",
+                "url": "https://api.github.com/repos/laminas/laminas-form/zipball/c1a8474dc459672a30b5817716a797da7a5026a9",
+                "reference": "c1a8474dc459672a30b5817716a797da7a5026a9",
                 "shasum": ""
             },
             "require": {
-                "laminas/laminas-hydrator": "^4.3.0",
+                "laminas/laminas-hydrator": "^4.3.1",
                 "laminas/laminas-inputfilter": "^2.13.0",
-                "laminas/laminas-stdlib": "^3.6.1",
+                "laminas/laminas-stdlib": "^3.7.1",
                 "php": "^7.4 || ~8.0.0 || ~8.1.0"
             },
             "conflict": {
@@ -708,26 +708,26 @@
                 "laminas/laminas-view": "<2.14.0"
             },
             "require-dev": {
-                "doctrine/annotations": "^1.12.0",
+                "doctrine/annotations": "^1.13.2",
                 "ext-intl": "*",
                 "laminas/laminas-captcha": "^2.11.0",
                 "laminas/laminas-coding-standard": "^2.3.0",
                 "laminas/laminas-db": "^2.13.4",
                 "laminas/laminas-escaper": "^2.9.0",
                 "laminas/laminas-eventmanager": "^3.4.0",
-                "laminas/laminas-filter": "^2.13.0",
-                "laminas/laminas-i18n": "^2.12.0",
+                "laminas/laminas-filter": "^2.14.0",
+                "laminas/laminas-i18n": "^2.14.0",
                 "laminas/laminas-modulemanager": "^2.11.0",
                 "laminas/laminas-recaptcha": "^3.4.0",
                 "laminas/laminas-servicemanager": "^3.10.0",
-                "laminas/laminas-session": "^2.12.0",
+                "laminas/laminas-session": "^2.12.1",
                 "laminas/laminas-text": "^2.9.0",
-                "laminas/laminas-validator": "^2.15.1",
-                "laminas/laminas-view": "^2.14.0",
+                "laminas/laminas-validator": "^2.16.0",
+                "laminas/laminas-view": "^2.19.1",
                 "phpspec/prophecy-phpunit": "^2.0.1",
-                "phpunit/phpunit": "^9.5.10",
+                "phpunit/phpunit": "^9.5.14",
                 "psalm/plugin-phpunit": "^0.16.1",
-                "vimeo/psalm": "^4.13.1"
+                "vimeo/psalm": "^4.21.0"
             },
             "suggest": {
                 "doctrine/annotations": "^1.12, required to use laminas-form annotations support",
@@ -774,7 +774,7 @@
                     "type": "community_bridge"
                 }
             ],
-            "time": "2022-01-28T15:58:45+00:00"
+            "time": "2022-06-16T10:13:15+00:00"
         },
         {
             "name": "laminas/laminas-httphandlerrunner",
