@@ -5297,16 +5297,16 @@
         },
         {
             "name": "laminas/laminas-component-installer",
-            "version": "2.7.0",
+            "version": "2.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-component-installer.git",
-                "reference": "8597c23af6f69a28be80ee2ab6dbc1b6d3d80772"
+                "reference": "3c998d2b2755985c71cd4d5d9b294228f63d3a65"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-component-installer/zipball/8597c23af6f69a28be80ee2ab6dbc1b6d3d80772",
-                "reference": "8597c23af6f69a28be80ee2ab6dbc1b6d3d80772",
+                "url": "https://api.github.com/repos/laminas/laminas-component-installer/zipball/3c998d2b2755985c71cd4d5d9b294228f63d3a65",
+                "reference": "3c998d2b2755985c71cd4d5d9b294228f63d3a65",
                 "shasum": ""
             },
             "require": {
@@ -5319,12 +5319,11 @@
             "require-dev": {
                 "composer/composer": "^2.1.9@RC",
                 "laminas/laminas-coding-standard": "~2.3.0",
-                "malukenho/docheader": "^0.1.6",
                 "mikey179/vfsstream": "^1.6.10",
-                "phpunit/phpunit": "^9.5.5",
+                "phpunit/phpunit": "^9.5.19",
                 "psalm/plugin-phpunit": "^0.16.1",
-                "vimeo/psalm": "^4.10",
-                "webmozart/assert": "^1.6"
+                "vimeo/psalm": "^4.22.0",
+                "webmozart/assert": "^1.10.0"
             },
             "type": "composer-plugin",
             "extra": {
@@ -5361,7 +5360,7 @@
                     "type": "community_bridge"
                 }
             ],
-            "time": "2022-03-22T14:28:35+00:00"
+            "time": "2022-07-03T21:27:51+00:00"
         },
         {
             "name": "laminas/laminas-development-mode",
