@@ -81,7 +81,7 @@
         "doctrine/coding-standard": "^9.0",
         "filp/whoops": "^2.14",
         "helmich/phpunit-psr7-assert": "^4.3",
-        "laminas/laminas-component-installer": "^2.5",
+        "laminas/laminas-component-installer": "^3.0",
         "laminas/laminas-development-mode": "^3.5",
         "lctrs/psalm-psr-container-plugin": "^1.7",
         "netglue/revs": "^1.1",
