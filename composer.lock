@@ -1465,16 +1465,16 @@
         },
         {
             "name": "laminas/laminas-view",
-            "version": "2.21.0",
+            "version": "2.22.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-view.git",
-                "reference": "4145f10db72ebfe34d11bc3b6a298aa62ad9533f"
+                "reference": "ae32391bdec45ca9fc73dd0882cd7301ab07ecf3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-view/zipball/4145f10db72ebfe34d11bc3b6a298aa62ad9533f",
-                "reference": "4145f10db72ebfe34d11bc3b6a298aa62ad9533f",
+                "url": "https://api.github.com/repos/laminas/laminas-view/zipball/ae32391bdec45ca9fc73dd0882cd7301ab07ecf3",
+                "reference": "ae32391bdec45ca9fc73dd0882cd7301ab07ecf3",
                 "shasum": ""
             },
             "require": {
@@ -1517,7 +1517,7 @@
                 "phpspec/prophecy": "^1.12",
                 "phpspec/prophecy-phpunit": "^2.0",
                 "phpunit/phpunit": "^9.5.5",
-                "psalm/plugin-phpunit": "^0.16.1",
+                "psalm/plugin-phpunit": "^0.17.0",
                 "vimeo/psalm": "^4.10"
             },
             "suggest": {
@@ -1568,7 +1568,7 @@
                     "type": "community_bridge"
                 }
             ],
-            "time": "2022-07-10T15:36:43+00:00"
+            "time": "2022-07-19T09:25:16+00:00"
         },
         {
             "name": "lcobucci/clock",
