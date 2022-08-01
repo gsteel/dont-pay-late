@@ -5363,16 +5363,16 @@
         },
         {
             "name": "laminas/laminas-development-mode",
-            "version": "3.7.0",
+            "version": "3.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-development-mode.git",
-                "reference": "8f44cf5a67968793095b06d68ac1dadbb610431d"
+                "reference": "a01e937a41909df8a6750d500a819fbda4ce6be0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-development-mode/zipball/8f44cf5a67968793095b06d68ac1dadbb610431d",
-                "reference": "8f44cf5a67968793095b06d68ac1dadbb610431d",
+                "url": "https://api.github.com/repos/laminas/laminas-development-mode/zipball/a01e937a41909df8a6750d500a819fbda4ce6be0",
+                "reference": "a01e937a41909df8a6750d500a819fbda4ce6be0",
                 "shasum": ""
             },
             "require": {
@@ -5420,7 +5420,7 @@
                     "type": "community_bridge"
                 }
             ],
-            "time": "2022-07-24T20:57:49+00:00"
+            "time": "2022-07-26T07:48:21+00:00"
         },
         {
             "name": "lctrs/psalm-psr-container-plugin",
