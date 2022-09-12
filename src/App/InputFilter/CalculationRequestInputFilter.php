@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\InputFilter;
 
+use App\Exception\BadMethodCall;
+use App\Util\Assert;
 use DateTimeImmutable;
 use Laminas\Filter\StringTrim;
 use Laminas\Filter\ToFloat;
@@ -140,5 +142,32 @@ final class CalculationRequestInputFilter extends InputFilter
                 ],
             ],
         ]);
+    }
+
+    /**
+     * @return array<string, mixed>
+     * @psalm-return array{
+     *     dueDate: non-empty-string,
+     *     termsInDays: positive-int,
+     *     amount: float,
+     * }
+     */
+    public function getValidValues(): array
+    {
+        if (! $this->isValid()) {
+            throw new BadMethodCall('Payload is not valid');
+        }
+
+        $values = parent::getValues();
+        Assert::keyExists($values, 'dueDate');
+        Assert::keyExists($values, 'termsInDays');
+        Assert::keyExists($values, 'amount');
+        Assert::stringNotEmpty($values['dueDate']);
+        Assert::integer($values['termsInDays']);
+        Assert::greaterThanEq($values['termsInDays'], 0);
+        Assert::float($values['amount']);
+        Assert::greaterThanEq($values['amount'], 0);
+
+        return $values;
     }
 }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace AppTest\Integration\InputFilter;
 
 use App\BaseRate\BaseRateHistory;
+use App\Exception\BadMethodCall;
 use App\InputFilter\CalculationRequestInputFilter;
 use AppTest\Integration\Framework\TestCase;
 use DateInterval;
@@ -95,5 +96,26 @@ class CalculationRequestInputFilterTest extends TestCase
             $earliestDate->format('jS F Y')
         );
         self::assertEquals($expect, $value[GreaterThan::NOT_GREATER_INCLUSIVE]);
+    }
+
+    public function testRetrievingDataSetWithInvalidInputIsExceptional(): void
+    {
+        $this->filter->setData([]);
+        $this->expectException(BadMethodCall::class);
+        $this->filter->getValidValues();
+    }
+
+    public function testValidPayloadYieldsExpectedValues(): void
+    {
+        $this->filter->setData([
+            'dueDate' => '2020-01-01',
+            'termsInDays' => '30',
+            'amount' => '123.45',
+        ]);
+        self::assertEquals([
+            'dueDate' => '2020-01-01',
+            'termsInDays' => 30,
+            'amount' => 123.45,
+        ], $this->filter->getValidValues());
     }
 }
