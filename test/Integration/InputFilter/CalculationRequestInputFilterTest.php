@@ -78,6 +78,7 @@ class CalculationRequestInputFilterTest extends TestCase
         $list = $container->get(BaseRateHistory::class)->get();
         $earliestDate = $list->earliestDate();
         $date = $earliestDate->sub(new DateInterval('P7D'));
+        self::assertNotFalse($date);
 
         $this->filter->setData([
             'dueDate' => $date->format('Y-m-d'),
@@ -89,7 +90,6 @@ class CalculationRequestInputFilterTest extends TestCase
         $messages = $this->filter->getMessages();
         self::assertArrayHasKey('dueDate', $messages);
         $value = $messages['dueDate'];
-        self::assertIsArray($value);
         self::assertArrayHasKey(GreaterThan::NOT_GREATER_INCLUSIVE, $value);
         $expect = sprintf(
             'The earliest date that a base rate can be found is %s but the date you have entered is prior to this date',
