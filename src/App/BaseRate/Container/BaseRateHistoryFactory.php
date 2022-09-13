@@ -19,7 +19,7 @@ final class BaseRateHistoryFactory
             $container->get(BaseRateCache::class),
             $container->get(Client::class),
             $container->get(ClockInterface::class),
-            new DateInterval('P7D')
+            new DateInterval('P7D'),
         );
     }
 }

@@ -18,7 +18,7 @@ final class StandardCalculatorFactory
             $container->get(BaseRateHistory::class)->get(),
             8.0,
             $container->get(Currency::class),
-            $container->get(RecoveryFeeLookup::class)
+            $container->get(RecoveryFeeLookup::class),
         );
     }
 }

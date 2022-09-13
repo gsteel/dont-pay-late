@@ -32,7 +32,7 @@ final class ClientTest extends TestCase
             new UriFactory(),
             new RequestFactory(),
             new SystemClock($timezone),
-            $timezone
+            $timezone,
         );
 
         $rates = $client->fetchAll();

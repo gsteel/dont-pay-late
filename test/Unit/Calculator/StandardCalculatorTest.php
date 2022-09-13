@@ -31,12 +31,12 @@ class StandardCalculatorTest extends TestCase
             ChangeList::fromArray([
                 new RateChange(
                     self::date('2000-01-01'),
-                    10.0
+                    10.0,
                 ),
             ]),
             10.0,
             $this->gpb,
-            new RecoveryFeeLookup($this->gpb)
+            new RecoveryFeeLookup($this->gpb),
         );
     }
 
@@ -54,7 +54,7 @@ class StandardCalculatorTest extends TestCase
             self::date('2020-01-01'),
             30,
             Money::GBP(50000),
-            self::date('2020-02-01')
+            self::date('2020-02-01'),
         );
 
         $response = $this->calculator->calculate($request);
@@ -76,7 +76,7 @@ class StandardCalculatorTest extends TestCase
             self::date('2020-01-01'),
             30,
             Money::GBP(50000),
-            self::date('2020-01-02')
+            self::date('2020-01-02'),
         );
 
         $response = $this->calculator->calculate($request);
@@ -92,12 +92,12 @@ class StandardCalculatorTest extends TestCase
             self::date('1984-01-01'),
             30,
             Money::GBP(50000),
-            self::date('2020-01-02')
+            self::date('2020-01-02'),
         );
 
         $this->expectException(CalculationFailed::class);
         $this->expectExceptionMessage(
-            'A calculation cannot be made because I don’t know what the base rate was on 1st January 1984'
+            'A calculation cannot be made because I don’t know what the base rate was on 1st January 1984',
         );
 
         $this->calculator->calculate($request);
@@ -109,12 +109,12 @@ class StandardCalculatorTest extends TestCase
             self::date('2010-01-01'),
             30,
             Money::USD(50000),
-            self::date('2020-01-02')
+            self::date('2020-01-02'),
         );
 
         $this->expectException(CalculationFailed::class);
         $this->expectExceptionMessage(
-            'The currency "USD" is not supported'
+            'The currency "USD" is not supported',
         );
 
         $this->calculator->calculate($request);

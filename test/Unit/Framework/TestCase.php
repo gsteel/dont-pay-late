@@ -20,7 +20,7 @@ class TestCase extends PHPUnitTestCase
         return new ServerRequest([], [], $path, $method);
     }
 
-    protected function stubRequestHandler(?ResponseInterface $willReturn = null): TestHandler
+    protected function stubRequestHandler(ResponseInterface|null $willReturn = null): TestHandler
     {
         $willReturn = $willReturn ?: new TextResponse('Text Body');
 

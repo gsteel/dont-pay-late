@@ -28,7 +28,7 @@ final class SymfonyRedisCacheAbstractFactory
             $container->get(Redis::class),
             $namespace,
             $defaultTtl,
-            new DefaultMarshaller(false)
+            new DefaultMarshaller(false),
         );
     }
 }

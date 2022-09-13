@@ -12,21 +12,21 @@ use function sprintf;
 
 final class Env
 {
-    public static function getString(string $env, ?string $default = null): ?string
+    public static function getString(string $env, string|null $default = null): string|null
     {
         $value = getenv($env);
 
         return empty($value) ? $default : $value;
     }
 
-    public static function getInt(string $env, ?int $default = null): ?int
+    public static function getInt(string $env, int|null $default = null): int|null
     {
         $value = getenv($env);
 
         return ! is_numeric($value) ? $default : (int) $value;
     }
 
-    public static function requireString(string $env, ?string $default = null): string
+    public static function requireString(string $env, string|null $default = null): string
     {
         $value = self::getString($env, $default);
         if (! $value) {
@@ -36,7 +36,7 @@ final class Env
         return $value;
     }
 
-    public static function requireInt(string $env, ?int $default = null): int
+    public static function requireInt(string $env, int|null $default = null): int
     {
         $value = self::getInt($env, $default);
         if (! $value) {

@@ -22,21 +22,21 @@ class RecoveryFeeLookupTest extends TestCase
     public function testRecoveryFeeIsFortyQuid(): void
     {
         self::assertEquals(4000, $this->lookup->forAmount(
-            new Money(50000, new Currency('GBP'))
+            new Money(50000, new Currency('GBP')),
         )->getAmount());
     }
 
     public function testRecoveryFeeIsSeventyQuid(): void
     {
         self::assertEquals(7000, $this->lookup->forAmount(
-            new Money(500000, new Currency('GBP'))
+            new Money(500000, new Currency('GBP')),
         )->getAmount());
     }
 
     public function testRecoveryFeeIsAHundredQuid(): void
     {
         self::assertEquals(10000, $this->lookup->forAmount(
-            new Money(1500000, new Currency('GBP'))
+            new Money(1500000, new Currency('GBP')),
         )->getAmount());
     }
 }

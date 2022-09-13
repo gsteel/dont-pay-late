@@ -37,12 +37,12 @@ class CalculationMiddlewareTest extends TestCase
             ChangeList::fromArray([
                 new RateChange(
                     $firstDate,
-                    8.5
+                    8.5,
                 ),
             ]),
             10.0,
             $gbp,
-            new RecoveryFeeLookup($gbp)
+            new RecoveryFeeLookup($gbp),
         );
 
         $inputFilter = new CalculationRequestInputFilter($firstDate);
@@ -52,7 +52,7 @@ class CalculationMiddlewareTest extends TestCase
             $calculator,
             $inputFilter,
             $gbp,
-            new FrozenClock($now)
+            new FrozenClock($now),
         );
     }
 

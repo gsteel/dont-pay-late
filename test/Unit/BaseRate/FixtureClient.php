@@ -31,7 +31,7 @@ final class FixtureClient implements ClientContract
 
         return Client::extractRateChanges(
             file_get_contents(__DIR__ . '/fixture/feed.xml'),
-            new DateTimeZone('UTC')
+            new DateTimeZone('UTC'),
         );
     }
 }

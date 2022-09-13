@@ -21,7 +21,7 @@ final class ClientFactory
             $container->get(UriFactoryInterface::class),
             $container->get(RequestFactoryInterface::class),
             $container->get(ClockInterface::class),
-            new DateTimeZone('Europe/London')
+            new DateTimeZone('Europe/London'),
         );
     }
 }

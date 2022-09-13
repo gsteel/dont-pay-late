@@ -30,7 +30,7 @@ final class CalculationRequestInputFilter extends InputFilter
         $dateError = 'Please provide a due date in YYYY-MM-DD format';
         $tooOld = sprintf(
             'The earliest date that a base rate can be found is %s but the date you have entered is prior to this date',
-            $this->minimumDate->format('jS F Y')
+            $this->minimumDate->format('jS F Y'),
         );
 
         $this->add([

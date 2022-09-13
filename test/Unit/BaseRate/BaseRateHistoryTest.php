@@ -32,7 +32,7 @@ class BaseRateHistoryTest extends TestCase
             $this->cache,
             $this->client,
             $this->clock,
-            new DateInterval('P7D')
+            new DateInterval('P7D'),
         );
     }
 

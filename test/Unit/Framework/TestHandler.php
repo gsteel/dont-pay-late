@@ -11,12 +11,10 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 final class TestHandler implements RequestHandlerInterface
 {
-    private readonly ResponseInterface $response;
     private ServerRequestInterface|null $request = null;
 
-    public function __construct(ResponseInterface $response)
+    public function __construct(private readonly ResponseInterface $response)
     {
-        $this->response = $response;
     }
 
     public function handle(ServerRequestInterface $request): ResponseInterface
@@ -26,7 +24,7 @@ final class TestHandler implements RequestHandlerInterface
         return $this->response;
     }
 
-    public function receivedRequest(): ?RequestInterface
+    public function receivedRequest(): RequestInterface|null
     {
         return $this->request;
     }
