@@ -42,7 +42,7 @@
         "laminas/laminas-servicemanager": "^3.16",
         "laminas/laminas-stdlib": "^3.13",
         "laminas/laminas-stratigility": "^3.8",
-        "laminas/laminas-validator": "^2.23",
+        "laminas/laminas-validator": "^2.24",
         "laminas/laminas-view": "^2.22.1",
         "lcobucci/clock": "^2.2",
         "mezzio/mezzio": "^3.11",
