@@ -4,9 +4,12 @@ declare(strict_types=1);
 
 namespace App\Calculator;
 
+use App\Time\Util;
 use DateTimeImmutable;
+use Money\Currencies\ISOCurrencies;
 use Money\Currency;
 use Money\Money;
+use Money\Parser\DecimalMoneyParser;
 
 final class Request
 {
@@ -43,5 +46,26 @@ final class Request
     public function amount(): Money
     {
         return new Money($this->amount, $this->currency());
+    }
+
+    /**
+     * @param array<string, mixed> $data
+     * @psalm-param array{
+     *     dueDate: non-empty-string,
+     *     termsInDays: positive-int,
+     *     amount: float,
+     * } $data
+     */
+    public static function fromArray(array $data, Currency $currency, DateTimeImmutable $now): self
+    {
+        $parse = new DecimalMoneyParser(new ISOCurrencies());
+        $amount = $parse->parse((string) $data['amount'], $currency);
+
+        return self::new(
+            Util::dateFromFormat('!Y-m-d', $data['dueDate'], $now->getTimezone()),
+            $data['termsInDays'],
+            $amount,
+            $now,
+        );
     }
 }

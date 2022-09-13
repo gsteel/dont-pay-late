@@ -11,8 +11,8 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 final class TestHandler implements RequestHandlerInterface
 {
-    private ResponseInterface $response;
-    private ?ServerRequestInterface $request;
+    private readonly ResponseInterface $response;
+    private ServerRequestInterface|null $request = null;
 
     public function __construct(ResponseInterface $response)
     {
@@ -29,5 +29,10 @@ final class TestHandler implements RequestHandlerInterface
     public function receivedRequest(): ?RequestInterface
     {
         return $this->request;
+    }
+
+    public function didHandle(): bool
+    {
+        return $this->request !== null;
     }
 }

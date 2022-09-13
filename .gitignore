@@ -2,6 +2,7 @@ phpunit.xml
 /vendor/
 /node_modules/
 /build/
+/config/development.config.php
 /config/autoload/**/*.local.php
 /frontend/sass/vendor/
 /data/cache/*
