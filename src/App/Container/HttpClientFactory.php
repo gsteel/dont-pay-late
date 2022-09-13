@@ -16,7 +16,7 @@ final class HttpClientFactory
     {
         return new CurlClient(
             $container->get(ResponseFactoryInterface::class),
-            $container->get(StreamFactoryInterface::class)
+            $container->get(StreamFactoryInterface::class),
         );
     }
 }

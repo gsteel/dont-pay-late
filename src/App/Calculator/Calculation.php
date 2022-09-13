@@ -13,7 +13,7 @@ final class Calculation
         public readonly float $interestRate,
         public readonly int $recoveryFee,
         public readonly int $interestPayable,
-        public readonly int $daysOverdue
+        public readonly int $daysOverdue,
     ) {
     }
 
@@ -22,14 +22,14 @@ final class Calculation
         float $interestRate,
         Money $recoveryFee,
         Money $interestPayable,
-        int $daysOverdue
+        int $daysOverdue,
     ): self {
         return new self(
             $request,
             $interestRate,
             (int) $recoveryFee->getAmount(),
             (int) $interestPayable->getAmount(),
-            $daysOverdue
+            $daysOverdue,
         );
     }
 
@@ -47,7 +47,7 @@ final class Calculation
     {
         return $this->request->amount()->add(
             $this->recoveryFee(),
-            $this->interestPayable()
+            $this->interestPayable(),
         );
     }
 }

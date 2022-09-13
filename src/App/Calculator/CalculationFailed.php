@@ -16,7 +16,7 @@ final class CalculationFailed extends RuntimeError
     {
         return new self(sprintf(
             'A calculation cannot be made because I don’t know what the base rate was on %s',
-            $date->format('jS F Y')
+            $date->format('jS F Y'),
         ));
     }
 
@@ -24,7 +24,7 @@ final class CalculationFailed extends RuntimeError
     {
         return new self(sprintf(
             'The currency "%s" is not supported',
-            $currency->getCode()
+            $currency->getCode(),
         ));
     }
 }

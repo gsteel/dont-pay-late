@@ -20,7 +20,7 @@ final class RedisClientFactory
         $client->connect(
             Dot::stringDefault('redis.host', $config, 'localhost'),
             Dot::integerDefault('redis.port', $config, 6379),
-            Dot::floatDefault('redis.timeout', $config, 0.0)
+            Dot::floatDefault('redis.timeout', $config, 0.0),
         );
         $client->select(Dot::integerDefault('redis.dbindex', $config, 0));
 

@@ -13,11 +13,8 @@ use function sprintf;
 
 final class ErrorHandlerLoggingListener
 {
-    private LoggerInterface $logger;
-
-    public function __construct(LoggerInterface $logger)
+    public function __construct(private readonly LoggerInterface $logger)
     {
-        $this->logger = $logger;
     }
 
     public function __invoke(Throwable $error, ServerRequestInterface $request, ResponseInterface $response): void
@@ -27,7 +24,7 @@ final class ErrorHandlerLoggingListener
             $request->getMethod(),
             (string) $request->getUri(),
             $response->getStatusCode(),
-            $error->getMessage()
+            $error->getMessage(),
         );
         $this->logger->error($message, [
             'uri' => (string) $request->getUri(),

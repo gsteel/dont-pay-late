@@ -93,7 +93,7 @@ class CalculationRequestInputFilterTest extends TestCase
         self::assertArrayHasKey(GreaterThan::NOT_GREATER_INCLUSIVE, $value);
         $expect = sprintf(
             'The earliest date that a base rate can be found is %s but the date you have entered is prior to this date',
-            $earliestDate->format('jS F Y')
+            $earliestDate->format('jS F Y'),
         );
         self::assertEquals($expect, $value[GreaterThan::NOT_GREATER_INCLUSIVE]);
     }

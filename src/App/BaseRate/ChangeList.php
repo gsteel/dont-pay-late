@@ -19,9 +19,7 @@ use function count;
 use function reset;
 use function usort;
 
-/**
- * @implements IteratorAggregate<array-key, RateChange>
- */
+/** @implements IteratorAggregate<array-key, RateChange> */
 final class ChangeList implements IteratorAggregate, Countable, JsonSerializable
 {
     /** @param list<RateChange> $rates */
@@ -49,7 +47,7 @@ final class ChangeList implements IteratorAggregate, Countable, JsonSerializable
         return new self($changes);
     }
 
-    public function findChangeOnOrPreceding(DateTimeInterface $date): ?RateChange
+    public function findChangeOnOrPreceding(DateTimeInterface $date): RateChange|null
     {
         foreach (array_reverse($this->rates) as $rate) {
             if ($rate->date > $date) {
@@ -90,7 +88,7 @@ final class ChangeList implements IteratorAggregate, Countable, JsonSerializable
         return self::fromArray($rates);
     }
 
-    public function first(): ?RateChange
+    public function first(): RateChange|null
     {
         $array = array_slice($this->rates, 0, 1);
         $first = reset($array);

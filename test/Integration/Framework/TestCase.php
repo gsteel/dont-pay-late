@@ -20,8 +20,8 @@ use Psr\Http\Message\ServerRequestInterface;
  */
 class TestCase extends UnitTestCase
 {
-    private static ?ContainerInterface $container;
-    private static ?Application $application;
+    private static ContainerInterface|null $container;
+    private static Application|null $application;
 
     protected static function getContainer(): ContainerInterface
     {

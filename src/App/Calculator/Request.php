@@ -19,7 +19,7 @@ final class Request
         public readonly int $termsInDays,
         public readonly int $amount,
         public readonly string $currencyCode,
-        public readonly DateTimeImmutable $now
+        public readonly DateTimeImmutable $now,
     ) {
     }
 
@@ -27,14 +27,14 @@ final class Request
         DateTimeImmutable $dueDate,
         int $termsInDays,
         Money $amount,
-        DateTimeImmutable $now
+        DateTimeImmutable $now,
     ): self {
         return new self(
             $dueDate,
             $termsInDays,
             (int) $amount->getAmount(),
             $amount->getCurrency()->getCode(),
-            $now
+            $now,
         );
     }
 

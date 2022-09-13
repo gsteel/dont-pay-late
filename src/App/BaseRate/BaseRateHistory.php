@@ -19,7 +19,7 @@ final class BaseRateHistory
         private readonly CacheItemPoolInterface $cache,
         private readonly ClientContract $client,
         private readonly ClockInterface $clock,
-        private readonly DateInterval $maxAge
+        private readonly DateInterval $maxAge,
     ) {
     }
 
@@ -43,7 +43,7 @@ final class BaseRateHistory
         $this->fetchAndStore();
     }
 
-    private function getCached(): ?ChangeList
+    private function getCached(): ChangeList|null
     {
         $item = $this->cache->getItem(BaseRateCache::CACHE_KEY);
         if (! $item->isHit()) {
@@ -79,7 +79,7 @@ final class BaseRateHistory
         $this->cache->save($update);
     }
 
-    public function lastUpdateTime(): ?DateTimeImmutable
+    public function lastUpdateTime(): DateTimeImmutable|null
     {
         $update = $this->cache->getItem(BaseRateCache::LAST_UPDATE_KEY);
         $value = $update->get();

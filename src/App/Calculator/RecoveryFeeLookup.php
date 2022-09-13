@@ -10,7 +10,7 @@ use Money\Money;
 final class RecoveryFeeLookup
 {
     public function __construct(
-        private readonly Currency $currency
+        private readonly Currency $currency,
     ) {
     }
 

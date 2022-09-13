@@ -46,7 +46,7 @@ class LazyFactoryTest extends TestCase
 
         $values = array_merge(
             array_keys($factories),
-            array_keys($aliases)
+            array_keys($aliases),
         );
 
         Assert::allString($values);

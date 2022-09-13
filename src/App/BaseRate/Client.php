@@ -33,7 +33,7 @@ final class Client implements ClientContract
         private readonly UriFactoryInterface $uriFactory,
         private readonly RequestFactoryInterface $requestFactory,
         private readonly ClockInterface $clock,
-        private readonly DateTimeZone $resultTimezone
+        private readonly DateTimeZone $resultTimezone,
     ) {
     }
 
@@ -49,7 +49,7 @@ final class Client implements ClientContract
     {
         return self::extractRateChanges(
             $this->fetchXml($this->minimumDate(), $this->clock->now()),
-            $this->resultTimezone
+            $this->resultTimezone,
         );
     }
 
@@ -116,7 +116,7 @@ final class Client implements ClientContract
         } catch (Throwable $error) {
             throw new RuntimeError(sprintf(
                 'Failed to retrieve the base rate data with the URI "%s"',
-                (string) $uri
+                (string) $uri,
             ), 0, $error);
         }
 
@@ -124,7 +124,7 @@ final class Client implements ClientContract
         if (! str_contains(strtolower($contentType), 'xml')) {
             throw new RuntimeError(sprintf(
                 'Unexpected content type. Expecting XML, received "%s"',
-                $contentType
+                $contentType,
             ));
         }
 
