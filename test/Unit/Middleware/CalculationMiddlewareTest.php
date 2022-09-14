@@ -123,6 +123,37 @@ class CalculationMiddlewareTest extends TestCase
         );
     }
 
+    /** @return array<string, array{0: string, 1: string}> */
+    public function invalidBodyDataProvider(): array
+    {
+        return [
+            'Empty Body' => ['', 'Expected a valid JSON Payload'],
+            'Invalid JSON' => ['{whut?}', 'Expected a valid JSON Payload'],
+            'Invalid JSON Shape' => ['{"foo": "bar"}', 'A value is required for the due date of the invoice'],
+        ];
+    }
+
+    /** @dataProvider invalidBodyDataProvider */
+    public function testThatAnEmptyPayloadIsABadRequest(string $body, string $expectedErrorMessage): void
+    {
+        $body = (new StreamFactory())->createStream($body);
+        $handler = $this->stubRequestHandler();
+        $request = $this->serverRequest('/')
+            ->withHeader('Content-Type', 'application/json')
+            ->withBody($body);
+        $response = $this->middleware->process(
+            $request,
+            $handler,
+        );
+
+        self::assertFalse($handler->didHandle());
+        $this->assertErrorResponse(
+            $response,
+            StatusCodeInterface::STATUS_BAD_REQUEST,
+            $expectedErrorMessage,
+        );
+    }
+
     /** @return array<string, mixed> */
     public function testThatAValidPayloadIsAJsonResponse(): array
     {

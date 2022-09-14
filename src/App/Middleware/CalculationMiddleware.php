@@ -19,6 +19,7 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use StellaMaris\Clock\ClockInterface;
+use Throwable;
 
 use function implode;
 use function is_array;
@@ -44,8 +45,13 @@ final class CalculationMiddleware implements MiddlewareInterface
         }
 
         $body = (string) $request->getBody();
-        $payload = decode($body, true);
-        Assert::isArray($payload);
+        try {
+            $payload = decode($body, true);
+            Assert::isArray($payload);
+        } catch (Throwable) {
+            return $this->errorResponse(StatusCodeInterface::STATUS_BAD_REQUEST, ['Expected a valid JSON Payload']);
+        }
+
         $this->inputFilter->setData($payload);
         if (! $this->inputFilter->isValid()) {
             $messages = $this->flattenErrorMessages($this->inputFilter->getMessages());

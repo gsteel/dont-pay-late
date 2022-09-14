@@ -8,6 +8,7 @@ use DateTimeZone;
 use Laminas;
 use Laminas\ServiceManager\ConfigInterface;
 use Lcobucci\Clock\Clock;
+use Mezzio;
 use Money;
 use Psr;
 use Redis;
@@ -52,10 +53,14 @@ final class ConfigProvider
             'aliases' => [
                 Calculator\Calculator::class => Calculator\StandardCalculator::class,
                 StellaMaris\Clock\ClockInterface::class => Clock::class,
+                Mezzio\Router\RouteCollectorInterface::class => Mezzio\Router\RouteCollector::class,
             ],
             'delegators' => [
                 Laminas\Stratigility\Middleware\ErrorHandler::class => [
                     Log\Container\ErrorHandlerDelegator::class,
+                ],
+                Mezzio\Router\RouteCollector::class => [
+                    Container\RoutingSetupDelegator::class,
                 ],
             ],
         ];
