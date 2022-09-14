@@ -19,7 +19,6 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use StellaMaris\Clock\ClockInterface;
-
 use Throwable;
 
 use function implode;
