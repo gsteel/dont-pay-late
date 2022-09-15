@@ -1,17 +1,20 @@
-<?php $this->headTitle('404 Not Found'); ?>
+<?php
+
+declare(strict_types=1);
+
+use App\ViewRenderer;
+
+/** @var ViewRenderer $this */
+
+$this->headTitle('404 Not Found');
+
+?>
 
 <div class="container">
-    <div class="row">
-        <div class="col-xs-12 col-md-8 off-md-2 pt-lg pb-xxxl">
-            <h1>Oops!</h1>
-            <h2>This is awkward.</h2>
-            <p>We encountered a 404 Not Found error.</p>
-            <p>
-                You are looking for something that doesn't exist or may have moved.
-                Head back to <a href="<?php echo $this->url('home') ?>">the late payment calculator here</a>.
-            </p>
-        </div>
-    </div>
+    <h1>Not Found 😩</h1>
+    <h2>This is awkward.</h2>
+    <p>
+        You are looking for something that doesn't exist or may have moved.
+        Head back to <a href="<?= $this->url('home') ?>">the late payment calculator here</a>.
+    </p>
 </div>
-
-

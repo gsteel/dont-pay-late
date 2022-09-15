@@ -1,8 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
+use App\ViewRenderer;
+
+/** @var ViewRenderer $this */
+
 $title = 'UK Late Payment Interest Calculator';
 $description = 'This is an interest and debt recovery fee calculator for UK businesses with commercial debt. We hope you like it! It’s free to use, quick and we think it looks nice too!';
-$this->doctype('HTML5');
+
 $this->headTitle($title);
 $this->headMeta()->setName('description',  $description);
 $this->headMeta()->setProperty('og:description', $description);
@@ -12,73 +18,193 @@ $this->headMeta()->setName('twitter:title', $title);
 $this->headMeta()->setItemprop('description', $description);
 $this->headMeta()->setItemprop('name', $title);
 
-$initialDate = new DateTime('-30 days');
+$initialDate = new DateTimeImmutable('-30 days');
 ?>
 
-<form class="calculator" action="/calculate" method="POST" enctype="application/x-www-form-urlencoded">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="input-group">
-                    <label for="input-date">
-                        Invoice Date
-                    </label>
-                    <input class="date-picker" type="date" id="input-date" name="date" placeholder="Issue Date…" value="<?php echo $initialDate->format('Y-m-d'); ?>">
-                </div>
+<form id="calculator" action="/calculate" method="POST" enctype="application/x-www-form-urlencoded">
 
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="input-group">
-                    <label for="input-terms">
-                        Terms
-                    </label>
-                    <input class="number-input" type="number" id="input-terms" name="terms" placeholder="days…" value="30">
-                    Days
-                </div>
-
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="input-group">
-                    <label for="input-amount">
-                        Amount
-                    </label>
-                    <input class="currency-input" type="text" id="input-amount" name="amount" placeholder="Amount" value="500.00">
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="input-group">
-                    <button type="submit" name="submitButton" value="1">Calculate</button>
-                </div>
-            </div>
+    <div id="error-template">
+        <div class="body">
+            <h2>Whoops!</h2>
+            <ul></ul>
         </div>
     </div>
+
+
+    <div class="input-group">
+        <label for="input-date">
+            📆 Invoice Date
+        </label>
+        <input type="date" id="input-date" name="dueDate" placeholder="Issue Date…" value="<?= $initialDate->format('Y-m-d') ?>">
+    </div>
+
+    <div class="input-group">
+        <label for="input-terms">
+            ⏳ Payment Terms (Days)
+        </label>
+        <input type="number" id="input-terms" name="termsInDays" placeholder="days…" value="30" min="0" list="common-terms">
+        <datalist id="common-terms">
+            <option label="By return" value="0">
+            <option label="7 Days" value="7">
+            <option label="30 Days" value="30">
+            <option label="60 Days" value="60">
+        </datalist>
+    </div>
+
+    <div class="input-group">
+        <label for="input-amount">
+           💷 Original Amount (GBP)
+        </label>
+        <input type="number" id="input-amount" name="amount" placeholder="Amount" value="500.00" min="1.00">
+    </div>
+
+    <div class="input-group">
+        <button type="submit">Calculate</button>
+    </div>
+
+    <div id="result-template">
+        <div class="body">
+            <h2>👍 Someone now owes you £<span class="result-totalPayable"></span></h2>
+            <p>Here’s how this was worked out:</p>
+            <ul>
+                <li>Days Overdue: <span class="result-daysOverdue"></span></li>
+                <li>Annual Rate: <span class="result-interestRate"></span>%
+                    <em>(The statutory rate of 8.0% + The Bank of England base rate as at <span
+                            class="result-dueDate"></span>)</em></li>
+                <li>Interest Amount Payable: £<span class="result-interestPayable"></span></li>
+                <li>Recovery Fee: £<span class="result-recoveryFee"></span>
+                    <em>(According to the legislation)</em></li>
+                <li>Total now due: £<span class="result-totalPayable"></span>
+                    <em>(Assuming the debt hasn’t already been paid)</em></li>
+            </ul>
+            <a class="close" href="#"><span class="sr-only">Dismiss Result</span></a>
+        </div>
+    </div>
+
+    <noscript>
+        <div id="no-js">
+            <h2>Sorry, This calculator doesn’t work without JabbaScript 😢</h2>
+            <p>You'll need to turn javascript on in your browser to use the calculator.</p>
+        </div>
+    </noscript>
 </form>
 
-<div class="mustache-template calculator-success-template result-drawer">
-    <div class="body">
-        <h2>Someone now owes you £{{totalDue}}</h2>
-        <p>Here’s how this was worked out:</p>
-        <ul>
-            <li>Days Overdue: {{daysOverdue}}</li>
-            <li>Annual Rate: {{interestRate}}% <em>(The statutory rate of 8.0% + The bank of england base rate as at {{dueDate}})</em></li>
-            <li>Interest Amount Payable: £{{interestAmount}}</li>
-            <li>Recovery Fee: £{{recoveryFee}} <em>(According to the legislation)</em></li>
-            <li>Total now due: £{{totalDue}} <em>(Assuming the debt hasn't already been paid)</em></li>
-        </ul>
-        <a class="close"><span class="sr-only">Dismiss Result</span></a>
-    </div>
-</div>
 
-<div class="mustache-template calculator-error-template result-drawer">
-    <div class="body">
-        <h2>Whoops!</h2>
-        <p>{{message}}</p>
-        <a class="close"><span class="sr-only">Dismiss Result</span></a>
-    </div>
-</div>
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById('calculator');
+        const resultPanel = document.getElementById('result-template');
+        const errorPanel = document.getElementById('error-template');
+        const errorList = errorPanel.querySelectorAll('ul')[0];
+
+        resultPanel.classList.add('loaded');
+        errorPanel.classList.add('loaded');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            let payload = {};
+            payload.dueDate = form.dueDate.value;
+            payload.termsInDays = form.termsInDays.value;
+            payload.amount = form.amount.value;
+            clearErrors();
+
+            fetch(form.getAttribute('action'), {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(payload)
+            }).then(function (result) {
+                if (! result.ok) {
+                    errorResponse(result);
+
+                    return;
+                }
+
+                successfulResponse(result);
+            }).catch(function () {
+                rejectResponse();
+            });
+        });
+
+        let closeBtn = resultPanel.querySelectorAll('.close')[0];
+        closeBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            hideResult();
+        });
+
+        /**
+         * @param {KeyboardEvent} e
+         */
+        function escapeKey(e) {
+            if (e.key === 'Escape') {
+                hideResult();
+            }
+        }
+
+        function showResult()
+        {
+            resultPanel.classList.add('active');
+            document.addEventListener('keyup', escapeKey);
+        }
+
+        function hideResult()
+        {
+            resultPanel.classList.remove('active');
+            document.removeEventListener('keyup', escapeKey);
+        }
+
+        function showErrors()
+        {
+            errorPanel.classList.add('active')
+        }
+
+        function clearErrors()
+        {
+            errorPanel.classList.remove('active');
+            errorList.replaceChildren();
+        }
+
+        /**
+         * @param {Response} response
+         */
+        function errorResponse(response)
+        {
+            response.json().then(function (data) {
+                data.errorMessages.map(function (m) {
+                    let item = document.createElement('li');
+                    item.textContent = m;
+                    errorList.appendChild(item);
+                });
+                showErrors();
+            }).catch(rejectResponse);
+        }
+
+        function rejectResponse()
+        {
+            let item = document.createElement('li');
+            item.textContent = 'Sorry the calculation service is not currently available 💣';
+            errorList.appendChild(item);
+            showErrors();
+        }
+
+        /**
+         * @param {Response} response
+         */
+        function successfulResponse(response) {
+            response.json().then(function (data) {
+                for (let key in data) {
+                    let nodes = resultPanel.querySelectorAll('.result-' + key);
+                    if (nodes.length === 0) {
+                        continue;
+                    }
+                    Array.from(nodes).forEach(function (e) {
+                        e.textContent = data[key];
+                    });
+                }
+                showResult();
+            }).catch(rejectResponse);
+        }
+    });
+</script>

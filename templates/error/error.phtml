@@ -1,11 +1,17 @@
-<?php $this->headTitle(sprintf('%d %s', $this->status, $this->reason)); ?>
+<?php
 
-<h1>Oops!</h1>
-<h2>This is awkward.</h2>
-<p>We encountered a <?php echo $this->escapeHtml(sprintf('%d %s', $this->status, $this->reason)); ?> error.</p>
-<?php if ($this->status == 404) : ?>
-    <p>
-        You are looking for something that doesn't exist or may have moved. Check out one of the links on this page
-        or head back to <a href="/">Home</a>.
-    </p>
-<?php endif; ?>
+declare(strict_types=1);
+
+use App\ViewRenderer;
+
+/** @var ViewRenderer $this */
+
+$this->headTitle('500 Server Error');
+
+?>
+
+<div class="container">
+    <h1>It’s all screwed 😩</h1>
+    <h2>This is awkward.</h2>
+    <p>Something has gone horribly wrong.</p>
+</div>
