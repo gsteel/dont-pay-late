@@ -86,8 +86,8 @@ jobs:
           mv /tmp/.buildx-cache-new /tmp/.buildx-cache
 
   deploy:
-    name: "Deploy to Staging"
+    name: "Deploy"
     needs: build_and_push
-    uses: ./.github/workflows/deploy-to-staging.yml
+    uses: ./.github/workflows/deploy.yml
     secrets:
-      STAGING_WEBHOOKS: ${{ secrets.STAGING_WEBHOOKS }}
+      DEPLOY_WEBHOOKS: ${{ secrets.DEPLOY_WEBHOOKS }}
