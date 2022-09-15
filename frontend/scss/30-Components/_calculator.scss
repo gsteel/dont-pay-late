@@ -34,19 +34,18 @@
                 color: var(--input-placeholder);
             }
         }
-
-        button {
-            background-color: var(--foreground);
-            color: var(--background);
-            border: 1px solid var(--input-border);
-            border-radius: var(--br-md);
-            font-size: var(--fs-xl);
-            font-weight: var(--fw-bold);
-            padding: var(--space-sm) var(--space-md);
-            cursor: pointer;
-            &:hover {
-                background-color: var(--foreground-dark);
-            }
+    }
+    button {
+        background-color: var(--foreground);
+        color: var(--background);
+        border: 1px solid var(--input-border);
+        border-radius: var(--br-md);
+        font-size: var(--fs-xl);
+        font-weight: var(--fw-bold);
+        padding: var(--space-sm) var(--space-md);
+        cursor: pointer;
+        &:hover {
+            background-color: var(--foreground-dark);
         }
     }
 }
@@ -67,6 +66,7 @@
     em {
         opacity: 0.8;
         font-size: var(--fs-sm);
+        display: block;
     }
 
     &.loaded {
