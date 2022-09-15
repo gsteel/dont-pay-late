@@ -42,7 +42,7 @@ $initialDate = new DateTimeImmutable('-30 days');
         <label for="input-terms">
             ⏳ Payment Terms (Days)
         </label>
-        <input type="number" id="input-terms" name="termsInDays" placeholder="days…" value="30" min="0" list="common-terms">
+        <input type="number" id="input-terms" name="termsInDays" placeholder="days…" value="30" min="0" step="1" list="common-terms">
         <datalist id="common-terms">
             <option label="By return" value="0">
             <option label="7 Days" value="7">
@@ -55,7 +55,7 @@ $initialDate = new DateTimeImmutable('-30 days');
         <label for="input-amount">
            💷 Original Amount (GBP)
         </label>
-        <input type="number" id="input-amount" name="amount" placeholder="Amount" value="500.00" min="1.00">
+        <input type="number" id="input-amount" name="amount" placeholder="Amount" value="500.00" min="1.00" step="0.01">
     </div>
 
     <div class="input-group">
