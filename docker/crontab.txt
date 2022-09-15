@@ -1,0 +1,5 @@
+
+# sec min hr day-of-month month weekday year command
+
+# Update Bank of England Base Rates once every 2 weeks
+0 0 14 1,15 * * * /app/vendor/bin/laminas update-base-rates

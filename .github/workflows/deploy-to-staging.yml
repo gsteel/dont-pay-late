@@ -17,7 +17,7 @@ jobs:
 
     strategy:
       matrix:
-        key-name: [ nginx, php ]
+        key-name: [ nginx, php, cron ]
 
     steps:
       - name: "Set Hook Value"

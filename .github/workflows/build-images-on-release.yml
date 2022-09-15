@@ -15,12 +15,14 @@ jobs:
 
     strategy:
       matrix:
-        image-name: [php, nginx]
+        image-name: [php, nginx, cron]
         include:
           - image-name: php
             dockerfile: "php.dockerfile"
           - image-name: nginx
             dockerfile: "nginx.dockerfile"
+          - image-name: cron
+            dockerfile: "cron.dockerfile"
 
     env:
       IMAGE_NAME: ${{ github.repository }}-${{ matrix.image-name }}
