@@ -42,6 +42,7 @@ final class ConfigProvider
                 Calculator\StandardCalculator::class => Calculator\Container\StandardCalculatorFactory::class,
                 Log\ErrorHandlerLoggingListener::class => Log\Container\ErrorHandlerLoggingListenerFactory::class,
                 Middleware\CalculationMiddleware::class => Middleware\Container\CalculationMiddlewareFactory::class,
+                Middleware\TemplateRenderer::class => Middleware\Container\TemplateRendererFactory::class,
                 Money\Currency::class => static fn (): Money\Currency => new Money\Currency('GBP'),
                 Psr\Http\Client\ClientInterface::class => Container\HttpClientFactory::class,
 
