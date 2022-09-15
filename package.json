@@ -2,11 +2,41 @@
     "name": "netglue-late-payment",
     "version": "0.0.0",
     "private": true,
+    "browserslist": [
+        "> 1%",
+        "IE 10"
+    ],
     "description": "Late Payment Website",
-    "scripts": {
-    },
     "author": "George Steel <george@net-glue.co.uk>",
     "license": "MIT",
-    "devDependencies": {
+    "watch": {
+        "css": {
+            "patterns": [
+                "frontend/scss/**/*"
+            ],
+            "extensions": [
+                "scss"
+            ]
+        },
+        "js": {
+            "patterns": [
+                "frontend/js/**/*"
+            ],
+            "extensions": [
+                "js"
+            ]
+        }
+    },
+    "scripts": {
+        "watch": "npm-watch",
+        "css:main:build": "mkdir -p build/css && sass --no-source-map frontend/scss/main.scss build/css/main.css",
+        "css:main:postcss": "postcss -r build/css/main.css",
+        "css:main": "npm run css:main:build && npm run css:main:postcss && mkdir -p public/assets/css && vendor/bin/rev netglue:rev -s \"build/css/*.css\" -t public/assets/css -d -c 2 -r config/autoload/assets.global.php",
+        "css": "npm run css:main",
+        "js:lint": "eslint frontend/js/**",
+        "js:fix": "eslint --fix frontend/js/**",
+        "js:concat": "mkdir -p build/js && mkdir -p public/assets/js && node frontend/js/concat.js",
+        "js:uglify": "uglifyjs -o build/js/main.js build/js/main.js",
+        "js": "npm run js:lint && npm run js:concat && npm run js:uglify && vendor/bin/rev netglue:rev -s \"build/js/*.js\" -t public/assets/js -d -c 2 -r config/autoload/assets.global.php"
     }
 }

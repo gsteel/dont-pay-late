@@ -1,0 +1,7 @@
+
+a {
+    color: var(--foreground);
+    &:hover {
+        color: var(--foreground-dark);
+    }
+}

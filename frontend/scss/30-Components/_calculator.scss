@@ -1,0 +1,122 @@
+@import "../10-Tools/tools";
+
+#calculator {
+    position: relative;
+    z-index: 1;
+    font-size: var(--fs-lg);
+    text-align: center;
+    padding: var(--space-lg) var(--gutter);
+    max-width: $bp-sm;
+    margin: 0 auto;
+    overflow: hidden;
+
+    .input-group {
+        padding-bottom: var(--space-md);
+
+        label {
+            display: block;
+            font-weight: var(--fw-bold);
+        }
+
+        input {
+            background-color: var(--input-background);
+            border: none;
+            border-radius: var(--br-md);
+            //border-bottom: 1px solid var(--input-border);
+            color: var(--input-colour);
+            font-size: var(--fs-lg);
+            display: block;
+            width: 100%;
+            margin: var(--space-md) 0;
+            padding: var(--space-md);
+            box-shadow: rgba(0, 0, 0, 0.4) 0.1em 0.1em var(--space-sm) inset;
+            &::placeholder {
+                color: var(--input-placeholder);
+            }
+        }
+
+        button {
+            background-color: var(--foreground);
+            color: var(--background);
+            border: 1px solid var(--input-border);
+            border-radius: var(--br-md);
+            font-size: var(--fs-xl);
+            font-weight: var(--fw-bold);
+            padding: var(--space-sm) var(--space-md);
+            cursor: pointer;
+            &:hover {
+                background-color: var(--foreground-dark);
+            }
+        }
+    }
+}
+
+#result-template {
+    z-index: 2;
+    opacity: 0;
+    transform: translateX(100%);
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--background);
+    padding: var(--space-lg) var(--gutter);
+    text-align: left;
+    overflow: hidden;
+    em {
+        opacity: 0.8;
+        font-size: var(--fs-sm);
+    }
+
+    &.loaded {
+        transition: opacity .3s ease-in-out, transform .3s ease-in-out;
+    }
+
+    &.active {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+#error-template {
+    opacity: 0;
+    height: 0;
+    transform: scaleY(0);
+    transform-origin: left top;
+
+    &.loaded {
+        transition: transform .3s ease-in-out, opacity .3s ease-in-out;
+    }
+
+    &.active {
+        opacity: 1;
+        height: auto;
+        transform: scaleY(1);
+    }
+
+    h2 {
+        &::before {
+            content: "🫣";
+        }
+    }
+    ul {
+        text-align: left;
+        list-style: none;
+        padding: 0;
+        margin: var(--space-md) 0;
+
+        li {
+            padding: 0 0 0 2rem;
+            margin: var(--space-md) 0;
+            position: relative;
+        }
+
+        li::before {
+            position: absolute;
+            content: "🤷‍♂️ ";
+            left: 0;
+            top: 0;
+        }
+    }
+}

@@ -1,0 +1,11 @@
+@import "../10-Tools/tools";
+
+.sr-only {
+    @include sr-only();
+}
+
+.container {
+    max-width: $bp-md;
+    margin: 0 auto;
+    padding: var(--gutter);
+}

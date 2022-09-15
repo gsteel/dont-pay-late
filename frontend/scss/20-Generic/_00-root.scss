@@ -1,0 +1,78 @@
+@import "../01-Settings/spacing-sizing";
+@import "../01-Settings/text";
+
+:root {
+
+    // Spacing & Sizing
+
+    --one-rem: 16px;
+    --space-xs: 0.2rem;
+    --space-sm: 0.5rem;
+    --space-md: 1.0rem;
+    --space-lg: 2.5rem;
+    --space-xl: 5.0rem;
+    --gutter: 1.5rem;
+
+    // Fonts & Text Sizing
+
+    --fs-xs: 0.6rem;
+    --fs-sm: 0.8rem;
+    --fs-md: 1.0rem;
+    --fs-lg: 1.2rem;
+    --fs-xl: 2.0rem;
+
+    --leading-tight: 1.0;
+    --leading-normal: 1.4;
+    --leading-loose: 1.8;
+
+    --fw-bold: 600;
+    --fw-normal: 400;
+
+    --default-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --heading-font: var(--default-font);
+
+    // Border radius
+
+    --br-sm: 0.2em;
+    --br-md: 0.4em;
+    --br-lg: 0.8em;
+
+    // Colours
+
+    --red: hsl(358, 66.4%, 45.5%);
+    --red-tint: hsl(358, 66.4%, 55.5%);
+    --red-dark: hsl(358, 66.4%, 35.5%);
+    --yellow: hsl(49, 100%, 87.8%);
+    --yellow-dark: hsl(49, 100%, 67.8%);
+    --black: hsl(0, 0%, 0%);
+    --black-tint: hsl(0, 0%, 20%);
+    --white: #fff;
+
+    --background: var(--red);
+    --background-tint: var(--red-tint);
+    --background-dark: var(--red-dark);
+    --foreground: var(--yellow);
+    --foreground-dark: var(--yellow-dark);
+
+
+    --input-background: var(--red-tint);
+    --input-border: var(--white);
+    --input-placeholder: hsl(49, 100%, 87.8%, 0.6);
+    --input-colour: var(--yellow);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: var(--black);
+        --background-tint: var(--black-tint);
+        --background-dark: var(--red-dark);
+        --foreground: var(--yellow);
+        --foreground-dark: var(--yellow-dark);
+
+
+        --input-background: var(--black-tint);
+        --input-border: var(--red-dark);
+        --input-placeholder: hsl(49, 100%, 87.8%, 0.6);
+        --input-colour: var(--yellow);
+    }
+}

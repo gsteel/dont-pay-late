@@ -1,0 +1,15 @@
+
+// Breakpoints
+$bp-sm: 36rem;
+$bp-md: 48rem;
+$bp-lg: 62rem;
+$bp-xl: 75rem;
+$bp-xxl: 100rem;
+
+$breakpoints: (
+  'sm'  : $bp-sm,
+  'md'  : $bp-md,
+  'lg'  : $bp-lg,
+  'xl'  : $bp-xl,
+  'xxl' : $bp-xxl,
+);
