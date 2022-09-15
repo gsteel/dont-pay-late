@@ -1,6 +1,6 @@
 FROM php:8.1-cli-alpine
 
-ARG LOCAL_MODULES="redis intl opcache"
+ARG LOCAL_MODULES="bcmath ctype curl intl json libxml mbstring opcache redis xmlreader"
 
 ENV SUPERCRONIC_URL=https://github.com/aptible/supercronic/releases/download/v0.1.12/supercronic-linux-amd64 \
     SUPERCRONIC=supercronic-linux-amd64 \
