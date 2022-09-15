@@ -1,5 +1,5 @@
 {
-    "name": "netglue-late-payment",
+    "name": "late-payment-calculator",
     "version": "0.0.0",
     "private": true,
     "browserslist": [
