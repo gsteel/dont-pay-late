@@ -14,34 +14,6 @@
             <directory name="vendor" />
         </ignoreFiles>
     </projectFiles>
-    <issueHandlers>
-        <InternalMethod>
-            <errorLevel type="suppress">
-                <referencedMethod name="PHPUnit\Framework\MockObject\Builder\InvocationMocker::method"/>
-            </errorLevel>
-            <errorLevel type="suppress">
-                <referencedMethod name="PHPUnit\Framework\MockObject\Builder\InvocationMocker::willReturn"/>
-            </errorLevel>
-            <errorLevel type="suppress">
-                <referencedMethod name="PHPUnit\Framework\MockObject\Builder\InvocationMocker::with"/>
-            </errorLevel>
-        </InternalMethod>
-        <PropertyNotSetInConstructor>
-            <errorLevel type="suppress">
-                <directory name="test" />
-            </errorLevel>
-        </PropertyNotSetInConstructor>
-        <MissingConstructor>
-            <errorLevel type="suppress">
-                <directory name="test" />
-            </errorLevel>
-        </MissingConstructor>
-        <InvalidScope>
-            <errorLevel type="suppress">
-                <directory name="templates" />
-            </errorLevel>
-        </InvalidScope>
-    </issueHandlers>
     <plugins>
         <pluginClass class="Psalm\PhpUnitPlugin\Plugin"/>
         <pluginClass class="Lctrs\PsalmPsrContainerPlugin\Plugin"/>
