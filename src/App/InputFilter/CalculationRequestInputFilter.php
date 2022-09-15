@@ -48,6 +48,7 @@ final class CalculationRequestInputFilter extends InputFilter
                             NotEmpty::IS_EMPTY => 'A value is required for the due date of the invoice',
                         ],
                     ],
+                    'break_chain_on_failure' => true,
                 ],
                 'isDate' => [
                     'name' => Date::class,
@@ -59,6 +60,7 @@ final class CalculationRequestInputFilter extends InputFilter
                             Date::INVALID_DATE => $dateError,
                         ],
                     ],
+                    'break_chain_on_failure' => true,
                 ],
                 'after' => [
                     'name' => GreaterThan::class,
@@ -98,6 +100,7 @@ final class CalculationRequestInputFilter extends InputFilter
                         ],
                         'type' => NotEmpty::ALL & ~(NotEmpty::ZERO | NotEmpty::INTEGER),
                     ],
+                    'break_chain_on_failure' => true,
                 ],
                 'reasonableTerms' => [
                     'name' => Between::class,
@@ -129,6 +132,7 @@ final class CalculationRequestInputFilter extends InputFilter
                             NotEmpty::IS_EMPTY => 'A value is required for the amount of the invoice',
                         ],
                     ],
+                    'break_chain_on_failure' => true,
                 ],
                 'positive' => [
                     'name' => GreaterThan::class,
