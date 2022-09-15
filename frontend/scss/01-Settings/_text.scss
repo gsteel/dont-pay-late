@@ -1,0 +1,12 @@
+
+$default-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$font-family-base: $default-font-stack;
+$font-family-headings: $default-font-stack;
+
+$font-weight-default: 400;
+$font-weight-bold: 400;
+$font-weight-headings: 400;
+
+@mixin fontWeight($weight: $font-weight-default) {
+  font-weight: $weight;
+}

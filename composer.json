@@ -1,5 +1,5 @@
 {
-    "name": "netglue/late-payment-calculator",
+    "name": "gsteel/late-payment-calculator",
     "description": "A teensy website that provides a late payment calculator",
     "type": "project",
     "homepage": "https://dontpaylate.uk",
@@ -7,7 +7,7 @@
     "authors": [
         {
             "name": "George Steel",
-            "homepage": "https://netglue.uk/"
+            "homepage": "https://github.com/gsteel"
         }
     ],
     "config": {

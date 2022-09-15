@@ -1,7 +1,13 @@
 <?php
-$title = 'About Net Glue and the Late Payment Calculator';
-$description = 'More information about our free late payment interest and fee calculator for UK commercial debt';
-$this->doctype('HTML5');
+
+declare(strict_types=1);
+
+use App\ViewRenderer;
+
+/** @var ViewRenderer $this */
+
+$title = 'About George Steel and the Late Payment Calculator';
+$description = 'More information about the free late payment interest and fee calculator for UK commercial debt';
 $this->headTitle($title);
 $this->headMeta()->setName('description',  $description);
 $this->headMeta()->setProperty('og:description', $description);
@@ -11,33 +17,33 @@ $this->headMeta()->setName('twitter:title', $title);
 $this->headMeta()->setItemprop('description', $description);
 $this->headMeta()->setItemprop('name', $title);
 
-
 ?>
 
 <div class="container">
-    <div class="row">
-        <div class="col-xs-12 col-md-8 off-md-2 pv-xxl">
-            <h1>About the Late Payment Calculator</h1>
-            <p>This calculator and website was made by Net Glue, a <a href="https://netglue.uk">Devon based web designer</a>.</p>
-            <h2>What's it for?</h2>
-            <p>If you’re in business, it’s likely that you’ve encountered customers that don’t pay up.
-            Lot’s of business owners don’t realise that according to 
-            <a href="https://www.gov.uk/late-commercial-payments-interest-debt-recovery">legislation on commercial debt</a>,
-            you are entitled to charge a recovery fee and interest on late or unpaid invoices.</p>
-            <p>The <a href="/">Late payment calculator</a> accepts your invoice date, terms of payment and the amount and
-            computes how many days overdue the invoice is and applies the correct interest rate and recovery fee based on
-            the values you enter.</p>
-            
-            <h2>There are other calculators on the net…</h2>
-            <p>Yes there are. Some of them require that you pay for an account to use them! And, most of them look pretty ugly and are slow to use.</p>
-            <p>We made this calculator to be easy, pleasant and quick to use and more importantly, FREE!</p>
-            
-            <h2>Disclaimer</h2>
-			<p><small>The calculator is offerred on an <em>as is</em> basis and we make no warranty for it's accuracy and neither is it intended as some kind
-			of replacement for decent legal advice should you need it.</small></p>
-			<p><small>Your use of the calculator indicates that you agree to the <a href="http://opensource.org/licenses/MIT" rel="license">license under which it is released</a>.</small></p>
-			</div>
-			
-        </div>
-    </div>
+    <h1>About the Late Payment Calculator</h1>
+    <p>This calculator and website was made by me, <a href="https://github.com/gsteel">George Steel</a>. I'm a
+        web developer based in Devon, UK <em>(I have a <a href='https://netglue.uk'>web development firm
+            called ”Netglue”</a>).</em></p>
+
+    <h2>What's it for?</h2>
+    <p>If you’re in business, it’s likely that you’ve encountered customers that don’t pay up.
+    Lots of business owners don’t realise that according to
+    <a href="https://www.gov.uk/late-commercial-payments-interest-debt-recovery">legislation on commercial debt</a>,
+    you are entitled to charge a recovery fee and interest on late or unpaid invoices.</p>
+    <p>The <a href="/">Late payment calculator</a> accepts your invoice date, terms of payment and the amount and
+    computes how many days overdue the invoice is and applies the correct interest rate and recovery fee based on
+    the values you enter.</p>
+
+    <h2>There are other calculators on the net…</h2>
+    <p>Yes there are. Some of them require that you pay for an account to use them! And, most of them look
+        pretty ugly and are slow to use.</p>
+    <p>We made this calculator to be easy, pleasant and quick to use and more importantly, FREE!</p>
+
+    <h2>Disclaimer</h2>
+    <p>The calculator is offered on an <em>as is</em> basis and we make no warranty for its accuracy
+        and neither is it intended as some kind of replacement for decent legal advice should you need it.</p>
+
+    <p>Your use of the calculator indicates that you agree to the
+        <a href="http://opensource.org/licenses/MIT" rel="license">license under which it is released</a>.</p>
+
 </div>

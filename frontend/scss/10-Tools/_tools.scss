@@ -1,0 +1,49 @@
+@import "../01-Settings/spacing-sizing";
+
+@function breakpoint($size, $map: $breakpoints) {
+    @return map-get($map, $size);
+}
+
+@mixin screen($size) {
+    @media screen and (min-width: breakpoint($size)) {
+        @content;
+    }
+}
+
+@mixin sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+@mixin container {
+    width: auto;
+    margin: 0 auto;
+    max-width: $bp-sm;
+    @include screen('md') {
+        max-width: $bp-xl;
+    }
+}
+
+@mixin list-reset {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+@mixin absFullSize {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+}

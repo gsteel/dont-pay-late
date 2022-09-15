@@ -27,6 +27,10 @@ final class ConfigProvider
         return [
             'dependencies' => $this->dependencies(),
             'input_filters' => $this->inputFilters(),
+            'templates' => $this->getTemplates(),
+            'view_helper_config' => [
+                'doctype' => Laminas\View\Helper\Doctype::HTML5,
+            ],
         ];
     }
 
@@ -42,6 +46,7 @@ final class ConfigProvider
                 Calculator\StandardCalculator::class => Calculator\Container\StandardCalculatorFactory::class,
                 Log\ErrorHandlerLoggingListener::class => Log\Container\ErrorHandlerLoggingListenerFactory::class,
                 Middleware\CalculationMiddleware::class => Middleware\Container\CalculationMiddlewareFactory::class,
+                Middleware\TemplateRenderer::class => Middleware\Container\TemplateRendererFactory::class,
                 Money\Currency::class => static fn (): Money\Currency => new Money\Currency('GBP'),
                 Psr\Http\Client\ClientInterface::class => Container\HttpClientFactory::class,
 
@@ -72,6 +77,25 @@ final class ConfigProvider
         return [
             'factories' => [
                 InputFilter\CalculationRequestInputFilter::class => InputFilter\CalculationRequestInputFilterFactory::class,
+            ],
+        ];
+    }
+
+    /** @return array<string, mixed> */
+    public function getTemplates(): array
+    {
+        return [
+            'map' => [
+                /** Page Templates */
+                'page::home' => __DIR__ . '/../../templates/pages/home.phtml',
+                'page::about' => __DIR__ . '/../../templates/pages/about.phtml',
+
+                /** Layouts */
+                'layout::default' => __DIR__ . '/../../templates/layout/layout.phtml',
+
+                /** Default Mezzio Error Templates */
+                'error::404' => __DIR__ . '/../../templates/error/404.phtml',
+                'error::error' => __DIR__ . '/../../templates/error/error.phtml',
             ],
         ];
     }
