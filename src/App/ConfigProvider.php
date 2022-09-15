@@ -31,6 +31,11 @@ final class ConfigProvider
             'view_helper_config' => [
                 'doctype' => Laminas\View\Helper\Doctype::HTML5,
             ],
+            'laminas-cli' => [
+                'commands' => [
+                    BaseRate\UpdateCommand::DEFAULT_NAME => BaseRate\UpdateCommand::class,
+                ],
+            ],
         ];
     }
 
@@ -42,6 +47,7 @@ final class ConfigProvider
                 BaseRate\BaseRateCache::class => Cache\Container\SymfonyRedisCacheAbstractFactory::class,
                 BaseRate\BaseRateHistory::class => BaseRate\Container\BaseRateHistoryFactory::class,
                 BaseRate\Client::class => BaseRate\Container\ClientFactory::class,
+                BaseRate\UpdateCommand::class => BaseRate\Container\UpdateCommandFactory::class,
                 Calculator\RecoveryFeeLookup::class => Calculator\Container\RecoveryFeeLookupFactory::class,
                 Calculator\StandardCalculator::class => Calculator\Container\StandardCalculatorFactory::class,
                 Log\ErrorHandlerLoggingListener::class => Log\Container\ErrorHandlerLoggingListenerFactory::class,
