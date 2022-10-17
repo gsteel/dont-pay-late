@@ -1080,16 +1080,16 @@
         },
         {
             "name": "laminas/laminas-inputfilter",
-            "version": "2.21.0",
+            "version": "2.22.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-inputfilter.git",
-                "reference": "8668227246d19564f339643f0f2aedcdff66612b"
+                "reference": "2e9a2f2b867eb423338a9948ae0027ec4e556378"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-inputfilter/zipball/8668227246d19564f339643f0f2aedcdff66612b",
-                "reference": "8668227246d19564f339643f0f2aedcdff66612b",
+                "url": "https://api.github.com/repos/laminas/laminas-inputfilter/zipball/2e9a2f2b867eb423338a9948ae0027ec4e556378",
+                "reference": "2e9a2f2b867eb423338a9948ae0027ec4e556378",
                 "shasum": ""
             },
             "require": {
@@ -1097,7 +1097,7 @@
                 "laminas/laminas-servicemanager": "^3.16.0",
                 "laminas/laminas-stdlib": "^3.0",
                 "laminas/laminas-validator": "^2.15",
-                "php": "^7.4 || ~8.0.0 || ~8.1.0"
+                "php": "~8.0.0 || ~8.1.0 || ~8.2.0"
             },
             "conflict": {
                 "zendframework/zend-inputfilter": "*"
@@ -1105,11 +1105,10 @@
             "require-dev": {
                 "ext-json": "*",
                 "laminas/laminas-coding-standard": "~2.4.0",
-                "laminas/laminas-db": "^2.15.0",
-                "phpunit/phpunit": "^9.5.24",
+                "phpunit/phpunit": "^9.5.25",
                 "psalm/plugin-phpunit": "^0.17.0",
-                "psr/http-message": "^1.0",
-                "vimeo/psalm": "^4.27.0",
+                "psr/http-message": "^1.0.1",
+                "vimeo/psalm": "^4.28",
                 "webmozart/assert": "^1.11"
             },
             "suggest": {
@@ -1151,7 +1150,7 @@
                     "type": "community_bridge"
                 }
             ],
-            "time": "2022-09-20T10:03:09+00:00"
+            "time": "2022-10-11T13:08:18+00:00"
         },
         {
             "name": "laminas/laminas-json",
