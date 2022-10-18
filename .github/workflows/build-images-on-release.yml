@@ -84,10 +84,3 @@ jobs:
         run: |
           rm -rf /tmp/.buildx-cache
           mv /tmp/.buildx-cache-new /tmp/.buildx-cache
-
-  deploy:
-    name: "Deploy"
-    needs: build_and_push
-    uses: ./.github/workflows/deploy.yml
-    secrets:
-      DEPLOY_WEBHOOKS: ${{ secrets.DEPLOY_WEBHOOKS }}
