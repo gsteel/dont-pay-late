@@ -78,7 +78,6 @@ class CalculationRequestInputFilterTest extends TestCase
         $list = $container->get(BaseRateHistory::class)->get();
         $earliestDate = $list->earliestDate();
         $date = $earliestDate->sub(new DateInterval('P7D'));
-        self::assertNotFalse($date);
 
         $this->filter->setData([
             'dueDate' => $date->format('Y-m-d'),
