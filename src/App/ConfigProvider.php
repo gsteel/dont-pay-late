@@ -12,7 +12,6 @@ use Mezzio;
 use Money;
 use Psr;
 use Redis;
-use StellaMaris;
 
 /**
  * @see ConfigInterface
@@ -63,7 +62,7 @@ final class ConfigProvider
             ],
             'aliases' => [
                 Calculator\Calculator::class => Calculator\StandardCalculator::class,
-                StellaMaris\Clock\ClockInterface::class => Clock::class,
+                Psr\Clock\ClockInterface::class => Clock::class,
                 Mezzio\Router\RouteCollectorInterface::class => Mezzio\Router\RouteCollector::class,
             ],
             'delegators' => [

@@ -6,11 +6,11 @@ namespace App\BaseRate\Container;
 
 use App\BaseRate\Client;
 use DateTimeZone;
+use Psr\Clock\ClockInterface;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\UriFactoryInterface;
-use StellaMaris\Clock\ClockInterface;
 
 final class ClientFactory
 {
