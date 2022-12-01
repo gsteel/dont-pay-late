@@ -14,11 +14,11 @@ use Laminas\Diactoros\Response\JsonResponse;
 use Money\Currencies\ISOCurrencies;
 use Money\Currency;
 use Money\Formatter\DecimalMoneyFormatter;
+use Psr\Clock\ClockInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
-use StellaMaris\Clock\ClockInterface;
 use Throwable;
 
 use function implode;

@@ -9,8 +9,8 @@ use App\InputFilter\CalculationRequestInputFilter;
 use App\Middleware\CalculationMiddleware;
 use Laminas\InputFilter\InputFilterPluginManager;
 use Money\Currency;
+use Psr\Clock\ClockInterface;
 use Psr\Container\ContainerInterface;
-use StellaMaris\Clock\ClockInterface;
 
 final class CalculationMiddlewareFactory
 {

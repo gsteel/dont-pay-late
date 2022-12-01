@@ -9,7 +9,7 @@ use DateTimeImmutable;
 use DateTimeInterface;
 use Psl\Json;
 use Psr\Cache\CacheItemPoolInterface;
-use StellaMaris\Clock\ClockInterface;
+use Psr\Clock\ClockInterface;
 
 use function is_string;
 

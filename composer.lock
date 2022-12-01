@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4c45623b295d07e553afd9aa16a6f6b1",
+    "content-hash": "63f5b69fd53914b2dc5575ead97701ad",
     "packages": [
         {
             "name": "azjezz/psl",
-            "version": "2.2.0",
+            "version": "2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/azjezz/psl.git",
-                "reference": "b239bb7f8b8feb52908ad6b82ab153b6ff8b6111"
+                "reference": "82f241ea8ad997701e2fdcd130e8a9433eeaeafa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/azjezz/psl/zipball/b239bb7f8b8feb52908ad6b82ab153b6ff8b6111",
-                "reference": "b239bb7f8b8feb52908ad6b82ab153b6ff8b6111",
+                "url": "https://api.github.com/repos/azjezz/psl/zipball/82f241ea8ad997701e2fdcd130e8a9433eeaeafa",
+                "reference": "82f241ea8ad997701e2fdcd130e8a9433eeaeafa",
                 "shasum": ""
             },
             "require": {
@@ -32,12 +32,12 @@
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^3.4.0",
                 "php-coveralls/php-coveralls": "^2.5.2",
-                "php-standard-library/psalm-plugin": "^2.0.2",
+                "php-standard-library/psalm-plugin": "^2.1.0",
                 "phpbench/phpbench": "^1.2.3",
                 "phpunit/phpunit": "^9.5.16",
-                "roave/infection-static-analysis-plugin": "^1.23.0",
+                "roave/infection-static-analysis-plugin": "^1.26.0",
                 "squizlabs/php_codesniffer": "^3.6.2",
-                "vimeo/psalm": "^4.21.0"
+                "vimeo/psalm": "^5.0.0"
             },
             "suggest": {
                 "php-standard-library/psalm-plugin": "Psalm integration"
@@ -70,7 +70,7 @@
             "description": "PHP Standard Library",
             "support": {
                 "issues": "https://github.com/azjezz/psl/issues",
-                "source": "https://github.com/azjezz/psl/tree/2.2.0"
+                "source": "https://github.com/azjezz/psl/tree/2.3.0"
             },
             "funding": [
                 {
@@ -78,7 +78,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2022-11-26T18:54:09+00:00"
+            "time": "2022-12-01T07:52:14+00:00"
         },
         {
             "name": "brick/varexporter",
@@ -253,16 +253,16 @@
         },
         {
             "name": "gsteel/dot",
-            "version": "1.4.0",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/gsteel/dot.git",
-                "reference": "5063061ed950b19597fc858979c865b3df5738b8"
+                "reference": "e514428f514053a2efb4d9fc20f5daa6157d621a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/gsteel/dot/zipball/5063061ed950b19597fc858979c865b3df5738b8",
-                "reference": "5063061ed950b19597fc858979c865b3df5738b8",
+                "url": "https://api.github.com/repos/gsteel/dot/zipball/e514428f514053a2efb4d9fc20f5daa6157d621a",
+                "reference": "e514428f514053a2efb4d9fc20f5daa6157d621a",
                 "shasum": ""
             },
             "require": {
@@ -271,9 +271,9 @@
             "require-dev": {
                 "doctrine/coding-standard": "^10.0.0",
                 "phpunit/phpunit": "^9.5.26",
-                "psalm/plugin-phpunit": "^0.17.0",
+                "psalm/plugin-phpunit": "^0.18.3",
                 "squizlabs/php_codesniffer": "^3.7.1",
-                "vimeo/psalm": "^4.29"
+                "vimeo/psalm": "^5.0.0"
             },
             "type": "library",
             "autoload": {
@@ -305,7 +305,7 @@
                 "rss": "https://github.com/gsteel/dot/releases.atom",
                 "source": "https://github.com/gsteel/dot"
             },
-            "time": "2022-10-31T14:42:14+00:00"
+            "time": "2022-11-30T13:56:09+00:00"
         },
         {
             "name": "laminas/laminas-cli",
@@ -1303,16 +1303,16 @@
         },
         {
             "name": "laminas/laminas-stdlib",
-            "version": "3.15.0",
+            "version": "3.16.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-stdlib.git",
-                "reference": "63b66bd4b696f024f42616b9d95cdb10e5109c27"
+                "reference": "0880e3dd88eca01eeda9dfdb5a05c38e56902c2c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-stdlib/zipball/63b66bd4b696f024f42616b9d95cdb10e5109c27",
-                "reference": "63b66bd4b696f024f42616b9d95cdb10e5109c27",
+                "url": "https://api.github.com/repos/laminas/laminas-stdlib/zipball/0880e3dd88eca01eeda9dfdb5a05c38e56902c2c",
+                "reference": "0880e3dd88eca01eeda9dfdb5a05c38e56902c2c",
                 "shasum": ""
             },
             "require": {
@@ -1323,10 +1323,10 @@
             },
             "require-dev": {
                 "laminas/laminas-coding-standard": "^2.4.0",
-                "phpbench/phpbench": "^1.2.6",
-                "phpunit/phpunit": "^9.5.25",
-                "psalm/plugin-phpunit": "^0.17.0",
-                "vimeo/psalm": "^4.28"
+                "phpbench/phpbench": "^1.2.7",
+                "phpunit/phpunit": "^9.5.26",
+                "psalm/plugin-phpunit": "^0.18.0",
+                "vimeo/psalm": "^5.0.0"
             },
             "type": "library",
             "autoload": {
@@ -1358,7 +1358,7 @@
                     "type": "community_bridge"
                 }
             ],
-            "time": "2022-10-10T19:10:24+00:00"
+            "time": "2022-11-30T23:45:45+00:00"
         },
         {
             "name": "laminas/laminas-stratigility",
@@ -3562,16 +3562,16 @@
         },
         {
             "name": "symfony/cache",
-            "version": "v6.1.8",
+            "version": "v6.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/cache.git",
-                "reference": "ffa53c4e0f18828751a57a3f6bc32f7147c03867"
+                "reference": "64cb231dfb25677097d18503d1ad4d016b19f19c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/cache/zipball/ffa53c4e0f18828751a57a3f6bc32f7147c03867",
-                "reference": "ffa53c4e0f18828751a57a3f6bc32f7147c03867",
+                "url": "https://api.github.com/repos/symfony/cache/zipball/64cb231dfb25677097d18503d1ad4d016b19f19c",
+                "reference": "64cb231dfb25677097d18503d1ad4d016b19f19c",
                 "shasum": ""
             },
             "require": {
@@ -3580,7 +3580,7 @@
                 "psr/log": "^1.1|^2|^3",
                 "symfony/cache-contracts": "^1.1.7|^2|^3",
                 "symfony/service-contracts": "^1.1|^2|^3",
-                "symfony/var-exporter": "^5.4|^6.0"
+                "symfony/var-exporter": "^6.2"
             },
             "conflict": {
                 "doctrine/dbal": "<2.13.1",
@@ -3638,7 +3638,7 @@
                 "psr6"
             ],
             "support": {
-                "source": "https://github.com/symfony/cache/tree/v6.1.8"
+                "source": "https://github.com/symfony/cache/tree/v6.2.0"
             },
             "funding": [
                 {
@@ -3654,7 +3654,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-11-14T10:13:26+00:00"
+            "time": "2022-11-24T11:58:37+00:00"
         },
         {
             "name": "symfony/cache-contracts",
@@ -3902,16 +3902,16 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v6.1.0",
+            "version": "v6.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "a0449a7ad7daa0f7c0acd508259f80544ab5a347"
+                "reference": "9efb1618fabee89515fe031314e8ed5625f85a53"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/a0449a7ad7daa0f7c0acd508259f80544ab5a347",
-                "reference": "a0449a7ad7daa0f7c0acd508259f80544ab5a347",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/9efb1618fabee89515fe031314e8ed5625f85a53",
+                "reference": "9efb1618fabee89515fe031314e8ed5625f85a53",
                 "shasum": ""
             },
             "require": {
@@ -3965,7 +3965,7 @@
             "description": "Provides tools that allow your application components to communicate with each other by dispatching events and listening to them",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/event-dispatcher/tree/v6.1.0"
+                "source": "https://github.com/symfony/event-dispatcher/tree/v6.2.0"
             },
             "funding": [
                 {
@@ -3981,7 +3981,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-05-05T16:51:07+00:00"
+            "time": "2022-11-02T09:08:04+00:00"
         },
         {
             "name": "symfony/event-dispatcher-contracts",
@@ -4064,16 +4064,16 @@
         },
         {
             "name": "symfony/options-resolver",
-            "version": "v6.1.0",
+            "version": "v6.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/options-resolver.git",
-                "reference": "a3016f5442e28386ded73c43a32a5b68586dd1c4"
+                "reference": "d28f02acde71ff75e957082cd36e973df395f626"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/options-resolver/zipball/a3016f5442e28386ded73c43a32a5b68586dd1c4",
-                "reference": "a3016f5442e28386ded73c43a32a5b68586dd1c4",
+                "url": "https://api.github.com/repos/symfony/options-resolver/zipball/d28f02acde71ff75e957082cd36e973df395f626",
+                "reference": "d28f02acde71ff75e957082cd36e973df395f626",
                 "shasum": ""
             },
             "require": {
@@ -4111,7 +4111,7 @@
                 "options"
             ],
             "support": {
-                "source": "https://github.com/symfony/options-resolver/tree/v6.1.0"
+                "source": "https://github.com/symfony/options-resolver/tree/v6.2.0"
             },
             "funding": [
                 {
@@ -4127,7 +4127,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-02-25T11:15:52+00:00"
+            "time": "2022-11-02T09:08:04+00:00"
         },
         {
             "name": "symfony/service-contracts",
@@ -4300,16 +4300,16 @@
         },
         {
             "name": "symfony/var-exporter",
-            "version": "v6.1.3",
+            "version": "v6.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-exporter.git",
-                "reference": "b49350f45cebbba6e5286485264b912f2bcfc9ef"
+                "reference": "0437f26ca0c648071cc15ddacd26152cc65f4cd6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-exporter/zipball/b49350f45cebbba6e5286485264b912f2bcfc9ef",
-                "reference": "b49350f45cebbba6e5286485264b912f2bcfc9ef",
+                "url": "https://api.github.com/repos/symfony/var-exporter/zipball/0437f26ca0c648071cc15ddacd26152cc65f4cd6",
+                "reference": "0437f26ca0c648071cc15ddacd26152cc65f4cd6",
                 "shasum": ""
             },
             "require": {
@@ -4349,10 +4349,12 @@
                 "export",
                 "hydrate",
                 "instantiate",
+                "lazy loading",
+                "proxy",
                 "serialize"
             ],
             "support": {
-                "source": "https://github.com/symfony/var-exporter/tree/v6.1.3"
+                "source": "https://github.com/symfony/var-exporter/tree/v6.2.0"
             },
             "funding": [
                 {
@@ -4368,7 +4370,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-07-04T16:01:56+00:00"
+            "time": "2022-11-25T08:33:31+00:00"
         },
         {
             "name": "webimpress/safe-writer",
@@ -7052,12 +7054,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "8597757623c4695eb4a3193eb23f2345f7e2f911"
+                "reference": "c4ccfdab77bd92444c6a2f7813bc20f29dbb9d13"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/8597757623c4695eb4a3193eb23f2345f7e2f911",
-                "reference": "8597757623c4695eb4a3193eb23f2345f7e2f911",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/c4ccfdab77bd92444c6a2f7813bc20f29dbb9d13",
+                "reference": "c4ccfdab77bd92444c6a2f7813bc20f29dbb9d13",
                 "shasum": ""
             },
             "conflict": {
@@ -7415,6 +7417,7 @@
                 "snipe/snipe-it": "<6.0.11|>= 6.0.0-RC-1, <= 6.0.0-RC-5",
                 "socalnick/scn-social-auth": "<1.15.2",
                 "socialiteproviders/steam": "<1.1",
+                "spatie/browsershot": "<3.57.3",
                 "spipu/html2pdf": "<5.2.4",
                 "spoonity/tcpdf": "<6.2.22",
                 "squizlabs/php_codesniffer": ">=1,<2.8.1|>=3,<3.0.1",
@@ -7586,7 +7589,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-11-28T23:04:00+00:00"
+            "time": "2022-11-30T22:04:13+00:00"
         },
         {
             "name": "sebastian/cli-parser",

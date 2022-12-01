@@ -8,8 +8,8 @@ use App\BaseRate\BaseRateCache;
 use App\BaseRate\BaseRateHistory;
 use App\BaseRate\Client;
 use DateInterval;
+use Psr\Clock\ClockInterface;
 use Psr\Container\ContainerInterface;
-use StellaMaris\Clock\ClockInterface;
 
 final class BaseRateHistoryFactory
 {

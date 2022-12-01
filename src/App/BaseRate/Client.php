@@ -9,10 +9,10 @@ use App\Exception\RuntimeError;
 use App\Util\Assert;
 use DateTimeImmutable;
 use DateTimeZone;
+use Psr\Clock\ClockInterface;
 use Psr\Http\Client\ClientInterface as HttpClient;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\UriFactoryInterface;
-use StellaMaris\Clock\ClockInterface;
 use Throwable;
 use XMLReader;
 
