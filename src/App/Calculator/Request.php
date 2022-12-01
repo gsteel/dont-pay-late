@@ -54,6 +54,7 @@ final class Request
      *     dueDate: non-empty-string,
      *     termsInDays: positive-int,
      *     amount: float,
+     *     ...
      * } $data
      */
     public static function fromArray(array $data, Currency $currency, DateTimeImmutable $now): self

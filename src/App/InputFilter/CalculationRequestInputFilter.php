@@ -154,6 +154,7 @@ final class CalculationRequestInputFilter extends InputFilter
      *     dueDate: non-empty-string,
      *     termsInDays: positive-int,
      *     amount: float,
+     *     ...
      * }
      */
     public function getValidValues(): array
