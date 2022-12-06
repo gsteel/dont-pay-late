@@ -86,7 +86,7 @@
         "lctrs/psalm-psr-container-plugin": "^1.9",
         "netglue/revs": "^1.1",
         "php-http/mock-client": "^1.5",
-        "php-standard-library/psalm-plugin": "^2.1",
+        "php-standard-library/psalm-plugin": "^2.2.1",
         "phpunit/phpunit": "^9.5.26",
         "psalm/plugin-phpunit": "^0.18.4",
         "roave/security-advisories": "dev-latest",
