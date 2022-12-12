@@ -30,6 +30,7 @@ class TestCase extends UnitTestCase
             $config = require __DIR__ . '/../../config/config.php';
             /** @psalm-var ServiceManagerConfigurationType */
             $dependencies = $config['dependencies'];
+            unset($dependencies['services']['config']);
             $dependencies['services']['config'] = $config;
 
             self::$container = new ServiceManager($dependencies);
