@@ -44,7 +44,7 @@
         "laminas/laminas-stratigility": "^3.9",
         "laminas/laminas-validator": "^2.28",
         "laminas/laminas-view": "^2.25",
-        "lcobucci/clock": "^2.2",
+        "lcobucci/clock": "^2.2 || ^3.0",
         "mezzio/mezzio": "^3.14",
         "mezzio/mezzio-fastroute": "^3.7",
         "mezzio/mezzio-helpers": "^5.11",
