@@ -34,7 +34,7 @@ class LazyFactoryTest extends TestCase
     /**
      * @param array<string, array<string, mixed>> $config
      *
-     * @return array<string>
+     * @return list<string>
      */
     private function mergeFactoriesAndAliasesFor(array $config, string $key): array
     {
