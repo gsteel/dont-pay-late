@@ -21,6 +21,7 @@ class CalculationRequestInputFilterTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $container = $this->getContainer();
         $filters = $container->get(InputFilterPluginManager::class);
         $this->filter = $filters->get(CalculationRequestInputFilter::class);

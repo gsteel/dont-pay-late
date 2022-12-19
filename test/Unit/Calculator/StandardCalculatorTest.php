@@ -26,6 +26,7 @@ class StandardCalculatorTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->gpb = new Currency('GBP');
         $this->calculator = new StandardCalculator(
             ChangeList::fromArray([
