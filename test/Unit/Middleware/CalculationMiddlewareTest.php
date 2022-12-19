@@ -30,6 +30,7 @@ class CalculationMiddlewareTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $gbp = new Currency('GBP');
         $firstDate = self::date('2000-01-01');
         $now = self::date('2022-01-01');

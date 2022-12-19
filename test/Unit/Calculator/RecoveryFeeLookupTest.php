@@ -16,6 +16,7 @@ class RecoveryFeeLookupTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->lookup = new RecoveryFeeLookup(new Currency('GBP'));
     }
 
