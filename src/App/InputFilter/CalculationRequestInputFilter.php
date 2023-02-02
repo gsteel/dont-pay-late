@@ -17,6 +17,7 @@ use Laminas\Validator\Date;
 use Laminas\Validator\GreaterThan;
 use Laminas\Validator\NotEmpty;
 
+use function assert;
 use function sprintf;
 
 final class CalculationRequestInputFilter extends InputFilter
@@ -170,6 +171,7 @@ final class CalculationRequestInputFilter extends InputFilter
         Assert::stringNotEmpty($values['dueDate']);
         Assert::integer($values['termsInDays']);
         Assert::greaterThanEq($values['termsInDays'], 0);
+        assert($values['termsInDays'] > 0);
         Assert::float($values['amount']);
         Assert::greaterThanEq($values['amount'], 0);
 
