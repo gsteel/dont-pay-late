@@ -80,8 +80,8 @@
     },
     "require-dev": {
         "doctrine/coding-standard": "^11.1.0",
-        "filp/whoops": "^2.14.6",
-        "helmich/phpunit-psr7-assert": "^4.3",
+        "filp/whoops": "^2.15.0",
+        "helmich/phpunit-psr7-assert": "^4.4.0",
         "laminas/laminas-development-mode": "^3.10.0",
         "lctrs/psalm-psr-container-plugin": "^1.9",
         "netglue/revs": "^1.1",
