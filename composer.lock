@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6769df134462c8baa0041e07a0201c3b",
+    "content-hash": "756c38dde304d99c8f258b0be5cab4a2",
     "packages": [
         {
             "name": "azjezz/psl",
@@ -5371,16 +5371,16 @@
         },
         {
             "name": "filp/whoops",
-            "version": "2.15.0",
+            "version": "2.15.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filp/whoops.git",
-                "reference": "3e8aebbca9f0ae6f618962c4ad514077fd365ab3"
+                "reference": "e864ac957acd66e1565f25efda61e37791a5db0b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filp/whoops/zipball/3e8aebbca9f0ae6f618962c4ad514077fd365ab3",
-                "reference": "3e8aebbca9f0ae6f618962c4ad514077fd365ab3",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/e864ac957acd66e1565f25efda61e37791a5db0b",
+                "reference": "e864ac957acd66e1565f25efda61e37791a5db0b",
                 "shasum": ""
             },
             "require": {
@@ -5430,7 +5430,7 @@
             ],
             "support": {
                 "issues": "https://github.com/filp/whoops/issues",
-                "source": "https://github.com/filp/whoops/tree/2.15.0"
+                "source": "https://github.com/filp/whoops/tree/2.15.1"
             },
             "funding": [
                 {
@@ -5438,7 +5438,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-03-03T12:00:00+00:00"
+            "time": "2023-03-06T18:09:13+00:00"
         },
         {
             "name": "helmich/phpunit-json-assert",
