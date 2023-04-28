@@ -34,7 +34,7 @@
         "gsteel/dot": "^1.6",
         "laminas/laminas-cli": "^1.8",
         "laminas/laminas-config-aggregator": "^1.13",
-        "laminas/laminas-diactoros": "^2.24",
+        "laminas/laminas-diactoros": "^2.24.2",
         "laminas/laminas-escaper": "^2.12",
         "laminas/laminas-filter": "^2.31",
         "laminas/laminas-form": "^3.8",
