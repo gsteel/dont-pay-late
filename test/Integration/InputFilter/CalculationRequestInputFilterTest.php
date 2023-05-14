@@ -11,6 +11,7 @@ use AppTest\Integration\Framework\TestCase;
 use DateInterval;
 use Laminas\InputFilter\InputFilterPluginManager;
 use Laminas\Validator\GreaterThan;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 use function sprintf;
 
@@ -28,7 +29,7 @@ class CalculationRequestInputFilterTest extends TestCase
     }
 
     /** @return list<array{0: string}> */
-    public function requireFieldsProvider(): array
+    public static function requireFieldsProvider(): array
     {
         return [
             ['dueDate'],
@@ -37,7 +38,7 @@ class CalculationRequestInputFilterTest extends TestCase
         ];
     }
 
-    /** @dataProvider requireFieldsProvider */
+    #[DataProvider('requireFieldsProvider')]
     public function testRequiredFields(string $fieldName): void
     {
         $this->filter->setData([]);
