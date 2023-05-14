@@ -50,6 +50,7 @@ class LazyFactoryTest extends TestCase
         );
 
         Assert::allString($values);
+        /** @psalm-var list<string> */
 
         return $values;
     }
