@@ -5,19 +5,20 @@ declare(strict_types=1);
 namespace App\Calculator;
 
 use App\BaseRate\ChangeList;
+use App\Util\Assert;
 use DateInterval;
 use Money\Currency;
 use Money\Money;
 
 use function sprintf;
 
-final class StandardCalculator implements Calculator
+final readonly class StandardCalculator implements Calculator
 {
     public function __construct(
-        private readonly ChangeList $rateHistory,
-        private readonly float $statutoryRate,
-        private readonly Currency $expectedCurrency,
-        private readonly RecoveryFeeLookup $recoveryFeeLookup,
+        private ChangeList $rateHistory,
+        private float $statutoryRate,
+        private Currency $expectedCurrency,
+        private RecoveryFeeLookup $recoveryFeeLookup,
     ) {
     }
 
@@ -41,6 +42,7 @@ final class StandardCalculator implements Calculator
         }
 
         $days = $request->now->diff($dueDate)->days;
+        Assert::integer($days);
         $interestRate = $baseRate->rate + $this->statutoryRate;
         $recovery = $this->recoveryFeeLookup->forAmount($request->amount());
         $dailyRate = $interestRate / 365;
