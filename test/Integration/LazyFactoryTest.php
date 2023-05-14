@@ -13,6 +13,7 @@ use Laminas\Form\FormElementManager;
 use Laminas\InputFilter\InputFilterPluginManager;
 use Laminas\Validator\ValidatorPluginManager;
 use Laminas\View\HelperPluginManager;
+use PHPUnit\Framework\Attributes\DataProvider;
 use Psr\Container\ContainerInterface;
 
 use function array_keys;
@@ -36,7 +37,7 @@ class LazyFactoryTest extends TestCase
      *
      * @return list<string>
      */
-    private function mergeFactoriesAndAliasesFor(array $config, string $key): array
+    private static function mergeFactoriesAndAliasesFor(array $config, string $key): array
     {
         $services = $config[$key] ?? [];
         $factories = $services['factories'] ?? [];
@@ -56,49 +57,49 @@ class LazyFactoryTest extends TestCase
     }
 
     /** @return Generator<string, array{0: ContainerInterface, 1: string}> */
-    public function serviceProvider(): Generator
+    public static function serviceProvider(): Generator
     {
         $container = TestCase::getContainer();
         /** @psalm-var array<string, array<string, mixed>> $config */
         $config = $container->get('config');
         $i = 0;
 
-        foreach ($this->mergeFactoriesAndAliasesFor($config, 'dependencies') as $name) {
+        foreach (self::mergeFactoriesAndAliasesFor($config, 'dependencies') as $name) {
             yield sprintf('Service [%d]: %s', ++$i, $name) => [$container, $name];
         }
 
         $viewHelperPluginManager = $container->get(HelperPluginManager::class);
         assert($viewHelperPluginManager instanceof ContainerInterface);
-        foreach ($this->mergeFactoriesAndAliasesFor($config, 'view_helpers') as $name) {
+        foreach (self::mergeFactoriesAndAliasesFor($config, 'view_helpers') as $name) {
             yield sprintf('View Helper: %s', $name) => [$viewHelperPluginManager, $name];
         }
 
         $formPluginManager = $container->get(FormElementManager::class);
         assert($formPluginManager instanceof ContainerInterface);
-        foreach ($this->mergeFactoriesAndAliasesFor($config, 'form_elements') as $name) {
+        foreach (self::mergeFactoriesAndAliasesFor($config, 'form_elements') as $name) {
             yield sprintf('Form Element: %s', $name) => [$formPluginManager, $name];
         }
 
         $filterPluginManager = $container->get(FilterPluginManager::class);
         assert($filterPluginManager instanceof ContainerInterface);
-        foreach ($this->mergeFactoriesAndAliasesFor($config, 'filters') as $name) {
+        foreach (self::mergeFactoriesAndAliasesFor($config, 'filters') as $name) {
             yield sprintf('Filter: %s', $name) => [$filterPluginManager, $name];
         }
 
         $inputPluginManager = $container->get(InputFilterPluginManager::class);
         assert($inputPluginManager instanceof ContainerInterface);
-        foreach ($this->mergeFactoriesAndAliasesFor($config, 'input_filters') as $name) {
+        foreach (self::mergeFactoriesAndAliasesFor($config, 'input_filters') as $name) {
             yield sprintf('Input Filters: %s', $name) => [$inputPluginManager, $name];
         }
 
         $validatorPluginManager = $container->get(ValidatorPluginManager::class);
         assert($validatorPluginManager instanceof ContainerInterface);
-        foreach ($this->mergeFactoriesAndAliasesFor($config, 'validators') as $name) {
+        foreach (self::mergeFactoriesAndAliasesFor($config, 'validators') as $name) {
             yield sprintf('Validators: %s', $name) => [$validatorPluginManager, $name];
         }
     }
 
-    /** @dataProvider serviceProvider */
+    #[DataProvider('serviceProvider')]
     public function testServiceCanBeRetrieved(ContainerInterface $container, string $name): void
     {
         if (in_array($name, self::$servicesToIgnore, true)) {

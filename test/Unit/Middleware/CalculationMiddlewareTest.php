@@ -16,6 +16,8 @@ use Fig\Http\Message\StatusCodeInterface;
 use Laminas\Diactoros\StreamFactory;
 use Lcobucci\Clock\FrozenClock;
 use Money\Currency;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Depends;
 use Psr\Http\Message\ResponseInterface;
 
 use function array_keys;
@@ -125,7 +127,7 @@ class CalculationMiddlewareTest extends TestCase
     }
 
     /** @return array<string, array{0: string, 1: string}> */
-    public function invalidBodyDataProvider(): array
+    public static function invalidBodyDataProvider(): array
     {
         return [
             'Empty Body' => ['', 'Expected a valid JSON Payload'],
@@ -134,7 +136,7 @@ class CalculationMiddlewareTest extends TestCase
         ];
     }
 
-    /** @dataProvider invalidBodyDataProvider */
+    #[DataProvider('invalidBodyDataProvider')]
     public function testThatAnEmptyPayloadIsABadRequest(string $body, string $expectedErrorMessage): void
     {
         $body = (new StreamFactory())->createStream($body);
@@ -188,11 +190,8 @@ class CalculationMiddlewareTest extends TestCase
         return $body;
     }
 
-    /**
-     * @param array<string, mixed> $body
-     *
-     * @depends testThatAValidPayloadIsAJsonResponse
-     */
+    /** @param array<string, mixed> $body */
+    #[Depends('testThatAValidPayloadIsAJsonResponse')]
     public function testResponseBodyContainsExpectedKeys(array $body): void
     {
         $keys = [
