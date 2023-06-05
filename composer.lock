@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4ac33466c4028d3e9691b100c08c1ade",
+    "content-hash": "c4be52762916b9e47f6099c98c045684",
     "packages": [
         {
             "name": "azjezz/psl",
@@ -6635,16 +6635,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "10.2.0",
+            "version": "10.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "3aad97fde1f3e490e2b316ba56bc4680310e3c3f"
+                "reference": "599b33294350e8f51163119d5670512f98b0490d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/3aad97fde1f3e490e2b316ba56bc4680310e3c3f",
-                "reference": "3aad97fde1f3e490e2b316ba56bc4680310e3c3f",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/599b33294350e8f51163119d5670512f98b0490d",
+                "reference": "599b33294350e8f51163119d5670512f98b0490d",
                 "shasum": ""
             },
             "require": {
@@ -6716,7 +6716,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.2.0"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.2.1"
             },
             "funding": [
                 {
@@ -6732,7 +6732,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-06-02T05:42:13+00:00"
+            "time": "2023-06-05T05:15:51+00:00"
         },
         {
             "name": "psalm/plugin-phpunit",
