@@ -13,8 +13,7 @@
     <file>test</file>
 
     <!-- Inherit rules from Doctrine Coding Standard -->
-    <rule ref="Doctrine">
-    </rule>
+    <rule ref="Doctrine" />
 
     <rule ref="Generic.Formatting.MultipleStatementAlignment.NotSame">
         <severity>0</severity>
@@ -24,5 +23,10 @@
     </rule>
     <rule ref="Squiz.Arrays.ArrayDeclaration.MultiLineNotAllowed">
         <severity>0</severity>
+    </rule>
+
+    <!-- Config files use FQCNs and that's OK -->
+    <rule ref="SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly">
+        <exclude-pattern>config/*\.php</exclude-pattern>
     </rule>
 </ruleset>
