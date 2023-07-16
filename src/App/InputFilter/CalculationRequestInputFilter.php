@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\InputFilter;
 
 use App\Exception\BadMethodCall;
-use App\Util\Assert;
 use DateTimeImmutable;
 use Laminas\Filter\StringTrim;
 use Laminas\Filter\ToFloat;
@@ -17,9 +16,16 @@ use Laminas\Validator\Date;
 use Laminas\Validator\GreaterThan;
 use Laminas\Validator\NotEmpty;
 
-use function assert;
 use function sprintf;
 
+/**
+ * @psalm-type ValidPayload = array{
+ *     dueDate: non-empty-string,
+ *     termsInDays: int<0, 365>,
+ *     amount: float,
+ * }
+ * @extends InputFilter<ValidPayload>
+ */
 final class CalculationRequestInputFilter extends InputFilter
 {
     public function __construct(private readonly DateTimeImmutable $minimumDate)
@@ -149,32 +155,13 @@ final class CalculationRequestInputFilter extends InputFilter
         ]);
     }
 
-    /**
-     * @return array<string, mixed>
-     * @psalm-return array{
-     *     dueDate: non-empty-string,
-     *     termsInDays: positive-int,
-     *     amount: float,
-     *     ...
-     * }
-     */
+    /** @psalm-return ValidPayload */
     public function getValidValues(): array
     {
         if (! $this->isValid()) {
             throw new BadMethodCall('Payload is not valid');
         }
 
-        $values = parent::getValues();
-        Assert::keyExists($values, 'dueDate');
-        Assert::keyExists($values, 'termsInDays');
-        Assert::keyExists($values, 'amount');
-        Assert::stringNotEmpty($values['dueDate']);
-        Assert::integer($values['termsInDays']);
-        Assert::greaterThanEq($values['termsInDays'], 0);
-        assert($values['termsInDays'] > 0);
-        Assert::float($values['amount']);
-        Assert::greaterThanEq($values['amount'], 0);
-
-        return $values;
+        return $this->getValues();
     }
 }
