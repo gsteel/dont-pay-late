@@ -52,7 +52,7 @@ final class Request
      * @param array<string, mixed> $data
      * @psalm-param array{
      *     dueDate: non-empty-string,
-     *     termsInDays: positive-int,
+     *     termsInDays: int<0, 365>,
      *     amount: float,
      *     ...
      * } $data
