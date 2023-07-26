@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e03eb1e4a9bac3a239549e12173dea6f",
+    "content-hash": "69ffadcf64b7cc26cd6a468934b474c2",
     "packages": [
         {
             "name": "azjezz/psl",
@@ -5374,28 +5374,28 @@
         },
         {
             "name": "helmich/phpunit-psr7-assert",
-            "version": "v4.4.0",
+            "version": "v4.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/martin-helmich/phpunit-psr7-assert.git",
-                "reference": "a6fbcc38394dd06995c7834a80fd377c7158b03c"
+                "reference": "f35fa69e07cc16977b52805d3abd873cc16747fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/martin-helmich/phpunit-psr7-assert/zipball/a6fbcc38394dd06995c7834a80fd377c7158b03c",
-                "reference": "a6fbcc38394dd06995c7834a80fd377c7158b03c",
+                "url": "https://api.github.com/repos/martin-helmich/phpunit-psr7-assert/zipball/f35fa69e07cc16977b52805d3abd873cc16747fd",
+                "reference": "f35fa69e07cc16977b52805d3abd873cc16747fd",
                 "shasum": ""
             },
             "require": {
                 "helmich/phpunit-json-assert": "^3.4",
                 "php": "^8.0",
-                "psr/http-message": "^1.0"
+                "psr/http-message": "^1.1 || ^2.0"
             },
             "conflict": {
                 "phpunit/phpunit": "<8.0 || >= 11.0"
             },
             "require-dev": {
-                "guzzlehttp/psr7": "^1.2",
+                "guzzlehttp/psr7": "^2.4",
                 "mockery/mockery": "^1.4.1",
                 "phpunit/phpunit": "^8.0 || ^9.0 || ^10.0"
             },
@@ -5418,7 +5418,7 @@
             "description": "PHPUnit assertions for testing PSR7-compliant applications",
             "support": {
                 "issues": "https://github.com/martin-helmich/phpunit-psr7-assert/issues",
-                "source": "https://github.com/martin-helmich/phpunit-psr7-assert/tree/v4.4.0"
+                "source": "https://github.com/martin-helmich/phpunit-psr7-assert/tree/v4.4.1"
             },
             "funding": [
                 {
@@ -5430,7 +5430,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-03-04T09:19:06+00:00"
+            "time": "2023-07-26T19:04:29+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
