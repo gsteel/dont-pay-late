@@ -27,13 +27,13 @@ use function is_string;
 use function Psl\Json\decode;
 use function str_contains;
 
-final class CalculationMiddleware implements MiddlewareInterface
+final readonly class CalculationMiddleware implements MiddlewareInterface
 {
     public function __construct(
-        private readonly Calculator $calculator,
-        private readonly CalculationRequestInputFilter $inputFilter,
-        private readonly Currency $currency,
-        private readonly ClockInterface $clock,
+        private Calculator $calculator,
+        private CalculationRequestInputFilter $inputFilter,
+        private Currency $currency,
+        private ClockInterface $clock,
     ) {
     }
 
@@ -112,6 +112,7 @@ final class CalculationMiddleware implements MiddlewareInterface
             'daysOverdue' => $result->daysOverdue,
             'originalAmount' => $formatter->format($result->request->amount()),
             'dueDate' => $result->request->dueDate->format('Y-m-d'),
+            'referenceDate' => $result->referenceDate->format('Y-m-d'),
             'terms' => $result->request->termsInDays,
         ], StatusCodeInterface::STATUS_OK);
     }

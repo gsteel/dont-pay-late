@@ -13,6 +13,7 @@ use App\Calculator\StandardCalculator;
 use DateTimeImmutable;
 use Money\Currency;
 use Money\Money;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 use function assert;
@@ -34,6 +35,14 @@ class StandardCalculatorTest extends TestCase
                     self::date('2000-01-01'),
                     10.0,
                 ),
+                new RateChange(
+                    self::date('2009-12-31'),
+                    20.0,
+                ),
+                new RateChange(
+                    self::date('2010-06-30'),
+                    30.0,
+                ),
             ]),
             10.0,
             $this->gpb,
@@ -52,10 +61,10 @@ class StandardCalculatorTest extends TestCase
     public function testBasicCalculation(): void
     {
         $request = Request::new(
-            self::date('2020-01-01'),
+            self::date('2002-01-01'),
             30,
             Money::GBP(50000),
-            self::date('2020-02-01'),
+            self::date('2002-02-01'),
         );
 
         $response = $this->calculator->calculate($request);
@@ -69,6 +78,32 @@ class StandardCalculatorTest extends TestCase
 
         $expectedTotal = $expectedFee + 54000;
         self::assertEquals($expectedTotal, $response->totalPayable()->getAmount());
+    }
+
+    /** @return array<array-key, array{0: string, 1: float}> */
+    public static function expectedReferenceRates(): array
+    {
+        return [
+            ['2010-01-01', 30.0],
+            ['2010-06-30', 30.0],
+            ['2010-07-01', 40.0],
+            ['2010-12-31', 40.0],
+        ];
+    }
+
+    #[DataProvider('expectedReferenceRates')]
+    public function testThatTheSixMonthReferenceRateIsUsed(string $date, float $expectRate): void
+    {
+        $request = Request::new(
+            self::date($date),
+            0,
+            Money::GBP(50000),
+            new DateTimeImmutable(),
+        );
+
+        $response = $this->calculator->calculate($request);
+
+        self::assertEquals($expectRate, $response->interestRate);
     }
 
     public function testCalculationProvidesZeroesWhenTheInvoiceIsNotOverdue(): void

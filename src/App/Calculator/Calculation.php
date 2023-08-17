@@ -4,16 +4,18 @@ declare(strict_types=1);
 
 namespace App\Calculator;
 
+use DateTimeImmutable;
 use Money\Money;
 
-final class Calculation
+final readonly class Calculation
 {
     private function __construct(
-        public readonly Request $request,
-        public readonly float $interestRate,
-        public readonly int $recoveryFee,
-        public readonly int $interestPayable,
-        public readonly int $daysOverdue,
+        public Request $request,
+        public float $interestRate,
+        public int $recoveryFee,
+        public int $interestPayable,
+        public int $daysOverdue,
+        public DateTimeImmutable $referenceDate,
     ) {
     }
 
@@ -23,6 +25,7 @@ final class Calculation
         Money $recoveryFee,
         Money $interestPayable,
         int $daysOverdue,
+        DateTimeImmutable $referenceDate,
     ): self {
         return new self(
             $request,
@@ -30,6 +33,7 @@ final class Calculation
             (int) $recoveryFee->getAmount(),
             (int) $interestPayable->getAmount(),
             $daysOverdue,
+            $referenceDate,
         );
     }
 
