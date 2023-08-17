@@ -108,6 +108,7 @@ final readonly class CalculationMiddleware implements MiddlewareInterface
             'recoveryFee' => $formatter->format($result->recoveryFee()),
             'interestPayable' => $formatter->format($result->interestPayable()),
             'totalPayable' => $formatter->format($result->totalPayable()),
+            'dailyAmount' => $formatter->format($result->dailyAmount()),
             'interestRate' => $result->interestRate,
             'daysOverdue' => $result->daysOverdue,
             'originalAmount' => $formatter->format($result->request->amount()),
