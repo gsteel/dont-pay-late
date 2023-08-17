@@ -32,7 +32,7 @@ final readonly class StandardCalculator implements Calculator
         if ($dueDate >= $request->now) {
             $zero = new Money(0, $this->expectedCurrency);
 
-            return Calculation::new($request, 0.0, $zero, $zero, 0, $referenceDate);
+            return Calculation::new($request, 0.0, $zero, $zero, $zero, 0, $referenceDate);
         }
 
         $baseRate = $this->rateHistory->findChangeOnOrPreceding($referenceDate);
@@ -52,7 +52,7 @@ final readonly class StandardCalculator implements Calculator
         $dailyAmount = $request->amount()->multiply((string) ($dailyRate / 100));
         $interestAmount = $dailyAmount->multiply($days);
 
-        return Calculation::new($request, $interestRate, $recovery, $interestAmount, $days, $referenceDate);
+        return Calculation::new($request, $interestRate, $recovery, $interestAmount, $dailyAmount, $days, $referenceDate);
     }
 
     /**

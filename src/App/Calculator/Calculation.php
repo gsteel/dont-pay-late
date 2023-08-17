@@ -14,6 +14,7 @@ final readonly class Calculation
         public float $interestRate,
         public int $recoveryFee,
         public int $interestPayable,
+        public int $dailyAmount,
         public int $daysOverdue,
         public DateTimeImmutable $referenceDate,
     ) {
@@ -24,6 +25,7 @@ final readonly class Calculation
         float $interestRate,
         Money $recoveryFee,
         Money $interestPayable,
+        Money $dailyAmount,
         int $daysOverdue,
         DateTimeImmutable $referenceDate,
     ): self {
@@ -32,6 +34,7 @@ final readonly class Calculation
             $interestRate,
             (int) $recoveryFee->getAmount(),
             (int) $interestPayable->getAmount(),
+            (int) $dailyAmount->getAmount(),
             $daysOverdue,
             $referenceDate,
         );
@@ -45,6 +48,11 @@ final readonly class Calculation
     public function interestPayable(): Money
     {
         return new Money($this->interestPayable, $this->request->currency());
+    }
+
+    public function dailyAmount(): Money
+    {
+        return new Money($this->dailyAmount, $this->request->currency());
     }
 
     public function totalPayable(): Money
