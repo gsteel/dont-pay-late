@@ -201,6 +201,9 @@ $initialDate = new DateTimeImmutable('-30 days');
                     });
                 }
                 showResult();
+                if (typeof window.fathom === 'object') {
+                    fathom.trackGoal('OAVVIVWR', 0);
+                }
             }).catch(rejectResponse);
         }
     });

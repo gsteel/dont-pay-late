@@ -12,7 +12,6 @@ $copyrightYear = sprintf('%d-%d', $copyrightYear, date('Y'));
 $copyrightString = sprintf($copyrightFormat, $copyrightYear);
 
 $this->headLink()->prependStylesheet($this->asset('sitewide-css'));
-//$this->inlineScript()->appendFile($this->asset('sitewide-js'));
 
 $this->headMeta()->getContainer()->setIndent("\t")->setSeparator("\n");
 $this->headLink()->getContainer()->setIndent("\t")->setSeparator("\n");
@@ -37,7 +36,7 @@ $this->headLink()->getContainer()->setIndent("\t")->setSeparator("\n");
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <?= $this->headStyle() ?>
-    <script defer data-domain='dontpaylate.uk' src='https://plausible.io/js/script.js'></script>
+    <script src='https://cdn.usefathom.com/script.js' data-site='OMZHWPTI' defer></script>
 </head>
 <body>
     <header id="site-header">
@@ -59,6 +58,8 @@ $this->headLink()->getContainer()->setIndent("\t")->setSeparator("\n");
                     href="https://github.com/gsteel/dont-pay-late">send a patch</a> if you have some feedback
                 or suggestions…</p>
             <p><?php echo $this->escapeHtml($copyrightString); ?></p>
+            <p>Take a look at the <a href='https://app.usefathom.com/share/omzhwpti/don%27t+pay+late+💰'>traffic on the site</a> if you're interested. I'm using Fathom analytics - here's an <a
+                        href='https://usefathom.com/ref/CLUWHM'>affiliate link that'll get you and me some credit</a> if you sign up ❤️.</p>
         </div>
     </footer>
 </body>
