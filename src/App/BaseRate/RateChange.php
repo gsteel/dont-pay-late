@@ -9,11 +9,11 @@ use DateTimeImmutable;
 use DateTimeInterface;
 use JsonSerializable;
 
-final class RateChange implements JsonSerializable
+final readonly class RateChange implements JsonSerializable
 {
     public function __construct(
-        public readonly DateTimeImmutable $date,
-        public readonly float $rate,
+        public DateTimeImmutable $date,
+        public float $rate,
     ) {
     }
 

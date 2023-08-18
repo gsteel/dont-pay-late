@@ -11,9 +11,9 @@ use Throwable;
 
 use function sprintf;
 
-final class ErrorHandlerLoggingListener
+final readonly class ErrorHandlerLoggingListener
 {
-    public function __construct(private readonly LoggerInterface $logger)
+    public function __construct(private LoggerInterface $logger)
     {
     }
 

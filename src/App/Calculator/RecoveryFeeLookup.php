@@ -7,10 +7,10 @@ namespace App\Calculator;
 use Money\Currency;
 use Money\Money;
 
-final class RecoveryFeeLookup
+final readonly class RecoveryFeeLookup
 {
     public function __construct(
-        private readonly Currency $currency,
+        private Currency $currency,
     ) {
     }
 

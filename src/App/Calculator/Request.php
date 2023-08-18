@@ -11,15 +11,15 @@ use Money\Currency;
 use Money\Money;
 use Money\Parser\DecimalMoneyParser;
 
-final class Request
+final readonly class Request
 {
     /** @param non-empty-string $currencyCode */
     private function __construct(
-        public readonly DateTimeImmutable $dueDate,
-        public readonly int $termsInDays,
-        public readonly int $amount,
-        public readonly string $currencyCode,
-        public readonly DateTimeImmutable $now,
+        public DateTimeImmutable $dueDate,
+        public int $termsInDays,
+        public int $amount,
+        public string $currencyCode,
+        public DateTimeImmutable $now,
     ) {
     }
 
