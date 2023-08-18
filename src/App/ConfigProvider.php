@@ -6,18 +6,14 @@ namespace App;
 
 use DateTimeZone;
 use Laminas;
-use Laminas\ServiceManager\ConfigInterface;
+use Laminas\ServiceManager\ServiceManager;
 use Lcobucci\Clock\Clock;
 use Mezzio;
 use Money;
 use Psr;
 use Redis;
 
-/**
- * @see ConfigInterface
- *
- * @psalm-import-type ServiceManagerConfigurationType from ConfigInterface
- */
+/** @psalm-import-type ServiceManagerConfiguration from ServiceManager */
 final class ConfigProvider
 {
     /** @return array<string, mixed> */
@@ -38,7 +34,7 @@ final class ConfigProvider
         ];
     }
 
-    /** @psalm-return ServiceManagerConfigurationType */
+    /** @psalm-return ServiceManagerConfiguration */
     private function dependencies(): array
     {
         return [
@@ -76,7 +72,7 @@ final class ConfigProvider
         ];
     }
 
-    /** @psalm-return ServiceManagerConfigurationType */
+    /** @psalm-return ServiceManagerConfiguration */
     private function inputFilters(): array
     {
         return [
