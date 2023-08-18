@@ -14,12 +14,12 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 use function is_string;
 
-final class TemplateRenderer implements MiddlewareInterface
+final readonly class TemplateRenderer implements MiddlewareInterface
 {
     public const TEMPLATE_ATTRIBUTE = 'template';
 
     public function __construct(
-        private readonly TemplateRendererInterface $renderer,
+        private TemplateRendererInterface $renderer,
     ) {
     }
 

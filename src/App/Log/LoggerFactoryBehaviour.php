@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Log;
 
 use App\Util\Assert;
+use GSteel\Dot;
 use Psr\Container\ContainerInterface;
 
 trait LoggerFactoryBehaviour
@@ -12,20 +13,16 @@ trait LoggerFactoryBehaviour
     private function loggerName(ContainerInterface $container): string
     {
         $options = $this->loggingConfig($container);
-        $name = $options['name'] ?? 'Logger';
-        Assert::string($name);
 
-        return $name;
+        return Dot::stringDefault('name', $options, 'Logger');
     }
 
     /** @return array<array-key, mixed> */
     private function loggingConfig(ContainerInterface $container): array
     {
         $config = $container->has('config') ? $container->get('config') : [];
-        Assert::isArrayAccessible($config);
-        $options = $config['logging'] ?? [];
-        Assert::isArray($options);
+        Assert::isArray($config);
 
-        return $options;
+        return Dot::array('logging', $config);
     }
 }

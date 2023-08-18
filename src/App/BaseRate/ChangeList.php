@@ -20,10 +20,10 @@ use function reset;
 use function usort;
 
 /** @implements IteratorAggregate<array-key, RateChange> */
-final class ChangeList implements IteratorAggregate, Countable, JsonSerializable
+final readonly class ChangeList implements IteratorAggregate, Countable, JsonSerializable
 {
     /** @param list<RateChange> $rates */
-    private function __construct(private readonly array $rates)
+    private function __construct(private array $rates)
     {
     }
 

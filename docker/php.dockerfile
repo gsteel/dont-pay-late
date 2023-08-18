@@ -1,6 +1,6 @@
 FROM php:8.2-fpm-alpine
 
-ARG LOCAL_MODULES="bcmath ctype curl intl json libxml mbstring opcache redis xmlreader"
+ARG LOCAL_MODULES="bcmath ctype curl intl json libxml mbstring opcache redis sockets xmlreader"
 
 # Standard Extensions
 ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/

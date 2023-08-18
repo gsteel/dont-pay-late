@@ -13,13 +13,13 @@ use Psr\Clock\ClockInterface;
 
 use function is_string;
 
-final class BaseRateHistory
+final readonly class BaseRateHistory
 {
     public function __construct(
-        private readonly CacheItemPoolInterface $cache,
-        private readonly ClientContract $client,
-        private readonly ClockInterface $clock,
-        private readonly DateInterval $maxAge,
+        private CacheItemPoolInterface $cache,
+        private ClientContract $client,
+        private ClockInterface $clock,
+        private DateInterval $maxAge,
     ) {
     }
 

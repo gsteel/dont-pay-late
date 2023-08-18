@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Log;
 
-use App\Util\Assert;
+use GSteel\Dot;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use Psr\Container\ContainerInterface;
@@ -17,9 +17,9 @@ final class FileLoggerFactory
     public function __invoke(ContainerInterface $container): LoggerInterface
     {
         $options = $this->loggingConfig($container);
-        $path = $options['path'] ?? null;
-        Assert::string($path, 'I cannot log to a file if logging.path has not been specified');
 
-        return new Logger($this->loggerName($container), [new StreamHandler($path)]);
+        return new Logger($this->loggerName($container), [
+            new StreamHandler(Dot::string('path', $options)),
+        ]);
     }
 }

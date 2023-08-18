@@ -28,6 +28,7 @@
         "ext-libxml": "*",
         "ext-mbstring": "*",
         "ext-redis": "*",
+        "ext-sockets": "*",
         "ext-xmlreader": "*",
         "azjezz/psl": "^2.7",
         "fig/http-message-util": "^1.1.5",
