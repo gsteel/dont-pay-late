@@ -3,7 +3,7 @@
 #
 FROM php:8.2-cli-alpine
 
-ARG LOCAL_MODULES="bcmath ctype curl intl json libxml mbstring opcache redis xmlreader"
+ARG LOCAL_MODULES="bcmath ctype curl intl json libxml mbstring opcache redis sockets xmlreader"
 
 #
 # PHP Extensions
