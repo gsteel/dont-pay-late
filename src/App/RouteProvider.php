@@ -10,15 +10,15 @@ use Fig\Http\Message\RequestMethodInterface as RM;
 use Mezzio\MiddlewareFactory;
 use Mezzio\Router\RouteCollectorInterface;
 
-final class RouteProvider
+final readonly class RouteProvider
 {
     public const ROUTE_CALCULATE = 'calculate';
     public const ROUTE_HOME = 'home';
     public const ROUTE_ABOUT = 'about';
 
     public function __construct(
-        private readonly RouteCollectorInterface $collector,
-        private readonly MiddlewareFactory $factory,
+        private RouteCollectorInterface $collector,
+        private MiddlewareFactory $factory,
     ) {
     }
 
