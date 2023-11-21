@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fef26b0e250e691497fdc844dd06e0b2",
+    "content-hash": "0bcbdc201816fa61ec5bf2c8cfac6d8c",
     "packages": [
         {
             "name": "azjezz/psl",
@@ -5501,20 +5501,20 @@
         },
         {
             "name": "laminas/laminas-development-mode",
-            "version": "3.11.0",
+            "version": "3.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-development-mode.git",
-                "reference": "3be715ec938e1aa9ffb586a07588c3b312857a8c"
+                "reference": "cd2f9885deab41ef590924d53ad4041db490b923"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-development-mode/zipball/3be715ec938e1aa9ffb586a07588c3b312857a8c",
-                "reference": "3be715ec938e1aa9ffb586a07588c3b312857a8c",
+                "url": "https://api.github.com/repos/laminas/laminas-development-mode/zipball/cd2f9885deab41ef590924d53ad4041db490b923",
+                "reference": "cd2f9885deab41ef590924d53ad4041db490b923",
                 "shasum": ""
             },
             "require": {
-                "php": "~8.1.0 || ~8.2.0"
+                "php": "~8.1.0 || ~8.2.0 || ~8.3.0"
             },
             "conflict": {
                 "zfcampus/zf-development-mode": "*"
@@ -5522,9 +5522,9 @@
             "require-dev": {
                 "laminas/laminas-coding-standard": "~2.5.0",
                 "mikey179/vfsstream": "^1.6.11",
-                "phpunit/phpunit": "^10.2.2",
+                "phpunit/phpunit": "^10.4.2",
                 "psalm/plugin-phpunit": "^0.18.4",
-                "vimeo/psalm": "^5.13.1"
+                "vimeo/psalm": "^5.15.0"
             },
             "bin": [
                 "bin/laminas-development-mode"
@@ -5558,7 +5558,7 @@
                     "type": "community_bridge"
                 }
             ],
-            "time": "2023-06-28T11:00:04+00:00"
+            "time": "2023-11-21T16:03:48+00:00"
         },
         {
             "name": "lctrs/psalm-psr-container-plugin",
