@@ -67,7 +67,7 @@
         "psr/http-server-middleware": "^1.0.2",
         "psr/log": "^3",
         "symfony/cache": "^6.3.2",
-        "symfony/console": "^6.3.2",
+        "symfony/console": "^6.3.2 || ^7.0.0",
         "webmozart/assert": "^1.11"
     },
     "replace": {
