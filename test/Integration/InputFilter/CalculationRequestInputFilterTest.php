@@ -13,6 +13,7 @@ use Laminas\InputFilter\InputFilterPluginManager;
 use Laminas\Validator\GreaterThan;
 use PHPUnit\Framework\Attributes\DataProvider;
 
+use function assert;
 use function sprintf;
 
 class CalculationRequestInputFilterTest extends TestCase
@@ -25,7 +26,9 @@ class CalculationRequestInputFilterTest extends TestCase
 
         $container = $this->getContainer();
         $filters = $container->get(InputFilterPluginManager::class);
-        $this->filter = $filters->get(CalculationRequestInputFilter::class);
+        $inputFilter = $filters->get(CalculationRequestInputFilter::class);
+        assert($inputFilter instanceof CalculationRequestInputFilter);
+        $this->filter = $inputFilter;
     }
 
     /** @return list<array{0: string}> */
