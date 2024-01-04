@@ -18,7 +18,9 @@
     </projectFiles>
     <plugins>
         <pluginClass class="Psalm\PhpUnitPlugin\Plugin"/>
-        <pluginClass class="Lctrs\PsalmPsrContainerPlugin\Plugin"/>
         <pluginClass class="Psl\Psalm\Plugin"/>
     </plugins>
+    <stubs>
+        <file name=".psr-container.php.stub"/>
+    </stubs>
 </psalm>

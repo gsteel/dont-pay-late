@@ -23,6 +23,8 @@ final class InMemoryContainer implements ContainerInterface
             };
         }
 
+        /** @psalm-suppress MixedReturnStatement */
+
         return $this->services[$id];
     }
 

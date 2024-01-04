@@ -9,7 +9,7 @@ on:
 
 env:
   php_extensions: bcmath,ctype,curl,intl,json,libxml,mbstring,opcache,pcov,redis,sockets,xmlreader
-  default_php: 8.2
+  default_php: 8.3
   REDIS_HOST: "127.0.0.1"
 
 jobs:
@@ -50,7 +50,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php-version: ['8.2']
+        php-version: ['8.3']
         dependencies: ['locked']
 
     services:
