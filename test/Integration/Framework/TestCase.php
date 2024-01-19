@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace AppTest\Integration\Framework;
 
 use AppTest\Unit\Framework\TestCase as UnitTestCase;
-use Laminas\ServiceManager\ConfigInterface;
 use Laminas\ServiceManager\ServiceManager;
 use Mezzio\Application;
 use Mezzio\MiddlewareFactory;
@@ -13,11 +12,7 @@ use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
-/**
- * @see ConfigInterface so that it doesn't appear unused
- *
- * @psalm-import-type ServiceManagerConfigurationType from ConfigInterface
- */
+/** @psalm-import-type ServiceManagerConfiguration from ServiceManager */
 class TestCase extends UnitTestCase
 {
     private static ContainerInterface|null $container;
@@ -28,10 +23,14 @@ class TestCase extends UnitTestCase
         if (! isset(self::$container)) {
             /** @psalm-var array<string, mixed> $config */
             $config = require __DIR__ . '/../../config/config.php';
-            /** @psalm-var ServiceManagerConfigurationType */
-            $dependencies = $config['dependencies'];
-            unset($dependencies['services']['config']);
+            /** @psalm-var ServiceManagerConfiguration $dependencies */
+            $dependencies = $config['dependencies'] ?? [];
+            $dependencies['services'] = ! isset($dependencies['services'])
+                ? []
+                : $dependencies['services'];
             $dependencies['services']['config'] = $config;
+
+            /** @psalm-var ServiceManagerConfiguration $dependencies */
 
             self::$container = new ServiceManager($dependencies);
         }
