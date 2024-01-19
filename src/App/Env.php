@@ -14,9 +14,9 @@ final class Env
 {
     public static function getString(string $env, string|null $default = null): string|null
     {
-        $value = getenv($env);
+        $value = (string) getenv($env);
 
-        return empty($value) ? $default : $value;
+        return $value === '' ? $default : $value;
     }
 
     public static function getInt(string $env, int|null $default = null): int|null
@@ -29,7 +29,7 @@ final class Env
     public static function requireString(string $env, string|null $default = null): string
     {
         $value = self::getString($env, $default);
-        if (! $value) {
+        if ($value === null) {
             throw new RuntimeError(sprintf('The environment variable "%s" has not been set', $env));
         }
 
@@ -39,7 +39,7 @@ final class Env
     public static function requireInt(string $env, int|null $default = null): int
     {
         $value = self::getInt($env, $default);
-        if (! $value) {
+        if ($value === null) {
             throw new RuntimeError(sprintf('The environment variable "%s" has not been set', $env));
         }
 
