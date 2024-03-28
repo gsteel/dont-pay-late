@@ -44,7 +44,7 @@
         "laminas/laminas-form": "^3.19.1",
         "laminas/laminas-i18n": "^2.26",
         "laminas/laminas-inputfilter": "^2.29",
-        "laminas/laminas-servicemanager": "^3.22.1",
+        "laminas/laminas-servicemanager": "^3.22.1 || ^4.0.0",
         "laminas/laminas-stdlib": "^3.19",
         "laminas/laminas-stratigility": "^3.11",
         "laminas/laminas-validator": "^2.47",
