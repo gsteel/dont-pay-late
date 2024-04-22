@@ -48,6 +48,7 @@ final class ConfigProvider
                 Log\ErrorHandlerLoggingListener::class => Log\Container\ErrorHandlerLoggingListenerFactory::class,
                 Middleware\CalculationMiddleware::class => Middleware\Container\CalculationMiddlewareFactory::class,
                 Middleware\TemplateRenderer::class => Middleware\Container\TemplateRendererFactory::class,
+                Middleware\XFrameOptionsMiddleware::class => Laminas\ServiceManager\Factory\InvokableFactory::class,
                 Money\Currency::class => static fn (): Money\Currency => new Money\Currency('GBP'),
                 Psr\Http\Client\ClientInterface::class => Container\HttpClientFactory::class,
 

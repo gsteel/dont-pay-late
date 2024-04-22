@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Middleware\XFrameOptionsMiddleware;
 use Laminas\Stratigility\Middleware\ErrorHandler;
 use Mezzio\Application;
 use Mezzio\Handler\NotFoundHandler;
@@ -24,6 +25,7 @@ return static function (Application $app, MiddlewareFactory $factory, ContainerI
     $app->pipe(ImplicitOptionsMiddleware::class);
     $app->pipe(MethodNotAllowedMiddleware::class);
     $app->pipe(UrlHelperMiddleware::class);
+    $app->pipe(XFrameOptionsMiddleware::class);
     $app->pipe(DispatchMiddleware::class);
     $app->pipe(NotFoundHandler::class);
 };
