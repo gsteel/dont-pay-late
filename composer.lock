@@ -9205,7 +9205,7 @@
         "ext-sockets": "*",
         "ext-xmlreader": "*"
     },
-    "platform-dev": [],
+    "platform-dev": {},
     "platform-overrides": {
         "php": "8.3.99"
     },
