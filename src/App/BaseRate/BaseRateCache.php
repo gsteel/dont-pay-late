@@ -8,6 +8,6 @@ use Psr\Cache\CacheItemPoolInterface;
 
 interface BaseRateCache extends CacheItemPoolInterface
 {
-    public const CACHE_KEY = 'BaseRateData';
-    public const LAST_UPDATE_KEY = 'BaseLastUpdateTime';
+    public const string CACHE_KEY = 'BaseRateData';
+    public const string LAST_UPDATE_KEY = 'BaseLastUpdateTime';
 }

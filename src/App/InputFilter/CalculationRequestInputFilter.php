@@ -11,10 +11,10 @@ use Laminas\Filter\ToFloat;
 use Laminas\Filter\ToInt;
 use Laminas\Filter\ToNull;
 use Laminas\InputFilter\InputFilter;
-use Laminas\Validator\Between;
 use Laminas\Validator\Date;
-use Laminas\Validator\GreaterThan;
+use Laminas\Validator\DateComparison;
 use Laminas\Validator\NotEmpty;
+use Laminas\Validator\NumberComparison;
 
 use function sprintf;
 
@@ -39,6 +39,8 @@ final class CalculationRequestInputFilter extends InputFilter
             'The earliest date that a base rate can be found is %s but the date you have entered is prior to this date',
             $this->minimumDate->format('jS F Y'),
         );
+        $badTerms = 'Terms must be between zero and 365 days. If your terms are more '
+            . 'than a year then it’s no wonder you haven’t been paid!';
 
         $this->add([
             'name' => 'dueDate',
@@ -70,13 +72,13 @@ final class CalculationRequestInputFilter extends InputFilter
                     'break_chain_on_failure' => true,
                 ],
                 'after' => [
-                    'name' => GreaterThan::class,
+                    'name' => DateComparison::class,
                     'options' => [
-                        'min' => $this->minimumDate->format('Y-m-d'),
-                        'inclusive' => true,
+                        'min' => $this->minimumDate,
+                        'inclusiveMin' => true,
                         'messages' => [
-                            GreaterThan::NOT_GREATER => $tooOld,
-                            GreaterThan::NOT_GREATER_INCLUSIVE => $tooOld,
+                            DateComparison::ERROR_NOT_GREATER_INCLUSIVE => $tooOld,
+                            DateComparison::ERROR_NOT_GREATER => $tooOld,
                         ],
                     ],
                 ],
@@ -110,14 +112,13 @@ final class CalculationRequestInputFilter extends InputFilter
                     'break_chain_on_failure' => true,
                 ],
                 'reasonableTerms' => [
-                    'name' => Between::class,
+                    'name' => NumberComparison::class,
                     'options' => [
                         'min' => 0,
                         'max' => 365,
-                        'inclusive' => true,
                         'messages' => [
-                            Between::NOT_BETWEEN => 'Terms must be between zero and 365 days. If your terms are more '
-                                . 'than a year then it’s no wonder you haven’t been paid!',
+                            NumberComparison::ERROR_NOT_LESS_INCLUSIVE => $badTerms,
+                            NumberComparison::ERROR_NOT_GREATER_INCLUSIVE => $badTerms,
                         ],
                     ],
                 ],
@@ -142,12 +143,12 @@ final class CalculationRequestInputFilter extends InputFilter
                     'break_chain_on_failure' => true,
                 ],
                 'positive' => [
-                    'name' => GreaterThan::class,
+                    'name' => NumberComparison::class,
                     'options' => [
                         'min' => 0,
-                        'inclusive' => false,
+                        'inclusiveMin' => false,
                         'messages' => [
-                            GreaterThan::NOT_GREATER => 'The invoice amount must be greater than zero',
+                            NumberComparison::ERROR_NOT_GREATER => 'The invoice amount must be greater than zero',
                         ],
                     ],
                 ],

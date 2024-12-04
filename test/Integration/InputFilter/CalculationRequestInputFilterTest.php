@@ -10,7 +10,7 @@ use App\InputFilter\CalculationRequestInputFilter;
 use AppTest\Integration\Framework\TestCase;
 use DateInterval;
 use Laminas\InputFilter\InputFilterPluginManager;
-use Laminas\Validator\GreaterThan;
+use Laminas\Validator\DateComparison;
 use PHPUnit\Framework\Attributes\DataProvider;
 
 use function sprintf;
@@ -91,12 +91,12 @@ class CalculationRequestInputFilterTest extends TestCase
         $messages = $this->filter->getMessages();
         self::assertArrayHasKey('dueDate', $messages);
         $value = $messages['dueDate'];
-        self::assertArrayHasKey(GreaterThan::NOT_GREATER_INCLUSIVE, $value);
+        self::assertArrayHasKey(DateComparison::ERROR_NOT_GREATER_INCLUSIVE, $value);
         $expect = sprintf(
             'The earliest date that a base rate can be found is %s but the date you have entered is prior to this date',
             $earliestDate->format('jS F Y'),
         );
-        self::assertEquals($expect, $value[GreaterThan::NOT_GREATER_INCLUSIVE]);
+        self::assertEquals($expect, $value[DateComparison::ERROR_NOT_GREATER_INCLUSIVE]);
     }
 
     public function testRetrievingDataSetWithInvalidInputIsExceptional(): void
