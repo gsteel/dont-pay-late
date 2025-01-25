@@ -84,7 +84,7 @@
     },
     "require-dev": {
         "doctrine/coding-standard": "^12.0.0",
-        "filp/whoops": "^2.16.0",
+        "filp/whoops": "^2.17.0",
         "helmich/phpunit-psr7-assert": "^4.4.1",
         "laminas/laminas-development-mode": "^3.13.0",
         "netglue/revs": "^1.4.0",
