@@ -13,6 +13,7 @@ use Laminas\Form\FormElementManager;
 use Laminas\InputFilter\InputFilterPluginManager;
 use Laminas\Validator\ValidatorPluginManager;
 use Laminas\View\HelperPluginManager;
+use Mezzio;
 use PHPUnit\Framework\Attributes\DataProvider;
 use Psr\Container\ContainerInterface;
 
@@ -30,6 +31,9 @@ class LazyFactoryTest extends TestCase
         'FormAttributeBuilder',
         Laminas\Form\Annotation\AnnotationBuilder::class,
         Laminas\Form\Annotation\AttributeBuilder::class,
+        Mezzio\Middleware\ErrorResponseGenerator::class,
+        'Mezzio\Whoops',
+        'Zend\Expressive\Middleware\ErrorResponseGenerator',
     ];
 
     /**

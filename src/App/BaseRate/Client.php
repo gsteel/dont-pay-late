@@ -61,7 +61,6 @@ final class Client implements ClientContract
          * It's not feasible to check for valid XML because it simply never is. For now, errors will just halt execution
          */
         $reader = XMLReader::XML($xml);
-        /** @psalm-suppress RedundantCondition, TypeDoesNotContainType */
         if (! $reader instanceof XMLReader) {
             throw new InvalidArgument('The base rate xml string provided cannot be used');
         }

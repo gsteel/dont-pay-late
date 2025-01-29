@@ -7,6 +7,7 @@ namespace AppTest\Unit\Middleware;
 use App\Exception\RuntimeError;
 use App\Middleware\TemplateRenderer;
 use AppTest\Unit\Framework\TestCase;
+use AppTest\Unit\Psr7Assert;
 use Mezzio\Template\TemplateRendererInterface;
 use PHPUnit\Framework\MockObject\MockObject;
 
@@ -47,7 +48,7 @@ class TemplateRendererTest extends TestCase
         $response = $this->middleware->process($request, $handler);
 
         self::assertFalse($handler->didHandle());
-        self::assertResponseHasStatus($response, 200);
+        Psr7Assert::assertResponseHasStatus($response, 200);
         $contentType = $response->getHeaderLine('Content-Type');
         self::assertStringContainsString('text/html', $contentType);
         self::assertStringContainsString('Some HTML', (string) $response->getBody());

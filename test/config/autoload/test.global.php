@@ -2,7 +2,9 @@
 declare(strict_types=1); // phpcs:ignoreFile
 
 use App\Env;
+use AppTest\Integration\Framework\NoOpMiddleware;
 use Laminas\ConfigAggregator\ConfigAggregator;
+use Laminas\ServiceManager\Factory\InvokableFactory;
 
 return [
     'debug' => false,
@@ -21,6 +23,11 @@ return [
             Http\Mock\Client::class => static function () {
                 return new Http\Mock\Client();
             },
+            NoOpMiddleware::class => InvokableFactory::class,
+        ],
+        'aliases' => [
+            // Stub out the error handler because it interferes with PHPUnit's Error handler
+            Laminas\Stratigility\Middleware\ErrorHandler::class => NoOpMiddleware::class,
         ],
     ],
 ];

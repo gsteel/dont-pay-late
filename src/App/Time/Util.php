@@ -14,6 +14,7 @@ use function sprintf;
 
 final class Util
 {
+    /** @psalm-suppress UnusedConstructor */
     private function __construct()
     {
     }
@@ -22,8 +23,11 @@ final class Util
     {
         $date = DateTimeImmutable::createFromFormat($format, $date, $timeZone);
         if (! $date) {
+            $errors = date_get_last_errors();
+            $errors = $errors === false ? [] : $errors;
+
             throw new InvalidArgument(
-                sprintf('Invalid date values: %s', implode(', ', date_get_last_errors()['errors'])),
+                sprintf('Invalid date values: %s', implode(', ', $errors['errors'] ?? [])),
             );
         }
 

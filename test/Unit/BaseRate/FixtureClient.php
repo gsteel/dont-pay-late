@@ -11,7 +11,7 @@ use DateTimeImmutable;
 use DateTimeZone;
 
 use function assert;
-use function file_get_contents;
+use function Psl\File\read;
 
 final class FixtureClient implements ClientContract
 {
@@ -30,7 +30,7 @@ final class FixtureClient implements ClientContract
         $this->invocationCount++;
 
         return Client::extractRateChanges(
-            file_get_contents(__DIR__ . '/fixture/feed.xml'),
+            read(__DIR__ . '/fixture/feed.xml'),
             new DateTimeZone('UTC'),
         );
     }

@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 use Throwable;
 
 use function count;
-use function file_get_contents;
+use function Psl\File\read;
 use function restore_error_handler;
 use function set_error_handler;
 
@@ -31,7 +31,7 @@ class ClientTest extends TestCase
 
     public function testThatRatesCanBeExtractedFromKnownXmlFormat(): void
     {
-        $list = Client::extractRateChanges(file_get_contents(__DIR__ . '/fixture/feed.xml'), new DateTimeZone('UTC'));
+        $list = Client::extractRateChanges(read(__DIR__ . '/fixture/feed.xml'), new DateTimeZone('UTC'));
         self::assertGreaterThan(1, count($list));
     }
 }
