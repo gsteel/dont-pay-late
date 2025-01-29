@@ -66,6 +66,7 @@ final readonly class ChangeList implements IteratorAggregate, Countable, JsonSer
         return new ArrayIterator($this->rates);
     }
 
+    /** @psalm-suppress PossiblyUnusedMethod */
     public function count(): int
     {
         return count($this->rates);

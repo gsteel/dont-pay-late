@@ -13,6 +13,7 @@ use function assert;
 
 final class LoggerSetupDelegator
 {
+    /** @psalm-suppress UnusedParam */
     public function __invoke(ContainerInterface $container, string $serviceName, callable $service): LoggerInterface
     {
         $logger = $service();

@@ -19,11 +19,11 @@
             "php-http/discovery": true
         },
         "platform": {
-            "php": "8.3.99"
+            "php": "8.4.99"
         }
     },
     "require": {
-        "php": "~8.3",
+        "php": "~8.4",
         "ext-bcmath": "*",
         "ext-ctype": "*",
         "ext-intl": "*",
@@ -33,14 +33,14 @@
         "ext-redis": "*",
         "ext-sockets": "*",
         "ext-xmlreader": "*",
-        "azjezz/psl": "^2.9.1 || ^3.0.0",
+        "azjezz/psl": "^2.9.1 || ^3.1.0",
         "fig/http-message-util": "^1.1.5",
         "gsteel/dot": "^1.7",
         "laminas/laminas-cli": "^1.11",
         "laminas/laminas-config-aggregator": "^1.17",
         "laminas/laminas-diactoros": "^3.5.0",
-        "laminas/laminas-escaper": "^2.14",
-        "laminas/laminas-filter": "^2.39.0",
+        "laminas/laminas-escaper": "^2.15",
+        "laminas/laminas-filter": "^2.40.0",
         "laminas/laminas-form": "^3.21.0",
         "laminas/laminas-i18n": "^2.29",
         "laminas/laminas-inputfilter": "^2.31.0",
@@ -57,7 +57,7 @@
         "mezzio/mezzio-router": "^3.18.0",
         "mezzio/mezzio-template": "^2.11",
         "moneyphp/money": "^4.6",
-        "monolog/monolog": "^3.8",
+        "monolog/monolog": "^3.8.1",
         "php-http/client-common": "^2.7.2",
         "php-http/curl-client": "^2.3.3",
         "psr/cache": "^3.0",
@@ -69,8 +69,8 @@
         "psr/http-server-handler": "^1.0.2",
         "psr/http-server-middleware": "^1.0.2",
         "psr/log": "^3.0.2",
-        "symfony/cache": "^7.2.0",
-        "symfony/console": "^7.2.0",
+        "symfony/cache": "^7.2.1",
+        "symfony/console": "^7.2.1",
         "webmozart/assert": "^1.11"
     },
     "replace": {
@@ -85,16 +85,15 @@
     "require-dev": {
         "doctrine/coding-standard": "^12.0.0",
         "filp/whoops": "^2.17.0",
-        "helmich/phpunit-psr7-assert": "^4.4.1",
         "laminas/laminas-development-mode": "^3.13.0",
         "netglue/revs": "^1.4.0",
         "php-http/mock-client": "^1.6.1",
         "php-standard-library/psalm-plugin": "^2.3.0",
-        "phpunit/phpunit": "^10.5.41",
-        "psalm/plugin-phpunit": "^0.19.0",
+        "phpunit/phpunit": "^11.5.4",
+        "psalm/plugin-phpunit": "^0.19.2",
         "roave/security-advisories": "dev-latest",
         "squizlabs/php_codesniffer": "^3.11.3",
-        "vimeo/psalm": "^5.26.1"
+        "vimeo/psalm": "^6.0.0"
     },
     "autoload": {
         "psr-4": {

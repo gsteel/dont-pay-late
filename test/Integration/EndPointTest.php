@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace AppTest\Integration;
 
 use AppTest\Integration\Framework\TestCase;
+use AppTest\Unit\Psr7Assert;
 use Fig\Http\Message\RequestMethodInterface as RM;
 use Laminas\Diactoros\StreamFactory;
 use Psr\Http\Message\ServerRequestInterface;
@@ -14,25 +15,25 @@ final class EndPointTest extends TestCase
     public function test404(): void
     {
         $response = $this->handle($this->serverRequest('/not-there'));
-        self::assertResponseHasStatus($response, 404);
+        Psr7Assert::assertResponseHasStatus($response, 404);
     }
 
     public function testHomePage(): void
     {
         $response = $this->handle($this->serverRequest('/'));
-        self::assertResponseHasStatus($response, 200);
+        Psr7Assert::assertResponseHasStatus($response, 200);
     }
 
     public function testAboutPage(): void
     {
         $response = $this->handle($this->serverRequest('/about'));
-        self::assertResponseHasStatus($response, 200);
+        Psr7Assert::assertResponseHasStatus($response, 200);
     }
 
     public function testGetRequestToCalculateIsClientError(): void
     {
         $response = $this->handle($this->serverRequest('/calculate'));
-        self::assertResponseIsClientError($response);
+        Psr7Assert::assertResponseIsClientError($response);
     }
 
     private function requestWithBody(string $body): ServerRequestInterface
@@ -48,13 +49,13 @@ final class EndPointTest extends TestCase
     public function testPostRequestWithoutPayloadToCalculateIsClientError(): void
     {
         $response = $this->handle($this->requestWithBody(''));
-        self::assertResponseIsClientError($response);
+        Psr7Assert::assertResponseIsClientError($response);
     }
 
     public function testPostRequestWithInvalidPayloadToCalculateIsClientError(): void
     {
         $response = $this->handle($this->requestWithBody('foo'));
-        self::assertResponseIsClientError($response);
+        Psr7Assert::assertResponseIsClientError($response);
     }
 
     public function testPostRequestWitValidPayloadToCalculateIsSuccess(): void
@@ -66,6 +67,6 @@ final class EndPointTest extends TestCase
                 "amount": "123.45"
             }
             JSON));
-        self::assertResponseIsSuccess($response);
+        Psr7Assert::assertResponseIsSuccess($response);
     }
 }

@@ -11,6 +11,7 @@ use App\Calculator\StandardCalculator;
 use App\InputFilter\CalculationRequestInputFilter;
 use App\Middleware\CalculationMiddleware;
 use AppTest\Unit\Framework\TestCase;
+use AppTest\Unit\Psr7Assert;
 use DateTimeImmutable;
 use Fig\Http\Message\StatusCodeInterface;
 use Laminas\Diactoros\StreamFactory;
@@ -72,7 +73,7 @@ class CalculationMiddlewareTest extends TestCase
         int $expectCode,
         string $expectMessage,
     ): void {
-        self::assertResponseHasStatus($response, $expectCode);
+        Psr7Assert::assertResponseHasStatus($response, $expectCode);
         $body = (string) $response->getBody();
         self::assertJson($body);
         $payload = decode($body, true);
@@ -178,13 +179,13 @@ class CalculationMiddlewareTest extends TestCase
         );
 
         self::assertFalse($handler->didHandle());
-        self::assertResponseHasStatus($response, StatusCodeInterface::STATUS_OK);
-        self::assertMessageHasHeader($response, 'content-type', 'application/json');
+        Psr7Assert::assertResponseHasStatus($response, StatusCodeInterface::STATUS_OK);
+        Psr7Assert::assertMessageHasHeader($response, 'content-type', 'application/json');
 
         /** @psalm-var mixed $body */
         $body = decode((string) $response->getBody(), true);
         self::assertIsArray($body);
-        self::assertContainsOnly('string', array_keys($body));
+        self::assertContainsOnlyString(array_keys($body));
         /** @psalm-var array<string, mixed> $body */
 
         return $body;

@@ -24,8 +24,8 @@ $aggregator = new ConfigAggregator([
     Laminas\Diactoros\ConfigProvider::class,
     new ArrayProvider($cacheConfig),
     App\ConfigProvider::class,
-    new PhpFileProvider(realpath(__DIR__) . '/autoload/{{,*.}global,{,*.}local}.php'),
-    new PhpFileProvider(realpath(__DIR__) . '/development.config.php'),
+    new PhpFileProvider(__DIR__ . '/autoload/{{,*.}global,{,*.}local}.php'),
+    new PhpFileProvider(__DIR__ . '/development.config.php'),
 ], $cacheConfig['config_cache_path']);
 
 return $aggregator->getMergedConfig();

@@ -12,6 +12,7 @@ use function assert;
 
 final class ErrorHandlerDelegator
 {
+    /** @psalm-suppress UnusedParam */
     public function __invoke(ContainerInterface $container, string $name, callable $callback): ErrorHandler
     {
         $handler = $callback();
