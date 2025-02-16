@@ -23,7 +23,7 @@ use function assert;
 use function in_array;
 use function sprintf;
 
-class LazyFactoryTest extends TestCase
+final class LazyFactoryTest extends TestCase
 {
     /** @var array<array-key, class-string|string> */
     protected static array $servicesToIgnore = [

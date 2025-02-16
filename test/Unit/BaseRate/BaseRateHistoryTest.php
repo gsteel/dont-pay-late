@@ -14,7 +14,7 @@ use Symfony\Component\Cache\Adapter\ArrayAdapter;
 
 use function assert;
 
-class BaseRateHistoryTest extends TestCase
+final class BaseRateHistoryTest extends TestCase
 {
     private ArrayAdapter $cache;
     private BaseRateHistory $history;

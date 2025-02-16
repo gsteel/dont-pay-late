@@ -10,7 +10,7 @@ use DateTimeZone;
 use Money\Currency;
 use PHPUnit\Framework\TestCase;
 
-class RequestTest extends TestCase
+final class RequestTest extends TestCase
 {
     public function testARequestCanBeHydratedFromAnArray(): void
     {

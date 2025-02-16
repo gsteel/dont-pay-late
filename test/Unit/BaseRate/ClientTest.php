@@ -14,7 +14,7 @@ use function Psl\File\read;
 use function restore_error_handler;
 use function set_error_handler;
 
-class ClientTest extends TestCase
+final class ClientTest extends TestCase
 {
     public function testAnErrorIsThrownWhenAReaderCannotBeInstantiatedFromTheGivenXmlString(): void
     {

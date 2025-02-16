@@ -15,7 +15,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 
 use function sprintf;
 
-class CalculationRequestInputFilterTest extends TestCase
+final class CalculationRequestInputFilterTest extends TestCase
 {
     private CalculationRequestInputFilter $filter;
 

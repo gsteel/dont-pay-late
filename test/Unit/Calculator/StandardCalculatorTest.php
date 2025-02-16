@@ -19,7 +19,7 @@ use PHPUnit\Framework\TestCase;
 use function assert;
 use function round;
 
-class StandardCalculatorTest extends TestCase
+final class StandardCalculatorTest extends TestCase
 {
     private Currency $gpb;
     private StandardCalculator $calculator;

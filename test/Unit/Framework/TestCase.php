@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase as PHPUnitTestCase;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
-class TestCase extends PHPUnitTestCase
+abstract class TestCase extends PHPUnitTestCase
 {
     protected function serverRequest(string $path, string $method = 'GET'): ServerRequestInterface
     {

@@ -26,7 +26,7 @@ use function assert;
 use function count;
 use function Psl\Json\decode;
 
-class CalculationMiddlewareTest extends TestCase
+final class CalculationMiddlewareTest extends TestCase
 {
     private CalculationMiddleware $middleware;
 

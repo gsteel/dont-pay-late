@@ -6,6 +6,6 @@ namespace App\Exception;
 
 use BadMethodCallException;
 
-class BadMethodCall extends BadMethodCallException implements InternalError
+final class BadMethodCall extends BadMethodCallException implements InternalError
 {
 }

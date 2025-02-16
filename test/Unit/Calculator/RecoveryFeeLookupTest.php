@@ -9,7 +9,7 @@ use Money\Currency;
 use Money\Money;
 use PHPUnit\Framework\TestCase;
 
-class RecoveryFeeLookupTest extends TestCase
+final class RecoveryFeeLookupTest extends TestCase
 {
     private RecoveryFeeLookup $lookup;
 

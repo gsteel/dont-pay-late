@@ -16,7 +16,7 @@ use PHPUnit\Framework\TestCase;
 
 use function reset;
 
-class ErrorHandlerLoggingListenerTest extends TestCase
+final class ErrorHandlerLoggingListenerTest extends TestCase
 {
     private TestHandler $logger;
     private ErrorHandlerLoggingListener $handler;

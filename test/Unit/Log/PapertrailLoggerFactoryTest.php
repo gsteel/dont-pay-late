@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 use Psr\Log\LoggerInterface;
 use Throwable;
 
-class PapertrailLoggerFactoryTest extends TestCase
+final class PapertrailLoggerFactoryTest extends TestCase
 {
     private InMemoryContainer $container;
 
