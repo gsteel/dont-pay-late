@@ -13,7 +13,7 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
 /** @psalm-import-type ServiceManagerConfiguration from ServiceManager */
-class TestCase extends UnitTestCase
+abstract class TestCase extends UnitTestCase
 {
     private static ContainerInterface|null $container;
     private static Application|null $application;

@@ -10,7 +10,7 @@ use AppTest\Unit\Framework\TestHandler;
 use AppTest\Unit\Psr7Assert;
 use Laminas\Diactoros\Response\HtmlResponse;
 
-class XFrameOptionsMiddlewareTest extends TestCase
+final class XFrameOptionsMiddlewareTest extends TestCase
 {
     private XFrameOptionsMiddleware $middleware;
     private TestHandler $handler;

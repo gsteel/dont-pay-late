@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 use function putenv;
 
-class EnvTest extends TestCase
+final class EnvTest extends TestCase
 {
     protected function setUp(): void
     {

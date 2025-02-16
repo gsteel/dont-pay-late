@@ -10,7 +10,7 @@ use DateTimeImmutable;
 use DateTimeZone;
 use PHPUnit\Framework\TestCase;
 
-class UtilTest extends TestCase
+final class UtilTest extends TestCase
 {
     public function testDateFromFormatHappyPath(): void
     {

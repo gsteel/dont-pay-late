@@ -11,7 +11,7 @@ use AppTest\Unit\Psr7Assert;
 use Mezzio\Template\TemplateRendererInterface;
 use PHPUnit\Framework\MockObject\MockObject;
 
-class TemplateRendererTest extends TestCase
+final class TemplateRendererTest extends TestCase
 {
     /** @var TemplateRendererInterface&MockObject */
     private TemplateRendererInterface $renderer;

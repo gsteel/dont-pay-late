@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 use Psr\Log\LoggerInterface;
 use Throwable;
 
-class FileLoggerFactoryTest extends TestCase
+final class FileLoggerFactoryTest extends TestCase
 {
     private InMemoryContainer $container;
 

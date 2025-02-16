@@ -6,6 +6,6 @@ namespace App\Exception;
 
 use InvalidArgumentException;
 
-class InvalidArgument extends InvalidArgumentException implements InternalError
+final class InvalidArgument extends InvalidArgumentException implements InternalError
 {
 }

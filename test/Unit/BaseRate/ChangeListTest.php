@@ -14,7 +14,7 @@ use Psl\Json;
 use function assert;
 use function iterator_to_array;
 
-class ChangeListTest extends TestCase
+final class ChangeListTest extends TestCase
 {
     private static function date(string $date): DateTimeImmutable
     {
