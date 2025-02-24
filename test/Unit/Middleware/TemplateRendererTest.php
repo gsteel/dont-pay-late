@@ -9,6 +9,7 @@ use App\Middleware\TemplateRenderer;
 use AppTest\Unit\Framework\TestCase;
 use AppTest\Unit\Psr7Assert;
 use Mezzio\Template\TemplateRendererInterface;
+use Override;
 use PHPUnit\Framework\MockObject\MockObject;
 
 final class TemplateRendererTest extends TestCase
@@ -17,6 +18,7 @@ final class TemplateRendererTest extends TestCase
     private TemplateRendererInterface $renderer;
     private TemplateRenderer $middleware;
 
+    #[Override]
     protected function setUp(): void
     {
         parent::setUp();

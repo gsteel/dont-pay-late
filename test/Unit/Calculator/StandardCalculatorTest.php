@@ -13,6 +13,7 @@ use App\Calculator\StandardCalculator;
 use DateTimeImmutable;
 use Money\Currency;
 use Money\Money;
+use Override;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
@@ -24,6 +25,7 @@ final class StandardCalculatorTest extends TestCase
     private Currency $gpb;
     private StandardCalculator $calculator;
 
+    #[Override]
     protected function setUp(): void
     {
         parent::setUp();
@@ -73,10 +75,10 @@ final class StandardCalculatorTest extends TestCase
         self::assertEquals(4000, $response->recoveryFee()->getAmount());
         self::assertEquals(1, $response->daysOverdue);
 
-        $expectedFee = round(50000 * 20 / 365 / 100);
+        $expectedFee = round(50000.0 * 20.0 / 365.0 / 100.0);
         self::assertEquals($expectedFee, $response->interestPayable()->getAmount());
 
-        $expectedTotal = $expectedFee + 54000;
+        $expectedTotal = $expectedFee + 54000.0;
         self::assertEquals($expectedTotal, $response->totalPayable()->getAmount());
     }
 

@@ -10,6 +10,7 @@ use DateInterval;
 use DateTimeImmutable;
 use Money\Currency;
 use Money\Money;
+use Override;
 
 use function sprintf;
 
@@ -23,6 +24,7 @@ final readonly class StandardCalculator implements Calculator
     ) {
     }
 
+    #[Override]
     public function calculate(Request $request): Calculation
     {
         $terms = new DateInterval(sprintf('P%dD', $request->termsInDays));
@@ -48,8 +50,8 @@ final readonly class StandardCalculator implements Calculator
         Assert::integer($days);
         $interestRate = $baseRate->rate + $this->statutoryRate;
         $recovery = $this->recoveryFeeLookup->forAmount($request->amount());
-        $dailyRate = $interestRate / 365;
-        $dailyAmount = $request->amount()->multiply((string) ($dailyRate / 100));
+        $dailyRate = $interestRate / 365.0;
+        $dailyAmount = $request->amount()->multiply((string) ($dailyRate / 100.0));
         $interestAmount = $dailyAmount->multiply($days);
 
         return Calculation::new($request, $interestRate, $recovery, $interestAmount, $dailyAmount, $days, $referenceDate);

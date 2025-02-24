@@ -8,6 +8,7 @@ use App\Util\Assert;
 use DateTimeImmutable;
 use DateTimeInterface;
 use JsonSerializable;
+use Override;
 
 final readonly class RateChange implements JsonSerializable
 {
@@ -18,6 +19,7 @@ final readonly class RateChange implements JsonSerializable
     }
 
     /** @return array{date: string, rate: float} */
+    #[Override]
     public function jsonSerialize(): array
     {
         return [

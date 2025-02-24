@@ -7,12 +7,14 @@ namespace AppTest\Unit\Calculator;
 use App\Calculator\RecoveryFeeLookup;
 use Money\Currency;
 use Money\Money;
+use Override;
 use PHPUnit\Framework\TestCase;
 
 final class RecoveryFeeLookupTest extends TestCase
 {
     private RecoveryFeeLookup $lookup;
 
+    #[Override]
     protected function setUp(): void
     {
         parent::setUp();

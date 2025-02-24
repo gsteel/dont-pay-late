@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\BaseRate;
 
+use Override;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -18,6 +19,7 @@ final class UpdateCommand extends Command
         parent::__construct(self::DEFAULT_NAME);
     }
 
+    #[Override]
     public function execute(InputInterface $input, OutputInterface $output): int
     {
         $this->history->update();
@@ -27,6 +29,7 @@ final class UpdateCommand extends Command
         return self::SUCCESS;
     }
 
+    #[Override]
     protected function configure(): void
     {
         $this->setDescription('Update rate history by fetching the most recent rates from the Bank of England');

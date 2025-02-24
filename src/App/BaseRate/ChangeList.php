@@ -11,6 +11,7 @@ use DateTimeImmutable;
 use DateTimeInterface;
 use IteratorAggregate;
 use JsonSerializable;
+use Override;
 use Traversable;
 
 use function array_reverse;
@@ -61,18 +62,21 @@ final readonly class ChangeList implements IteratorAggregate, Countable, JsonSer
     }
 
     /** @return Traversable<array-key, RateChange> */
+    #[Override]
     public function getIterator(): Traversable
     {
         return new ArrayIterator($this->rates);
     }
 
     /** @psalm-suppress PossiblyUnusedMethod */
+    #[Override]
     public function count(): int
     {
         return count($this->rates);
     }
 
     /** @return list<RateChange> */
+    #[Override]
     public function jsonSerialize(): array
     {
         return $this->rates;
