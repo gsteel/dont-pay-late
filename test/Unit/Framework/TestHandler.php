@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace AppTest\Unit\Framework;
 
+use Override;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -17,6 +18,7 @@ final class TestHandler implements RequestHandlerInterface
     {
     }
 
+    #[Override]
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
         $this->request = $request;

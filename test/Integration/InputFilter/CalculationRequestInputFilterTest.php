@@ -11,6 +11,7 @@ use AppTest\Integration\Framework\TestCase;
 use DateInterval;
 use Laminas\InputFilter\InputFilterPluginManager;
 use Laminas\Validator\DateComparison;
+use Override;
 use PHPUnit\Framework\Attributes\DataProvider;
 
 use function sprintf;
@@ -19,6 +20,7 @@ final class CalculationRequestInputFilterTest extends TestCase
 {
     private CalculationRequestInputFilter $filter;
 
+    #[Override]
     protected function setUp(): void
     {
         parent::setUp();

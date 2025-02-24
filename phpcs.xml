@@ -5,7 +5,7 @@
     <arg name="parallel" value="80"/>
     <arg name="cache" value="data/cache/.php_cs.cache"/>
     <arg name="colors"/>
-    <arg value="nps" />
+    <arg value="ps" />
 
     <!-- Paths to check -->
     <file>config</file>
@@ -13,7 +13,13 @@
     <file>test</file>
 
     <!-- Inherit rules from Doctrine Coding Standard -->
-    <rule ref="Doctrine" />
+    <rule ref="Doctrine">
+        <!-- Disable deprecated sniff -->
+        <exclude name="SlevomatCodingStandard.TypeHints.UnionTypeHintFormat" />
+    </rule>
+
+    <!-- Replacement Rule for UnionTypeHintFormat -->
+    <rule ref="SlevomatCodingStandard.TypeHints.DNFTypeHintFormat" />
 
     <rule ref="Generic.Formatting.MultipleStatementAlignment.NotSame">
         <severity>0</severity>

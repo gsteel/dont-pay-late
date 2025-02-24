@@ -7,6 +7,7 @@ namespace App\Middleware;
 use App\Exception\RuntimeError;
 use Laminas\Diactoros\Response\HtmlResponse;
 use Mezzio\Template\TemplateRendererInterface;
+use Override;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
@@ -23,6 +24,7 @@ final readonly class TemplateRenderer implements MiddlewareInterface
     ) {
     }
 
+    #[Override]
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
         $template = $request->getAttribute(self::TEMPLATE_ATTRIBUTE);

@@ -15,6 +15,7 @@ use Laminas\Validator\Date;
 use Laminas\Validator\DateComparison;
 use Laminas\Validator\NotEmpty;
 use Laminas\Validator\NumberComparison;
+use Override;
 
 use function sprintf;
 
@@ -32,6 +33,7 @@ final class CalculationRequestInputFilter extends InputFilter
     {
     }
 
+    #[Override]
     public function init(): void
     {
         $dateError = 'Please provide a due date in YYYY-MM-DD format';

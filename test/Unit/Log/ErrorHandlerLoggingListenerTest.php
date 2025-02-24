@@ -12,6 +12,7 @@ use Monolog\Handler\TestHandler;
 use Monolog\Level;
 use Monolog\Logger;
 use Monolog\LogRecord;
+use Override;
 use PHPUnit\Framework\TestCase;
 
 use function reset;
@@ -21,6 +22,7 @@ final class ErrorHandlerLoggingListenerTest extends TestCase
     private TestHandler $logger;
     private ErrorHandlerLoggingListener $handler;
 
+    #[Override]
     protected function setUp(): void
     {
         parent::setUp();

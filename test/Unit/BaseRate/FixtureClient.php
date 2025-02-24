@@ -9,6 +9,7 @@ use App\BaseRate\Client;
 use App\BaseRate\ClientContract;
 use DateTimeImmutable;
 use DateTimeZone;
+use Override;
 
 use function assert;
 use function Psl\File\read;
@@ -17,6 +18,7 @@ final class FixtureClient implements ClientContract
 {
     public int $invocationCount = 0;
 
+    #[Override]
     public function minimumDate(): DateTimeImmutable
     {
         $date = DateTimeImmutable::createFromFormat('!Y-m-d', Client::EPOCH);
@@ -25,6 +27,7 @@ final class FixtureClient implements ClientContract
         return $date;
     }
 
+    #[Override]
     public function fetchAll(): ChangeList
     {
         $this->invocationCount++;

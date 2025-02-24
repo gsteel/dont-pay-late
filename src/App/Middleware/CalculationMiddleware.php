@@ -14,6 +14,7 @@ use Laminas\Diactoros\Response\JsonResponse;
 use Money\Currencies\ISOCurrencies;
 use Money\Currency;
 use Money\Formatter\DecimalMoneyFormatter;
+use Override;
 use Psr\Clock\ClockInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -37,6 +38,7 @@ final readonly class CalculationMiddleware implements MiddlewareInterface
     ) {
     }
 
+    #[Override]
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
         $contentType = $request->getHeaderLine('Content-Type');

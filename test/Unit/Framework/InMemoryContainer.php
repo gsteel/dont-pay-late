@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace AppTest\Unit\Framework;
 
+use Override;
 use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
 use RuntimeException;
@@ -16,6 +17,7 @@ final class InMemoryContainer implements ContainerInterface
     private array $services = [];
 
     /** @inheritDoc */
+    #[Override]
     public function get($id): mixed
     {
         if (! array_key_exists($id, $this->services)) {
@@ -29,6 +31,7 @@ final class InMemoryContainer implements ContainerInterface
     }
 
     /** @inheritDoc */
+    #[Override]
     public function has($id): bool
     {
         return array_key_exists($id, $this->services);

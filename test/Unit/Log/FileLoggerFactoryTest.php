@@ -6,6 +6,7 @@ namespace AppTest\Unit\Log;
 
 use App\Log\FileLoggerFactory;
 use AppTest\Unit\Framework\InMemoryContainer;
+use Override;
 use PHPUnit\Framework\TestCase;
 use Psr\Log\LoggerInterface;
 use Throwable;
@@ -14,6 +15,7 @@ final class FileLoggerFactoryTest extends TestCase
 {
     private InMemoryContainer $container;
 
+    #[Override]
     protected function setUp(): void
     {
         parent::setUp();

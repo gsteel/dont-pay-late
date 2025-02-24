@@ -9,6 +9,7 @@ use App\BaseRate\BaseRateHistory;
 use DateInterval;
 use DateTimeImmutable;
 use Lcobucci\Clock\FrozenClock;
+use Override;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Cache\Adapter\ArrayAdapter;
 
@@ -21,6 +22,7 @@ final class BaseRateHistoryTest extends TestCase
     private FrozenClock $clock;
     private FixtureClient $client;
 
+    #[Override]
     protected function setUp(): void
     {
         parent::setUp();

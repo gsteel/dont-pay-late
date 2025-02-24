@@ -9,6 +9,7 @@ use App\Exception\RuntimeError;
 use App\Util\Assert;
 use DateTimeImmutable;
 use DateTimeZone;
+use Override;
 use Psr\Clock\ClockInterface;
 use Psr\Http\Client\ClientInterface as HttpClient;
 use Psr\Http\Message\RequestFactoryInterface;
@@ -37,6 +38,7 @@ final class Client implements ClientContract
     ) {
     }
 
+    #[Override]
     public function minimumDate(): DateTimeImmutable
     {
         $date = DateTimeImmutable::createFromFormat('!Y-m-d', self::EPOCH, $this->resultTimezone);
@@ -45,6 +47,7 @@ final class Client implements ClientContract
         return $date;
     }
 
+    #[Override]
     public function fetchAll(): ChangeList
     {
         return self::extractRateChanges(

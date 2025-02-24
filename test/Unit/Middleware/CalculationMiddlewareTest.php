@@ -17,6 +17,7 @@ use Fig\Http\Message\StatusCodeInterface;
 use Laminas\Diactoros\StreamFactory;
 use Lcobucci\Clock\FrozenClock;
 use Money\Currency;
+use Override;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Depends;
 use Psr\Http\Message\ResponseInterface;
@@ -30,6 +31,7 @@ final class CalculationMiddlewareTest extends TestCase
 {
     private CalculationMiddleware $middleware;
 
+    #[Override]
     protected function setUp(): void
     {
         parent::setUp();

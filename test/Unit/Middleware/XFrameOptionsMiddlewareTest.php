@@ -9,12 +9,14 @@ use AppTest\Unit\Framework\TestCase;
 use AppTest\Unit\Framework\TestHandler;
 use AppTest\Unit\Psr7Assert;
 use Laminas\Diactoros\Response\HtmlResponse;
+use Override;
 
 final class XFrameOptionsMiddlewareTest extends TestCase
 {
     private XFrameOptionsMiddleware $middleware;
     private TestHandler $handler;
 
+    #[Override]
     protected function setUp(): void
     {
         $this->middleware = new XFrameOptionsMiddleware();

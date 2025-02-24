@@ -6,12 +6,14 @@ namespace AppTest\Unit;
 
 use App\Env;
 use App\Exception\RuntimeError;
+use Override;
 use PHPUnit\Framework\TestCase;
 
 use function putenv;
 
 final class EnvTest extends TestCase
 {
+    #[Override]
     protected function setUp(): void
     {
         parent::setUp();
