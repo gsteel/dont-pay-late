@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1a4d9820263d7942d86abd91b9a501ec",
+    "content-hash": "28d5947218923814064ae000f1a4244e",
     "packages": [
         {
             "name": "azjezz/psl",
@@ -6077,16 +6077,16 @@
         },
         {
             "name": "laminas/laminas-development-mode",
-            "version": "3.13.0",
+            "version": "3.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-development-mode.git",
-                "reference": "228efb56b5ecf16c0978082830a2887792b3a67c"
+                "reference": "21e4e5fd40c5b22b710306f72060c15ec6091279"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-development-mode/zipball/228efb56b5ecf16c0978082830a2887792b3a67c",
-                "reference": "228efb56b5ecf16c0978082830a2887792b3a67c",
+                "url": "https://api.github.com/repos/laminas/laminas-development-mode/zipball/21e4e5fd40c5b22b710306f72060c15ec6091279",
+                "reference": "21e4e5fd40c5b22b710306f72060c15ec6091279",
                 "shasum": ""
             },
             "require": {
@@ -6096,11 +6096,11 @@
                 "zfcampus/zf-development-mode": "*"
             },
             "require-dev": {
-                "laminas/laminas-coding-standard": "~3.0.1",
+                "laminas/laminas-coding-standard": "~3.1.0",
                 "mikey179/vfsstream": "^1.6.12",
-                "phpunit/phpunit": "^10.5.38",
-                "psalm/plugin-phpunit": "^0.19.0",
-                "vimeo/psalm": "^5.26.1"
+                "phpunit/phpunit": "^10.5.46",
+                "psalm/plugin-phpunit": "^0.19.5",
+                "vimeo/psalm": "^6.12.0"
             },
             "bin": [
                 "bin/laminas-development-mode"
@@ -6134,7 +6134,7 @@
                     "type": "community_bridge"
                 }
             ],
-            "time": "2024-11-21T21:25:13+00:00"
+            "time": "2025-06-16T09:56:05+00:00"
         },
         {
             "name": "league/uri",
