@@ -12,7 +12,7 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 
 final class UpdateCommand extends Command
 {
-    public const DEFAULT_NAME = 'update-base-rates';
+    public const string DEFAULT_NAME = 'update-base-rates';
 
     public function __construct(private readonly BaseRateHistory $history)
     {

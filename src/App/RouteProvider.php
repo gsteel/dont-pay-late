@@ -12,9 +12,9 @@ use Mezzio\Router\RouteCollectorInterface;
 
 final readonly class RouteProvider
 {
-    public const ROUTE_CALCULATE = 'calculate';
-    public const ROUTE_HOME = 'home';
-    public const ROUTE_ABOUT = 'about';
+    public const string ROUTE_CALCULATE = 'calculate';
+    public const string ROUTE_HOME = 'home';
+    public const string ROUTE_ABOUT = 'about';
 
     public function __construct(
         private RouteCollectorInterface $collector,
