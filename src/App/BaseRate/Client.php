@@ -25,9 +25,9 @@ use function strtolower;
 
 final class Client implements ClientContract
 {
-    private const ENDPOINT = 'https://www.bankofengland.co.uk/boeapps/database/_iadb-fromshowcolumns.asp';
-    private const SERIES_ID = 'IUDBEDR';
-    public const EPOCH = '1975-01-02';
+    private const string ENDPOINT = 'https://www.bankofengland.co.uk/boeapps/database/_iadb-fromshowcolumns.asp';
+    private const string SERIES_ID = 'IUDBEDR';
+    public const string EPOCH = '1975-01-02';
 
     public function __construct(
         private readonly HttpClient $httpClient,
