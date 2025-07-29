@@ -9,8 +9,10 @@ use Laminas\View\Renderer\PhpRenderer;
 /**
  * This class is only used for helper autocompletion in views
  *
+ * Will be converted to an interface when View V3 is released
+ *
  * @property string $content
- * @psalm-suppress UnusedClass
+ * @psalm-suppress UnusedClass, InvalidExtendClass
  */
 final class ViewRenderer extends PhpRenderer
 {
