@@ -84,7 +84,7 @@
     },
     "require-dev": {
         "doctrine/coding-standard": "^13.0.1",
-        "filp/whoops": "^2.18.3",
+        "filp/whoops": "^2.18.4",
         "laminas/laminas-development-mode": "^3.14.0",
         "netglue/revs": "^1.5.0",
         "php-http/mock-client": "^1.6.1",
