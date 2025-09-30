@@ -48,14 +48,14 @@
         "laminas/laminas-stdlib": "^3.20",
         "laminas/laminas-stratigility": "^3.13",
         "laminas/laminas-validator": "^2.64.4",
-        "laminas/laminas-view": "^2.41",
+        "laminas/laminas-view": "^2.42",
         "lcobucci/clock": "^3.3.1",
-        "mezzio/mezzio": "^3.21.0",
+        "mezzio/mezzio": "^3.22.1",
         "mezzio/mezzio-fastroute": "^3.13",
-        "mezzio/mezzio-helpers": "^5.18",
+        "mezzio/mezzio-helpers": "^5.19",
         "mezzio/mezzio-laminasviewrenderer": "^2.18.0",
         "mezzio/mezzio-router": "^3.18.0",
-        "mezzio/mezzio-template": "^2.11",
+        "mezzio/mezzio-template": "^2.12",
         "moneyphp/money": "^4.7.1",
         "monolog/monolog": "^3.9.0",
         "php-http/client-common": "^2.7.2",
@@ -69,8 +69,8 @@
         "psr/http-server-handler": "^1.0.2",
         "psr/http-server-middleware": "^1.0.2",
         "psr/log": "^3.0.2",
-        "symfony/cache": "^7.3.2",
-        "symfony/console": "^7.3.3",
+        "symfony/cache": "^7.3.4",
+        "symfony/console": "^7.3.4",
         "webmozart/assert": "^1.11"
     },
     "replace": {
@@ -83,7 +83,7 @@
         "symfony/polyfill-php81": "*"
     },
     "require-dev": {
-        "doctrine/coding-standard": "^13.0.1",
+        "doctrine/coding-standard": "^14.0.0",
         "filp/whoops": "^2.18.4",
         "laminas/laminas-development-mode": "^3.14.0",
         "netglue/revs": "^1.5.0",
@@ -92,7 +92,7 @@
         "phpunit/phpunit": "^12.3.15",
         "psalm/plugin-phpunit": "^0.19.5",
         "roave/security-advisories": "dev-latest",
-        "squizlabs/php_codesniffer": "^3.13.4",
+        "squizlabs/php_codesniffer": "^4.0.0",
         "vimeo/psalm": "^6.13.1"
     },
     "autoload": {
