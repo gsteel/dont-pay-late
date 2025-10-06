@@ -253,27 +253,27 @@
         },
         {
             "name": "gsteel/dot",
-            "version": "1.8.0",
+            "version": "1.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/gsteel/dot.git",
-                "reference": "86e78b42d166a6c8989f929ea3f473882c3901d5"
+                "reference": "3b583bfe370e477826b4d20ab17a5abc6a9aabc6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/gsteel/dot/zipball/86e78b42d166a6c8989f929ea3f473882c3901d5",
-                "reference": "86e78b42d166a6c8989f929ea3f473882c3901d5",
+                "url": "https://api.github.com/repos/gsteel/dot/zipball/3b583bfe370e477826b4d20ab17a5abc6a9aabc6",
+                "reference": "3b583bfe370e477826b4d20ab17a5abc6a9aabc6",
                 "shasum": ""
             },
             "require": {
-                "php": "~8.2.0 || ~8.3 || ~8.4"
+                "php": "~8.2.0 || ~8.3 || ~8.4 || ~8.5"
             },
             "require-dev": {
-                "doctrine/coding-standard": "^12.0.0",
-                "phpunit/phpunit": "^11.5.4",
-                "psalm/plugin-phpunit": "^0.19.2",
-                "squizlabs/php_codesniffer": "^3.11.3",
-                "vimeo/psalm": "^6.0.0"
+                "doctrine/coding-standard": "^14.0.0",
+                "phpunit/phpunit": "^11.5.42",
+                "psalm/plugin-phpunit": "^0.19.5",
+                "squizlabs/php_codesniffer": "^4.0.0",
+                "vimeo/psalm": "^6.13.1"
             },
             "type": "library",
             "autoload": {
@@ -305,7 +305,7 @@
                 "rss": "https://github.com/gsteel/dot/releases.atom",
                 "source": "https://github.com/gsteel/dot"
             },
-            "time": "2025-01-29T12:39:53+00:00"
+            "time": "2025-10-05T20:50:53+00:00"
         },
         {
             "name": "laminas/laminas-cli",
@@ -7634,12 +7634,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "684ef27cdce62b6562f77a92dc76bdfb46542a2d"
+                "reference": "60ac6a710b7b0527786041ba96200bd49aa8de7e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/684ef27cdce62b6562f77a92dc76bdfb46542a2d",
-                "reference": "684ef27cdce62b6562f77a92dc76bdfb46542a2d",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/60ac6a710b7b0527786041ba96200bd49aa8de7e",
+                "reference": "60ac6a710b7b0527786041ba96200bd49aa8de7e",
                 "shasum": ""
             },
             "conflict": {
@@ -7681,10 +7681,10 @@
                 "athlon1600/php-proxy-app": "<=3",
                 "athlon1600/youtube-downloader": "<=4",
                 "austintoddj/canvas": "<=3.4.2",
-                "auth0/auth0-php": ">=8.0.0.0-beta1,<8.14",
-                "auth0/login": "<7.17",
-                "auth0/symfony": "<5.4",
-                "auth0/wordpress": "<5.3",
+                "auth0/auth0-php": ">=3.3,<=8.16",
+                "auth0/login": "<=7.18",
+                "auth0/symfony": "<=5.4.1",
+                "auth0/wordpress": "<=5.3",
                 "automad/automad": "<2.0.0.0-alpha5",
                 "automattic/jetpack": "<9.8",
                 "awesome-support/awesome-support": "<=6.0.7",
@@ -7801,7 +7801,7 @@
                 "doctrine/mongodb-odm": "<1.0.2",
                 "doctrine/mongodb-odm-bundle": "<3.0.1",
                 "doctrine/orm": ">=1,<1.2.4|>=2,<2.4.8|>=2.5,<2.5.1|>=2.8.3,<2.8.4",
-                "dolibarr/dolibarr": "<=21.0.2",
+                "dolibarr/dolibarr": "<21.0.3",
                 "dompdf/dompdf": "<2.0.4",
                 "doublethreedigital/guest-entries": "<3.1.2",
                 "drupal/admin_audit_trail": "<1.0.5",
@@ -7990,7 +7990,7 @@
                 "joomla/archive": "<1.1.12|>=2,<2.0.1",
                 "joomla/database": ">=1,<2.2|>=3,<3.4",
                 "joomla/filesystem": "<1.6.2|>=2,<2.0.1",
-                "joomla/filter": "<1.4.4|>=2,<2.0.1",
+                "joomla/filter": "<2.0.6|>=3,<3.0.5|==4",
                 "joomla/framework": "<1.5.7|>=2.5.4,<=3.8.12",
                 "joomla/input": ">=2,<2.0.2",
                 "joomla/joomla-cms": "<3.9.12|>=4,<4.4.13|>=5,<5.2.6",
@@ -8408,7 +8408,7 @@
                 "thelia/thelia": ">=2.1,<2.1.3",
                 "theonedemon/phpwhois": "<=4.2.5",
                 "thinkcmf/thinkcmf": "<6.0.8",
-                "thorsten/phpmyfaq": "<=4.0.1",
+                "thorsten/phpmyfaq": "<=4.0.1|>=4.0.7,<4.0.13",
                 "tikiwiki/tiki-manager": "<=17.1",
                 "timber/timber": ">=0.16.6,<1.23.1|>=1.24,<1.24.1|>=2,<2.1",
                 "tinymce/tinymce": "<7.2",
@@ -8600,7 +8600,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-09-24T21:05:21+00:00"
+            "time": "2025-10-03T15:05:30+00:00"
         },
         {
             "name": "sebastian/cli-parser",
