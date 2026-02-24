@@ -33,7 +33,7 @@
         "ext-redis": "*",
         "ext-sockets": "*",
         "ext-xmlreader": "*",
-        "azjezz/psl": "^3.3.0",
+        "azjezz/psl": "^3.3.0 || ^4.0.0",
         "fig/http-message-util": "^1.1.5",
         "gsteel/dot": "^1.8",
         "laminas/laminas-cli": "^1.11",
