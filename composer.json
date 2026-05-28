@@ -69,7 +69,7 @@
         "psr/http-server-handler": "^1.0.2",
         "psr/http-server-middleware": "^1.0.2",
         "psr/log": "^3.0.2",
-        "symfony/cache": "^7.3.4",
+        "symfony/cache": "^7.4.12",
         "symfony/console": "^7.3.4",
         "webmozart/assert": "^1.11"
     },
