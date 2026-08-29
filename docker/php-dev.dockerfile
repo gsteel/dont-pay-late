@@ -1,4 +1,4 @@
-FROM php:8.4-fpm-alpine
+FROM php:8.5-fpm-alpine
 
 ARG LOCAL_MODULES="bcmath ctype curl intl json libxml mbstring opcache redis sockets xmlreader pcov"
 
