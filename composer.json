@@ -54,7 +54,7 @@
         "mezzio/mezzio-fastroute": "^3.13",
         "mezzio/mezzio-helpers": "^5.19",
         "mezzio/mezzio-laminasviewrenderer": "^2.18.0",
-        "mezzio/mezzio-router": "^3.18.0",
+        "mezzio/mezzio-router": "^3.18.0 || ^4.0.0",
         "mezzio/mezzio-template": "^2.12",
         "moneyphp/money": "^4.7.1",
         "monolog/monolog": "^3.9.0",
