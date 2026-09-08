@@ -40,7 +40,7 @@
         "laminas/laminas-config-aggregator": "^1.18",
         "laminas/laminas-diactoros": "^3.6.0",
         "laminas/laminas-escaper": "^2.17",
-        "laminas/laminas-filter": "^2.41.0",
+        "laminas/laminas-filter": "^2.41.0 || ^3.0.0",
         "laminas/laminas-form": "^3.21.0",
         "laminas/laminas-i18n": "^2.30",
         "laminas/laminas-inputfilter": "^2.33.0",
