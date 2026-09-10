@@ -2,7 +2,7 @@
 services:
   redis:
     container_name: 'dontpaylate.redis'
-    image: 'redis:8.4-alpine'
+    image: 'redis:8.10-alpine'
     volumes:
       - 'redis:/data'
     networks:
