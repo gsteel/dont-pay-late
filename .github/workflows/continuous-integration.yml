@@ -19,12 +19,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7.0.1
-      - uses: shivammathur/setup-php@2.37.1
+      - uses: shivammathur/setup-php@2.37.2
         with:
           php-version: ${{ env.default_php }}
           extensions: ${{ env.php_extensions }}
           tools: cs2pr
-      - uses: "ramsey/composer-install@3.1.1"
+      - uses: "ramsey/composer-install@3.2.1"
       - name: "Check CS"
         run: vendor/bin/phpcs --report=checkstyle -q | cs2pr
 
@@ -33,12 +33,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7.0.1
-      - uses: shivammathur/setup-php@2.37.1
+      - uses: shivammathur/setup-php@2.37.2
         with:
           php-version: ${{ env.default_php }}
           extensions: ${{ env.php_extensions }}
           tools: cs2pr
-      - uses: "ramsey/composer-install@3.1.1"
+      - uses: "ramsey/composer-install@3.2.1"
       - name: "Psalm"
         run: vendor/bin/psalm --output-format=github
 
@@ -62,13 +62,13 @@ jobs:
 
     steps:
       - uses: actions/checkout@v7.0.1
-      - uses: shivammathur/setup-php@2.37.1
+      - uses: shivammathur/setup-php@2.37.2
         with:
           php-version: ${{ matrix.php-version }}
           extensions: ${{ env.php_extensions }}
           coverage: pcov
           ini-values: pcov.enabled=1
-      - uses: "ramsey/composer-install@3.1.1"
+      - uses: "ramsey/composer-install@3.2.1"
         with:
           dependency-versions: "${{ matrix.dependencies }}"
           composer-options: "${{ matrix.composer-options }}"
@@ -91,12 +91,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v7.0.1
-      - uses: shivammathur/setup-php@2.37.1
+      - uses: shivammathur/setup-php@2.37.2
         with:
           php-version: ${{ env.default_php }}
           ini-values: memory_limit=-1
           extensions: ${{ env.php_extensions }}
-      - uses: "ramsey/composer-install@3.1.1"
+      - uses: "ramsey/composer-install@3.2.1"
       - run: composer global config bin-dir /usr/local/bin
       - run: composer global require -W maglnet/composer-require-checker
       - run: /usr/local/bin/composer-require-checker check
