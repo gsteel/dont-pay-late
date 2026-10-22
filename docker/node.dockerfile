@@ -1,7 +1,7 @@
 #
 #
 #
-FROM php:8.4.27-cli-alpine
+FROM php:8.6.0RC4-cli-alpine
 
 ARG LOCAL_MODULES="bcmath ctype curl intl json libxml mbstring opcache redis sockets xmlreader"
 
