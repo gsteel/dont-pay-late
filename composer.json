@@ -89,11 +89,11 @@
         "netglue/revs": "^1.6.1",
         "php-http/mock-client": "^1.6.1",
         "php-standard-library/psalm-plugin": "^2.4.0",
-        "phpunit/phpunit": "^12.5.40",
-        "psalm/plugin-phpunit": "^0.19.7",
+        "phpunit/phpunit": "^12.5.42",
+        "psalm/plugin-phpunit": "^0.21.1",
         "roave/security-advisories": "dev-latest",
         "squizlabs/php_codesniffer": "^4.0.4",
-        "vimeo/psalm": "^6.20.1"
+        "vimeo/psalm": "^6.20.4"
     },
     "autoload": {
         "psr-4": {
