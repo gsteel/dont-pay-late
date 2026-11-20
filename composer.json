@@ -89,7 +89,7 @@
         "netglue/revs": "^1.6.1",
         "php-http/mock-client": "^1.6.1",
         "php-standard-library/psalm-plugin": "^2.4.0",
-        "phpunit/phpunit": "^12.5.44",
+        "phpunit/phpunit": "^13.4.8",
         "psalm/plugin-phpunit": "^0.22.2",
         "roave/security-advisories": "dev-latest",
         "squizlabs/php_codesniffer": "^4.0.4",
