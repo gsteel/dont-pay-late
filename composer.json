@@ -93,7 +93,7 @@
         "psalm/plugin-phpunit": "^0.22.2",
         "roave/security-advisories": "dev-latest",
         "squizlabs/php_codesniffer": "^4.0.4",
-        "vimeo/psalm": "^6.21.2"
+        "vimeo/psalm": "^6.21.4"
     },
     "autoload": {
         "psr-4": {
