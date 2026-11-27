@@ -13,12 +13,12 @@ workflows:
     '.github/workflows/continuous-integration.yml':
         - 'actions/checkout@v7.0.1'
         - 'codecov/codecov-action@v7.1.1'
-        - 'ramsey/composer-install@3.2.1'
+        - 'ramsey/composer-install@4.0.0'
         - 'shivammathur/setup-php@2.40.0'
 dependencies:
-    'actions/cache@0400d5f644dc74513175e3cd8d07132dd4860809':
-        ref: 'v4.2.4'
-        commit: 'sha1-0400d5f644dc74513175e3cd8d07132dd4860809'
+    'actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306':
+        ref: 'v5.0.3'
+        commit: 'sha1-cdf6c1fa76f9f475f3d7449005a359c84ca0f306'
         owner_id: 44036562
         repo_id: 215566462
     'actions/cache@v6.1.0':
@@ -63,13 +63,13 @@ dependencies:
         commit: 'sha1-bf8388060db527dff14f48b6a5fdbe70763c1213'
         owner_id: 5429470
         repo_id: 288485773
-    'ramsey/composer-install@3.2.1':
-        ref: '3.2.1'
-        commit: 'sha1-a8d0d959dab41457692a5e2041bd9b757a119e3f'
+    'ramsey/composer-install@4.0.0':
+        ref: '4.0.0'
+        commit: 'sha1-65e4f84970763564f46a70b8a54b90d033b3bdda'
         owner_id: 42941
         repo_id: 296427614
         uses:
-            - 'actions/cache@0400d5f644dc74513175e3cd8d07132dd4860809'
+            - 'actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306'
     'shivammathur/setup-php@2.40.0':
         ref: '2.40.0'
         commit: 'sha1-eb7c497e18156a6bbabfef1d3a82760b9eda3962'
