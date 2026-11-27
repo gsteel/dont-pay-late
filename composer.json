@@ -42,7 +42,7 @@
         "laminas/laminas-escaper": "^2.19",
         "laminas/laminas-filter": "^2.43.0",
         "laminas/laminas-form": "^3.25.0",
-        "laminas/laminas-i18n": "^2.33",
+        "laminas/laminas-i18n": "^2.33 || ^3.0",
         "laminas/laminas-inputfilter": "^2.36.0",
         "laminas/laminas-servicemanager": "^3.25.0",
         "laminas/laminas-stdlib": "^3.22",
